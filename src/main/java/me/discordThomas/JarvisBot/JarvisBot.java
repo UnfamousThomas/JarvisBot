@@ -14,6 +14,7 @@ public class JarvisBot {
 		JDABuilder shardBuilder = new JDABuilder(key);
 		shardBuilder.setStatus(OnlineStatus.ONLINE);
 		shardBuilder.addEventListeners(new onReady());
+
 		for(int i = 0; i < shards; i++) {
 			shardBuilder.useSharding(i, shards)
 					.build();
@@ -22,6 +23,4 @@ public class JarvisBot {
 		MySQLManager.init("localhost", "JarvisBot", "root", "root");
 		MySQLManager.createTable("guild_perms"," `guildID` BIGINT NOT NULL , `modRoles` TEXT NOT NULL , `adminRoles` TEXT NOT NULL , `ownerRoles` TEXT NOT NULL, `ownerID` BIGINT NOT NULL DEFAULT '206383620531683328'");
 	}
-
-
 }

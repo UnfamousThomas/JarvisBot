@@ -14,8 +14,8 @@ import java.util.List;
 public class ShardsCommand extends Command {
 
 
-	public ShardsCommand(int level) {
-		super(level, "shards");
+	public ShardsCommand() {
+		super("shards");
 		minArgs = 0;
 		maxArgs = 0;
 		description = "An admin command to view shard info.";

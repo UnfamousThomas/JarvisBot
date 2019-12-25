@@ -2,7 +2,6 @@ package me.discordThomas.JarvisBot.listeners;
 
 import me.discordThomas.JarvisBot.commands.api.CommandManager;
 import me.discordThomas.JarvisBot.commands.owner.ShardsCommand;
-import me.discordThomas.JarvisBot.utils.mysql.MySQLManager;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -21,7 +20,7 @@ public class onReady extends ListenerAdapter {
 		}
 
 		CommandManager.registerCommands(
-				new ShardsCommand(10)
+				new ShardsCommand()
 		);
 	}
 }

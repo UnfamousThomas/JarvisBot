@@ -29,10 +29,12 @@ public class ReadPropertyFile {
 			String key = prop.getProperty("discord.key");
 			String shards = prop.getProperty("discord.initialshards");
 			String prefix = prop.getProperty("discord.prefix");
+			String devs = prop.getProperty("discord.devs");
 
 			result.put("key", key);
 			result.put("shards", shards);
 			result.put("prefix", prefix);
+			result.put("devs", devs);
 		} catch (Exception e) {
 			System.out.println("Exception: " + e);
 		} finally {

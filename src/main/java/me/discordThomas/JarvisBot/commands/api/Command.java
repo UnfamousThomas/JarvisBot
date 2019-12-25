@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 
 public abstract class Command {
-	public int level;
 	final String name;
 
 	public int minArgs = 0;
@@ -21,9 +20,8 @@ public abstract class Command {
 	protected String[] aliases = {};
 	protected String description = "No description set. Sorry!";
 
-	public Command(int level, String name) {
+	public Command(String name) {
 		this.name = name;
-		this.level = level;
 	}
 
 	public void execute(MessageReceivedEvent event, List<String> args) {
