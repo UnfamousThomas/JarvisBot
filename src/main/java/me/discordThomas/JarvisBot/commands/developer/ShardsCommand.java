@@ -1,4 +1,4 @@
-package me.discordThomas.JarvisBot.commands.owner;
+package me.discordThomas.JarvisBot.commands.developer;
 
 import me.discordThomas.JarvisBot.commands.api.Categories;
 import me.discordThomas.JarvisBot.commands.api.Command;
@@ -19,7 +19,7 @@ public class ShardsCommand extends Command {
 		minArgs = 0;
 		maxArgs = 0;
 		description = "An admin command to view shard info.";
-		category = Categories.OWNER;
+		category = Categories.DEVELOPER;
 	}
 
 	@Override

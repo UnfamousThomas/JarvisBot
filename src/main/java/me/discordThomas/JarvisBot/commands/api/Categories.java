@@ -4,7 +4,7 @@ public enum Categories {
 	ADMIN,
 	FUN,
 	MODERATE,
-	OWNER,
+	DEVELOPER,
 	USEFUL;
 
 	Categories() {
