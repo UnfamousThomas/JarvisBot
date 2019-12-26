@@ -30,6 +30,7 @@ public class MySQLManager {
             try {
                 dataSource = new HikariDataSource(hikariConfig);
                 Logger.log(Logger.Level.SUCCESS, "Connected to SQL database.");
+                System.out.println("Success!");
 
             } catch (Exception e) {
                 Logger.log(Logger.Level.ERROR, "Could not connect to SQL with error: ", e);

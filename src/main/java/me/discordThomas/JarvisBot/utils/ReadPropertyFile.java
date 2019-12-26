@@ -30,11 +30,13 @@ public class ReadPropertyFile {
 			String shards = prop.getProperty("discord.initialshards");
 			String prefix = prop.getProperty("discord.prefix");
 			String devs = prop.getProperty("discord.devs");
+			String pass = prop.getProperty("mysql.pass");
 
 			result.put("key", key);
 			result.put("shards", shards);
 			result.put("prefix", prefix);
 			result.put("devs", devs);
+			result.put("mysqlpass", pass);
 		} catch (Exception e) {
 			System.out.println("Exception: " + e);
 		} finally {

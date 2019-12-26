@@ -10,6 +10,7 @@ public class JarvisBot {
 	public static void main(String[] args) throws Exception {
 		ReadPropertyFile properties = new ReadPropertyFile();
 		String key = properties.getPropValues().get("key");
+		String pass = properties.getPropValues().get("mysqlpass");
 		int shards = Integer.parseInt(properties.getPropValues().get("shards"));
 		JDABuilder shardBuilder = new JDABuilder(key);
 		shardBuilder.setStatus(OnlineStatus.ONLINE);
@@ -20,7 +21,7 @@ public class JarvisBot {
 					.build();
 		}
 
-		MySQLManager.init("localhost", "JarvisBot", "root", "root");
+		MySQLManager.init("164.132.207.169", "JarvisDC", "Jarvis", pass);
 		MySQLManager.createTable("guild_perms"," `guildID` BIGINT NOT NULL , `modRoles` TEXT NOT NULL , `adminRoles` TEXT NOT NULL , `ownerRoles` TEXT NOT NULL, `ownerID` BIGINT NOT NULL DEFAULT '206383620531683328'");
 	}
 }

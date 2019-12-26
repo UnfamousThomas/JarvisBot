@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="6b77d5a8-68f0-440d-a4f7-d36852fefd60" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/JarvisBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/JarvisBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/utils/ReadPropertyFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/utils/ReadPropertyFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/utils/mysql/MySQLManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/utils/mysql/MySQLManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -99,7 +103,8 @@
       <workItem from="1577134510607" duration="2465000" />
       <workItem from="1577147623848" duration="2418000" />
       <workItem from="1577193952603" duration="10281000" />
-      <workItem from="1577288266138" duration="3476000" />
+      <workItem from="1577288266138" duration="4726000" />
+      <workItem from="1577374641783" duration="292000" />
     </task>
     <servers />
   </component>
