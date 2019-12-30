@@ -49,16 +49,20 @@ public abstract class Command {
 
 		if(permission.perm == null || !(event.getMember().getPermissions().contains(permission.perm))) {
 				if(permission.perm == null && !(Arrays.asList(permission.returnDev()).contains(event.getMember().getUser().getId()))) {
-					Logger.log(Logger.Level.INFO, "test");
 				event.getChannel().sendMessage("Invalid permissions.").queue();
-				return;
+
+					return;
 			}
 				if(!(permission.perm == null) &&!(event.getMember().getPermissions().contains(permission.perm))) {
 					event.getChannel().sendMessage("Invalid permissions.").queue();
+
 					return;
 				}
+			Logger.log(Logger.Level.INFO, "run ran");
+
 			run(event.getMember(), args, event);
 		} else if(event.getMember().getPermissions().contains(permission.perm)) {
+
 			run(event.getMember(), args, event);
 		}
 	}

@@ -15,10 +15,10 @@ import java.util.List;
 public class DailyFactsCommand extends Command {
 
     public DailyFactsCommand(){
-        super("DailyFacts");
+        super("df");
         minArgs = 0;
         maxArgs = 0;
-        aliases = alias("df","fact");
+        aliases = alias("dailyfacts","fact");
         description = "Tells daily facts about the selected animal.";
         category =  Categories.FUN;
         permission = CustomPermission.MEMBER;
@@ -28,7 +28,7 @@ public class DailyFactsCommand extends Command {
     @Override
     public void run(Member m, List<String> args, MessageReceivedEvent event) {
         event.getChannel().sendMessage("Yeet").queue();
-
+        event.getChannel().sendMessage(dailyFact(event.getGuild())).queue();
 
     }
 
