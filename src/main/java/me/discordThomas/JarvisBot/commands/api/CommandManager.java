@@ -3,8 +3,10 @@ package me.discordThomas.JarvisBot.commands.api;
 import com.google.common.collect.Maps;
 import me.discordThomas.JarvisBot.utils.Logger;
 import me.discordThomas.JarvisBot.utils.ReadPropertyFile;
+import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.io.IOException;
@@ -15,8 +17,9 @@ import java.util.Map;
 
 public class CommandManager extends ListenerAdapter {
 	public Map<String, Command> commands = Maps.newHashMap();
-	private static CommandManager instance;
+	public static CommandManager instance;
 	private static String prefix;
+	public static HelpBuilder helpBuilder;
 
 	public static void registerCommand(Command command) {
 		Logger.log(Logger.Level.INFO, "Attempting to register discord command: " + command.name);
@@ -25,6 +28,7 @@ public class CommandManager extends ListenerAdapter {
 		for(String alias : command.aliases)
 			instance.commands.put(alias.toLowerCase(), command);
 
+		helpBuilder.addCommand(command);
 		Logger.log(Logger.Level.SUCCESS, "Registered discord command: " + command.name);
 	}
 
@@ -33,13 +37,15 @@ public class CommandManager extends ListenerAdapter {
 			registerCommand(command);
 	}
 
-	public static void init(ReadyEvent event) throws IOException {
+	public static void init(JDABuilder builder) throws IOException {
 		CommandManager manager = new CommandManager();
 		instance = manager;
-		event.getJDA().addEventListener(manager);
+		builder.addEventListeners(manager);
 
 		ReadPropertyFile properties = new ReadPropertyFile();
 		prefix = properties.getPropValues().get("prefix");
+
+		helpBuilder = new HelpBuilder();
 
 	}
 

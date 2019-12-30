@@ -1,5 +1,8 @@
 package me.discordThomas.JarvisBot;
 
+import me.discordThomas.JarvisBot.commands.api.CommandManager;
+import me.discordThomas.JarvisBot.commands.api.HelpCommand;
+import me.discordThomas.JarvisBot.commands.developer.ShardsCommand;
 import me.discordThomas.JarvisBot.listeners.onReady;
 import me.discordThomas.JarvisBot.utils.ReadPropertyFile;
 import me.discordThomas.JarvisBot.utils.mysql.MySQLManager;
@@ -18,6 +21,14 @@ public class JarvisBot {
 		JDABuilder shardBuilder = new JDABuilder(key);
 		shardBuilder.setStatus(OnlineStatus.ONLINE);
 		shardBuilder.addEventListeners(new onReady());
+
+
+		CommandManager.init(shardBuilder);
+
+		CommandManager.registerCommands(
+				new ShardsCommand(),
+				new HelpCommand()
+		);
 
 		for(int i = 0; i < shards; i++) {
 			shardBuilder.useSharding(i, shards)

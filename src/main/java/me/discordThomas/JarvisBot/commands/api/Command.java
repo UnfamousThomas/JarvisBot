@@ -3,7 +3,6 @@ package me.discordThomas.JarvisBot.commands.api;
 import com.google.common.collect.Maps;
 import me.discordThomas.JarvisBot.utils.CustomPermission;
 import me.discordThomas.JarvisBot.utils.Logger;
-import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
@@ -30,6 +29,10 @@ public abstract class Command {
 	}
 
 	public void execute(MessageReceivedEvent event, List<String> args) {
+		if(!(event.getChannel().getType().isGuild())) {
+			event.getChannel().sendMessage("Has to be in a guild channel.").queue();
+			return;
+		}
 		if(args.size() > 0) {
 			Command subcommand = subcommands.get(args.get(0).toLowerCase());
 			if(subcommand != null) {
@@ -67,6 +70,9 @@ public abstract class Command {
 			for(String alias : command.aliases)
 				subcommands.put(alias, command);
 		}
+	}
+	protected String[] alias(String... aliases){
+		return aliases;
 	}
 
 	public abstract void run(Member m, List<String> args, MessageReceivedEvent event);
