@@ -4,9 +4,7 @@ import com.google.common.collect.Maps;
 import me.discordThomas.JarvisBot.utils.Logger;
 import me.discordThomas.JarvisBot.utils.ReadPropertyFile;
 import net.dv8tion.jda.api.JDABuilder;
-import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
-import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.io.IOException;

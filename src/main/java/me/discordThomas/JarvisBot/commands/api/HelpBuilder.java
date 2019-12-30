@@ -8,20 +8,18 @@ import java.awt.*;
 
 public class HelpBuilder {
 	private StringBuilder DevCommands = new StringBuilder().append("\n");
-	static StringBuilder AdminCommands = new StringBuilder().append("\n");
-	static StringBuilder FunCommands = new StringBuilder().append("\n");
-	static StringBuilder UsefulCommands = new StringBuilder().append("\n");
-	static StringBuilder ModCommands = new StringBuilder().append("\n");
+	private StringBuilder AdminCommands = new StringBuilder().append("\n");
+	private StringBuilder FunCommands = new StringBuilder().append("\n");
+	private StringBuilder UsefulCommands = new StringBuilder().append("\n");
+	private StringBuilder ModCommands = new StringBuilder().append("\n");
 
 	public void addCommand(Command command) {
 		switch (command.category) {
 			case DEVELOPER:
 				if(!(command.permission == null)) {
 					DevCommands.append(command.name).append(" - ").append(command.description).append(" - ").append(command.permission.name()).append("\n");
-					Logger.log(Logger.Level.INFO, "test1");
 				} else {
 					DevCommands.append(command.name).append(" - ").append(command.description).append(" - ").append(command.permission.name()).append("\n");
-					Logger.log(Logger.Level.INFO, "test2");
 				}
 				break;
 
@@ -48,11 +46,9 @@ public class HelpBuilder {
 			case USEFUL:
 				if(!(command.permission == null)) {
 					UsefulCommands.append(command.name).append(" - ").append(command.description).append(" - ").append(command.permission.name()).append("\n");
-					Logger.log(Logger.Level.INFO, "test3");
 
 				} else {
 					UsefulCommands.append(command.name).append(" - ").append(command.description).append(" - ").append(command.permission.name()).append("\n");
-					Logger.log(Logger.Level.INFO, "test4");
 
 				}
 				break;

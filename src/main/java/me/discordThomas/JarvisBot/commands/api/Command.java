@@ -71,7 +71,7 @@ public abstract class Command {
 				subcommands.put(alias, command);
 		}
 	}
-	protected String[] alias(String... aliases){
+	public String[] alias(String... aliases){
 		return aliases;
 	}
 
