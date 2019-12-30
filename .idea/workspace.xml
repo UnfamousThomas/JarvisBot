@@ -4,9 +4,8 @@
     <list default="true" id="6b77d5a8-68f0-440d-a4f7-d36852fefd60" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/JarvisBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/JarvisBot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/utils/ReadPropertyFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/utils/ReadPropertyFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/utils/mysql/MySQLManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/utils/mysql/MySQLManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/api/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/api/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/developer/ShardsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/developer/ShardsCommand.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,8 +16,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -104,7 +103,9 @@
       <workItem from="1577147623848" duration="2418000" />
       <workItem from="1577193952603" duration="10281000" />
       <workItem from="1577288266138" duration="4726000" />
-      <workItem from="1577374641783" duration="292000" />
+      <workItem from="1577374641783" duration="2135000" />
+      <workItem from="1577665174383" duration="742000" />
+      <workItem from="1577709588485" duration="1976000" />
     </task>
     <servers />
   </component>

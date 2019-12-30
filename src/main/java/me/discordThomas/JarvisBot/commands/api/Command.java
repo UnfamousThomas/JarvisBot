@@ -1,15 +1,20 @@
 package me.discordThomas.JarvisBot.commands.api;
 
 import com.google.common.collect.Maps;
+import me.discordThomas.JarvisBot.utils.CustomPermission;
+import me.discordThomas.JarvisBot.utils.Logger;
+import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
 public abstract class Command {
 	final String name;
 
+	public CustomPermission permission;
 	public int minArgs = 0;
 	public int maxArgs = Integer.MAX_VALUE;
 
@@ -38,7 +43,21 @@ public abstract class Command {
 			event.getChannel().sendMessage("Invalid usage. Please use .help.").queue();
 		return;
 		}
-		run(event.getMember(), args, event);
+
+		if(permission.perm == null || !(event.getMember().getPermissions().contains(permission.perm))) {
+				if(permission.perm == null && !(Arrays.asList(permission.returnDev()).contains(event.getMember().getUser().getId()))) {
+					Logger.log(Logger.Level.INFO, "test");
+				event.getChannel().sendMessage("Invalid permissions.").queue();
+				return;
+			}
+				if(!(permission.perm == null) &&!(event.getMember().getPermissions().contains(permission.perm))) {
+					event.getChannel().sendMessage("Invalid permissions.").queue();
+					return;
+				}
+			run(event.getMember(), args, event);
+		} else if(event.getMember().getPermissions().contains(permission.perm)) {
+			run(event.getMember(), args, event);
+		}
 	}
 
 	protected void addSubcommands(Command... commands) {

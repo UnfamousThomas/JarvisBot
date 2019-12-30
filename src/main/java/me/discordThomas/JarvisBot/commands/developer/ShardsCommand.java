@@ -2,7 +2,9 @@ package me.discordThomas.JarvisBot.commands.developer;
 
 import me.discordThomas.JarvisBot.commands.api.Categories;
 import me.discordThomas.JarvisBot.commands.api.Command;
+import me.discordThomas.JarvisBot.utils.CustomPermission;
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.MessageEmbed;
@@ -20,6 +22,7 @@ public class ShardsCommand extends Command {
 		maxArgs = 0;
 		description = "An admin command to view shard info.";
 		category = Categories.DEVELOPER;
+		permission = CustomPermission.DEV;
 	}
 
 	@Override

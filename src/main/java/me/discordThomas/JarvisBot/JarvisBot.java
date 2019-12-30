@@ -7,11 +7,14 @@ import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 
 public class JarvisBot {
+
+	public static String[] devids = null;
 	public static void main(String[] args) throws Exception {
 		ReadPropertyFile properties = new ReadPropertyFile();
 		String key = properties.getPropValues().get("key");
 		String pass = properties.getPropValues().get("mysqlpass");
 		int shards = Integer.parseInt(properties.getPropValues().get("shards"));
+		devids = properties.getPropValues().get("devs").split(",");
 		JDABuilder shardBuilder = new JDABuilder(key);
 		shardBuilder.setStatus(OnlineStatus.ONLINE);
 		shardBuilder.addEventListeners(new onReady());
