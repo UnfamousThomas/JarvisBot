@@ -4,6 +4,7 @@ import me.discordThomas.JarvisBot.commands.api.CommandManager;
 import me.discordThomas.JarvisBot.commands.api.HelpCommand;
 import me.discordThomas.JarvisBot.commands.developer.ShardsCommand;
 import me.discordThomas.JarvisBot.commands.fun.DailyFactsCommand;
+import me.discordThomas.JarvisBot.commands.useful.InfoCommand;
 import me.discordThomas.JarvisBot.listeners.onReady;
 import me.discordThomas.JarvisBot.utils.ReadPropertyFile;
 import me.discordThomas.JarvisBot.utils.mysql.MySQLManager;
@@ -27,7 +28,8 @@ public class JarvisBot {
 		CommandManager.registerCommands(
 				new ShardsCommand(),
 				new HelpCommand(),
-				new DailyFactsCommand()
+				new DailyFactsCommand(),
+				new InfoCommand()
 
 
 		);

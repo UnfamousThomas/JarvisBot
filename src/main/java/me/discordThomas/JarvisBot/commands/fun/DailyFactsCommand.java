@@ -27,7 +27,7 @@ public class DailyFactsCommand extends Command {
 
     @Override
     public void run(Member m, List<String> args, MessageReceivedEvent event) {
-        event.getChannel().sendMessage("Yeet").queue();
+        event.getChannel().sendMessage("Choose which animal fact you would like to hear about.").queue();
         event.getChannel().sendMessage(dailyFact(event.getGuild())).queue();
 
     }
