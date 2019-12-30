@@ -4,6 +4,7 @@ import me.discordThomas.JarvisBot.commands.api.Categories;
 import me.discordThomas.JarvisBot.commands.api.Command;
 import me.discordThomas.JarvisBot.utils.CustomPermission;
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.Emote;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.MessageEmbed;
@@ -28,7 +29,11 @@ public class DailyFactsCommand extends Command {
     @Override
     public void run(Member m, List<String> args, MessageReceivedEvent event) {
         event.getChannel().sendMessage("Choose which animal fact you would like to hear about.").queue();
-        event.getChannel().sendMessage(dailyFact(event.getGuild())).queue();
+        event.getChannel().sendMessage(dailyFact(event.getGuild())).queue(message -> {
+            message.addReaction("\uD83D\uDC14").queue(); //Chicken
+            message.addReaction("\uD83E\uDD91").queue(); //Squid
+            message.addReaction("\uD83D\uDC11").queue(); //Sheep
+        });
 
     }
 
