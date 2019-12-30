@@ -3,6 +3,7 @@ package me.discordThomas.JarvisBot;
 import me.discordThomas.JarvisBot.commands.api.CommandManager;
 import me.discordThomas.JarvisBot.commands.api.HelpCommand;
 import me.discordThomas.JarvisBot.commands.developer.ShardsCommand;
+import me.discordThomas.JarvisBot.commands.fun.DailyFactsCommand;
 import me.discordThomas.JarvisBot.listeners.onReady;
 import me.discordThomas.JarvisBot.utils.ReadPropertyFile;
 import me.discordThomas.JarvisBot.utils.mysql.MySQLManager;
@@ -25,7 +26,10 @@ public class JarvisBot {
 
 		CommandManager.registerCommands(
 				new ShardsCommand(),
-				new HelpCommand()
+				new HelpCommand(),
+				new DailyFactsCommand()
+
+
 		);
 
 		for(int i = 0; i < shards; i++) {
@@ -35,5 +39,6 @@ public class JarvisBot {
 
 		MySQLManager.init("164.132.207.169", "JarvisDC", "Jarvis", pass);
 		MySQLManager.createTable("guild_perms"," `guildID` BIGINT NOT NULL , `modRoles` TEXT NOT NULL , `adminRoles` TEXT NOT NULL , `ownerRoles` TEXT NOT NULL, `ownerID` BIGINT NOT NULL DEFAULT '206383620531683328'");
+		MySQLManager.createTable("daily_facts", "id INT NOT NULL AUTO_INCREMENT , animal TEXT NOT NULL , fact TEXT NOT NULL , date DATE NOT NULL , PRIMARY KEY (id)");
 	}
 }
