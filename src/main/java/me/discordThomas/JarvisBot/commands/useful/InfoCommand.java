@@ -17,7 +17,7 @@ public class InfoCommand extends Command {
         super("info");
         minArgs = 0;
         maxArgs = 0;
-        description = "Tells you info about the bot";
+        description = "Tells you info about the bot. | Usage: `.info`";
         category =  Categories.USEFUL;
         permission = CustomPermission.MEMBER;
 

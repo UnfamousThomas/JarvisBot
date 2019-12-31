@@ -22,7 +22,7 @@ public class DailyFactsCommand extends Command {
         minArgs = 0;
         maxArgs = 0;
         aliases = alias("dailyfacts","fact");
-        description = "Tells daily facts about the selected animal.";
+        description = "Tells daily facts about the selected animal. | Usage: `.dailyfact`";
         category =  Categories.FUN;
         permission = CustomPermission.MEMBER;
 
@@ -30,14 +30,15 @@ public class DailyFactsCommand extends Command {
 
     @Override
     public void run(Member m, List<String> args, MessageReceivedEvent event) {
+        if(DataFields.factsMap.containsKey(event.getAuthor().getIdLong())) {
+            event.getChannel().sendMessage("Previous unicode message deactivated.").queue();
+        }
+
         event.getChannel().sendMessage("Choose which animal fact you would like to hear about.").queue();
         event.getChannel().sendMessage(dailyFact(event.getGuild())).queue(message -> {
             message.addReaction("\uD83D\uDC14").queue(); //Chicken
             message.addReaction("\uD83E\uDD91").queue(); //Squid
             message.addReaction("\uD83D\uDC11").queue(); //Sheep
-            if(DataFields.factsMap.containsKey(event.getAuthor().getIdLong())) {
-                event.getChannel().sendMessage("Previous unicode message deactivated.").queue();
-            }
             DataFields.factsMap.put(event.getAuthor().getIdLong(), message.getIdLong());
         });
 

@@ -16,7 +16,7 @@ public class AddFactCommand extends Command {
 	public AddFactCommand() {
 		super("addfact");
 		minArgs = 3;
-		description = "A command to add facts!";
+		description = "A command to add facts! | Date format: `yyyy-mm-dd`. Usage: `.addfact [animal] [date] [fact]`";
 		category = Categories.DEVELOPER;
 		permission = CustomPermission.DEV;
 	}

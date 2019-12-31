@@ -22,7 +22,7 @@ public class JokeCommand extends Command {
         minArgs = 0;
         maxArgs = 0;
         aliases = alias("funny");
-        description = "Tells a joke!";
+        description = "Tells a joke! | Usage: `.joke`";
         category =  Categories.FUN;
         permission = CustomPermission.MEMBER;
 

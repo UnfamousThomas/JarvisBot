@@ -15,7 +15,7 @@ public class AddJokeCommand extends Command {
 	public AddJokeCommand() {
 		super("addjoke");
 		minArgs = 3;
-		description = "A command to add normal jokes!";
+		description = "Adds dad jokes to the database.| Usage: `.addjoke [joke]`";
 		category = Categories.DEVELOPER;
 		permission = CustomPermission.DEV;
 	}

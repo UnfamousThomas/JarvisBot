@@ -21,17 +21,18 @@ public class UnicodeCommand extends Command {
 		super("unicode");
 		minArgs = 0;
 		maxArgs = 0;
-		description = "A command to view unicode info.";
+		description = "Displays unicode info for developers. | Usage: `.unicode`";
 		category = Categories.DEVELOPER;
 		permission = CustomPermission.DEV;
 	}
 
 	@Override
 	public void run(Member m, List<String> args, MessageReceivedEvent event) {
+		if(DataFields.unicodeMap.containsKey(event.getAuthor().getIdLong())) {
+			event.getChannel().sendMessage("Previous unicode message deactivated.").queue();
+		}
+
 		event.getChannel().sendMessage("React with the emoji you wish to transform into unicode!").queue(message -> {
-			if(DataFields.unicodeMap.containsKey(event.getAuthor().getIdLong())) {
-				event.getChannel().sendMessage("Previous unicode message deactivated.").queue();
-			}
 			DataFields.unicodeMap.put(event.getAuthor().getIdLong(), message.getIdLong());
 		});
 	}

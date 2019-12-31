@@ -21,7 +21,7 @@ public class ShardsCommand extends Command {
 		super("shards");
 		minArgs = 0;
 		maxArgs = 0;
-		description = "A command to view shard info.";
+		description = "A command to view shard info. | Usage: `.shards`";
 		category = Categories.DEVELOPER;
 		permission = CustomPermission.DEV;
 	}

@@ -6,7 +6,9 @@ import me.discordThomas.JarvisBot.commands.developer.*;
 import me.discordThomas.JarvisBot.commands.fun.DadJokeCommand;
 import me.discordThomas.JarvisBot.commands.fun.DailyFactsCommand;
 import me.discordThomas.JarvisBot.commands.fun.JokeCommand;
+import me.discordThomas.JarvisBot.commands.moderation.ClearCommand;
 import me.discordThomas.JarvisBot.commands.useful.InfoCommand;
+import me.discordThomas.JarvisBot.commands.useful.PingCommand;
 import me.discordThomas.JarvisBot.listeners.onGuildMessageReactionAdd;
 import me.discordThomas.JarvisBot.listeners.onReady;
 import me.discordThomas.JarvisBot.utils.ReadPropertyFile;
@@ -40,7 +42,9 @@ public class JarvisBot {
 				new JokeCommand(),
 				new AddJokeCommand(),
 				new DadJokeCommand(),
-				new AddDadJokeCommand()
+				new AddDadJokeCommand(),
+				new ClearCommand(),
+				new PingCommand()
 
 		);
 

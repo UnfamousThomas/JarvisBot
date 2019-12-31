@@ -13,7 +13,7 @@ public class HelpCommand extends Command {
 		super("help");
 		minArgs = 0;
 		maxArgs = 1;
-		description = "A command to view commands";
+		description = "A command to view commands. | Usage: `.help`";
 		category = Categories.USEFUL;
 		permission = CustomPermission.MEMBER;
 		aliases = alias("ah");

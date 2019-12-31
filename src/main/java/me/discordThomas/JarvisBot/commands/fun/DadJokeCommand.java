@@ -20,7 +20,7 @@ public class DadJokeCommand extends Command {
 	public DadJokeCommand() {
 		super("dadjoke");
 		minArgs = 0;
-		description = "A command for dad jokes :p";
+		description = "A command for dad jokes | Usage: `.dadjoke`";
 		category = Categories.FUN;
 		permission = CustomPermission.MEMBER;
 	}
