@@ -1,14 +1,24 @@
 package me.discordThomas.JarvisBot.listeners;
 
 import me.discordThomas.JarvisBot.commands.api.CommandManager;
+import me.discordThomas.JarvisBot.utils.mysql.MySQLManager;
+import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.guild.react.GuildMessageReactionAddEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class onGuildMessageReactionAdd extends ListenerAdapter {
 
 	public void onGuildMessageReactionAdd(GuildMessageReactionAddEvent event) {
 
+
+
 		if(event.getUser().isBot()) return;
+
 		if(CommandManager.instance.unicodeMap.get(event.getUserIdLong()) != null && CommandManager.instance.unicodeMap.get(event.getUserIdLong()) == event.getMessageIdLong()) {
 			event.getChannel().sendMessage(event.getReactionEmote().getAsCodepoints()).queue();
 			return;
@@ -17,20 +27,38 @@ public class onGuildMessageReactionAdd extends ListenerAdapter {
 		if(CommandManager.instance.factsMap.get(event.getUserIdLong()) != null && CommandManager.instance.factsMap.get(event.getUserIdLong()) == event.getMessageIdLong()) {
 			if(event.getReactionEmote().getAsCodepoints().equals("U+1f411")) {
 				//Sheep:
-
+				fact("Sheep", event.getMember());
 			}
 
 			if(event.getReactionEmote().getAsCodepoints().equals("U+1f991")) {
 				//Squuid:
+				fact("Squid", event.getMember());
+
 			}
 
 			if(event.getReactionEmote().getAsCodepoints().equals("U+1f414")) {
 				//Chicken:
+				fact("Chicken", event.getMember());
 
 			}
 			event.getReaction().removeReaction(event.getUser()).queue();
 		}
 
+
+	}
+
+	public void fact(String animal, Member m) {
+		animal = animal.toUpperCase();
+
+		String finalAnimal = animal;
+		MySQLManager.select("Select * from daily_facts WHERE animal=? AND date=CURRENT_DATE", resultSet -> {
+			resultSet.next();
+			String fact = resultSet.getString("fact");
+			m.getUser().openPrivateChannel().queue(channel -> {
+				channel.sendMessage("Your daily fact for the animal " + finalAnimal.toLowerCase() + " is:").queue();
+				channel.sendMessage(fact).queue();
+			});
+		}, animal );
 
 	}
 }

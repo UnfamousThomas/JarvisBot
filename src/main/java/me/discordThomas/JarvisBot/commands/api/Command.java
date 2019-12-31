@@ -9,6 +9,7 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public abstract class Command {
 	final String name;
@@ -33,6 +34,9 @@ public abstract class Command {
 			event.getChannel().sendMessage("Has to be in a guild channel.").queue();
 			return;
 		}
+
+
+		event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
 		if(args.size() > 0) {
 			Command subcommand = subcommands.get(args.get(0).toLowerCase());
 			if(subcommand != null) {

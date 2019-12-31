@@ -2,6 +2,7 @@ package me.discordThomas.JarvisBot;
 
 import me.discordThomas.JarvisBot.commands.api.CommandManager;
 import me.discordThomas.JarvisBot.commands.api.HelpCommand;
+import me.discordThomas.JarvisBot.commands.developer.AddFactCommand;
 import me.discordThomas.JarvisBot.commands.developer.ShardsCommand;
 import me.discordThomas.JarvisBot.commands.developer.UnicodeCommand;
 import me.discordThomas.JarvisBot.commands.fun.DailyFactsCommand;
@@ -33,7 +34,8 @@ public class JarvisBot {
 				new HelpCommand(),
 				new DailyFactsCommand(),
 				new InfoCommand(),
-				new UnicodeCommand()
+				new UnicodeCommand(),
+				new AddFactCommand()
 
 
 		);
