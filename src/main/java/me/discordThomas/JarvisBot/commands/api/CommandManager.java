@@ -11,8 +11,8 @@ import java.io.IOException;
 import java.util.*;
 
 public class CommandManager extends ListenerAdapter {
-	public Map<Long, Long> factsMap = new HashMap<>();
-	public Map<Long, Long> unicodeMap = new HashMap<>();
+	public Map<Long, Long> factsMap;
+	public Map<Long, Long> unicodeMap;
 
 	public Map<String, Command> commands = Maps.newHashMap();
 	public static CommandManager instance;
@@ -42,8 +42,10 @@ public class CommandManager extends ListenerAdapter {
 
 		ReadPropertyFile properties = new ReadPropertyFile();
 		prefix = properties.getPropValues().get("prefix");
+		initiateMaps();
 
 		helpBuilder = new HelpBuilder();
+
 
 	}
 
@@ -64,4 +66,9 @@ public class CommandManager extends ListenerAdapter {
 
 			}
 		}}
+
+		public static void initiateMaps() {
+			instance.factsMap = new HashMap<>();
+			instance.unicodeMap = new HashMap<>();
+		}
 }

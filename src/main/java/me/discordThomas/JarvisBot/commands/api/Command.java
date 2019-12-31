@@ -62,7 +62,6 @@ public abstract class Command {
 
 					return;
 				}
-			Logger.log(Logger.Level.INFO, "run ran");
 
 			run(event.getMember(), args, event);
 		} else if(event.getMember().getPermissions().contains(permission.perm)) {

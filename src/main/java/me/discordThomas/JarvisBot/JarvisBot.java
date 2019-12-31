@@ -36,8 +36,6 @@ public class JarvisBot {
 				new InfoCommand(),
 				new UnicodeCommand(),
 				new AddFactCommand()
-
-
 		);
 
 		for(int i = 0; i < shards; i++) {
