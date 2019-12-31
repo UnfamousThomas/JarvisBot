@@ -8,12 +8,12 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class CommandManager extends ListenerAdapter {
+	public Map<Long, Long> factsMap = new HashMap<>();
+	public Map<Long, Long> unicodeMap = new HashMap<>();
+
 	public Map<String, Command> commands = Maps.newHashMap();
 	public static CommandManager instance;
 	private static String prefix;

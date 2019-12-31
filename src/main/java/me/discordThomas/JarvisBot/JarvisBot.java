@@ -3,8 +3,10 @@ package me.discordThomas.JarvisBot;
 import me.discordThomas.JarvisBot.commands.api.CommandManager;
 import me.discordThomas.JarvisBot.commands.api.HelpCommand;
 import me.discordThomas.JarvisBot.commands.developer.ShardsCommand;
+import me.discordThomas.JarvisBot.commands.developer.UnicodeCommand;
 import me.discordThomas.JarvisBot.commands.fun.DailyFactsCommand;
 import me.discordThomas.JarvisBot.commands.useful.InfoCommand;
+import me.discordThomas.JarvisBot.listeners.onGuildMessageReactionAdd;
 import me.discordThomas.JarvisBot.listeners.onReady;
 import me.discordThomas.JarvisBot.utils.ReadPropertyFile;
 import me.discordThomas.JarvisBot.utils.mysql.MySQLManager;
@@ -24,12 +26,14 @@ public class JarvisBot {
 		shardBuilder.setStatus(OnlineStatus.ONLINE);
 		CommandManager.init(shardBuilder);
 		shardBuilder.addEventListeners(new onReady());
+		shardBuilder.addEventListeners(new onGuildMessageReactionAdd());
 
 		CommandManager.registerCommands(
 				new ShardsCommand(),
 				new HelpCommand(),
 				new DailyFactsCommand(),
-				new InfoCommand()
+				new InfoCommand(),
+				new UnicodeCommand()
 
 
 		);

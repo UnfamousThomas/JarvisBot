@@ -2,6 +2,7 @@ package me.discordThomas.JarvisBot.commands.fun;
 
 import me.discordThomas.JarvisBot.commands.api.Categories;
 import me.discordThomas.JarvisBot.commands.api.Command;
+import me.discordThomas.JarvisBot.commands.api.CommandManager;
 import me.discordThomas.JarvisBot.utils.CustomPermission;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Emote;
@@ -33,6 +34,7 @@ public class DailyFactsCommand extends Command {
             message.addReaction("\uD83D\uDC14").queue(); //Chicken
             message.addReaction("\uD83E\uDD91").queue(); //Squid
             message.addReaction("\uD83D\uDC11").queue(); //Sheep
+            CommandManager.instance.factsMap.put(event.getAuthor().getIdLong(), message.getIdLong());
         });
 
     }
@@ -40,7 +42,10 @@ public class DailyFactsCommand extends Command {
     private MessageEmbed dailyFact(Guild g) {
         EmbedBuilder builder = new EmbedBuilder();
         builder.setTitle("Fact Select");
-        builder.addField("Chicken"," ", true);
+        builder.addField(":chicken:","Chicken", false);
+        builder.addField(":squid:","Squid", false);
+        builder.addField(":sheep:","Sheep", false);
+
         builder.setColor(Color.decode("#3498db"));
         builder.setFooter(g.getName(), g.getIconUrl());
         return builder.build();
