@@ -35,6 +35,9 @@ public class DailyFactsCommand extends Command {
             message.addReaction("\uD83D\uDC14").queue(); //Chicken
             message.addReaction("\uD83E\uDD91").queue(); //Squid
             message.addReaction("\uD83D\uDC11").queue(); //Sheep
+            if(DataFields.factsMap.containsKey(event.getAuthor().getIdLong())) {
+                event.getChannel().sendMessage("Previous unicode message deactivated.").queue();
+            }
             DataFields.factsMap.put(event.getAuthor().getIdLong(), message.getIdLong());
         });
 

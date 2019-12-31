@@ -29,6 +29,9 @@ public class UnicodeCommand extends Command {
 	@Override
 	public void run(Member m, List<String> args, MessageReceivedEvent event) {
 		event.getChannel().sendMessage("React with the emoji you wish to transform into unicode!").queue(message -> {
+			if(DataFields.unicodeMap.containsKey(event.getAuthor().getIdLong())) {
+				event.getChannel().sendMessage("Previous unicode message deactivated.").queue();
+			}
 			DataFields.unicodeMap.put(event.getAuthor().getIdLong(), message.getIdLong());
 		});
 	}
