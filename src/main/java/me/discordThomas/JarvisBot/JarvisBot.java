@@ -2,10 +2,10 @@ package me.discordThomas.JarvisBot;
 
 import me.discordThomas.JarvisBot.commands.api.CommandManager;
 import me.discordThomas.JarvisBot.commands.api.HelpCommand;
-import me.discordThomas.JarvisBot.commands.developer.AddFactCommand;
-import me.discordThomas.JarvisBot.commands.developer.ShardsCommand;
-import me.discordThomas.JarvisBot.commands.developer.UnicodeCommand;
+import me.discordThomas.JarvisBot.commands.developer.*;
+import me.discordThomas.JarvisBot.commands.fun.DadJokeCommand;
 import me.discordThomas.JarvisBot.commands.fun.DailyFactsCommand;
+import me.discordThomas.JarvisBot.commands.fun.JokeCommand;
 import me.discordThomas.JarvisBot.commands.useful.InfoCommand;
 import me.discordThomas.JarvisBot.listeners.onGuildMessageReactionAdd;
 import me.discordThomas.JarvisBot.listeners.onReady;
@@ -13,6 +13,7 @@ import me.discordThomas.JarvisBot.utils.ReadPropertyFile;
 import me.discordThomas.JarvisBot.utils.mysql.MySQLManager;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
+import net.dv8tion.jda.api.entities.Activity;
 
 public class JarvisBot {
 
@@ -35,7 +36,12 @@ public class JarvisBot {
 				new DailyFactsCommand(),
 				new InfoCommand(),
 				new UnicodeCommand(),
-				new AddFactCommand()
+				new AddFactCommand(),
+				new JokeCommand(),
+				new AddJokeCommand(),
+				new DadJokeCommand(),
+				new AddDadJokeCommand()
+
 		);
 
 		for(int i = 0; i < shards; i++) {
@@ -46,5 +52,8 @@ public class JarvisBot {
 		MySQLManager.init("164.132.207.169", "JarvisDC", "Jarvis", pass);
 		MySQLManager.createTable("guild_perms"," `guildID` BIGINT NOT NULL , `modRoles` TEXT NOT NULL , `adminRoles` TEXT NOT NULL , `ownerRoles` TEXT NOT NULL, `ownerID` BIGINT NOT NULL DEFAULT '206383620531683328'");
 		MySQLManager.createTable("daily_facts", "id INT NOT NULL AUTO_INCREMENT , animal TEXT NOT NULL , fact TEXT NOT NULL , date DATE NOT NULL , PRIMARY KEY (id)");
+		MySQLManager.createTable("normal_jokes", "`id` INT NOT NULL AUTO_INCREMENT , `text` TEXT NOT NULL , PRIMARY KEY (`id`)");
+		MySQLManager.createTable("dad_jokes", "`id` INT NOT NULL AUTO_INCREMENT , `text` TEXT NOT NULL , PRIMARY KEY (`id`)");
+
 	}
 }

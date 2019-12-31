@@ -4,6 +4,7 @@ import me.discordThomas.JarvisBot.commands.api.Categories;
 import me.discordThomas.JarvisBot.commands.api.Command;
 import me.discordThomas.JarvisBot.commands.api.CommandManager;
 import me.discordThomas.JarvisBot.utils.CustomPermission;
+import me.discordThomas.JarvisBot.utils.DataFields;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Emote;
 import net.dv8tion.jda.api.entities.Guild;
@@ -34,7 +35,7 @@ public class DailyFactsCommand extends Command {
             message.addReaction("\uD83D\uDC14").queue(); //Chicken
             message.addReaction("\uD83E\uDD91").queue(); //Squid
             message.addReaction("\uD83D\uDC11").queue(); //Sheep
-            CommandManager.instance.factsMap.put(event.getAuthor().getIdLong(), message.getIdLong());
+            DataFields.factsMap.put(event.getAuthor().getIdLong(), message.getIdLong());
         });
 
     }
