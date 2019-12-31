@@ -41,7 +41,7 @@ public class DailyFactsCommand extends Command {
 
     private MessageEmbed dailyFact(Guild g) {
         EmbedBuilder builder = new EmbedBuilder();
-        builder.setTitle("Fact Select");
+        builder.setTitle("Animal Selector");
         builder.addField(":chicken:","Chicken", false);
         builder.addField(":squid:","Squid", false);
         builder.addField(":sheep:","Sheep", false);

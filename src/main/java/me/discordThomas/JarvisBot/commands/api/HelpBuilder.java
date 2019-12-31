@@ -67,7 +67,7 @@ public class HelpBuilder {
 
 	public  EmbedBuilder helpBuilder(Member m) {
 		EmbedBuilder builder = new EmbedBuilder();
-		builder.setTitle("Help!");
+		builder.setTitle("Command Help");
 		builder.setColor(Color.decode("#3498db"));
 		builder.addField("Developer Commands", DevCommands.toString(), false);
 		builder.addField("Admin Commands", AdminCommands.toString(), false);

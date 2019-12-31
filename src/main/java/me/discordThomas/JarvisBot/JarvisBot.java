@@ -24,8 +24,8 @@ public class JarvisBot {
 		int shards = Integer.parseInt(properties.getPropValues().get("shards"));
 		devids = properties.getPropValues().get("devs").split(",");
 		JDABuilder shardBuilder = new JDABuilder(key);
-		shardBuilder.setStatus(OnlineStatus.ONLINE);
 		CommandManager.init(shardBuilder);
+		shardBuilder.setStatus(OnlineStatus.ONLINE);
 		shardBuilder.addEventListeners(new onReady());
 		shardBuilder.addEventListeners(new onGuildMessageReactionAdd());
 

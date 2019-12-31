@@ -20,7 +20,7 @@ public class UnicodeCommand extends Command {
 		super("unicode");
 		minArgs = 0;
 		maxArgs = 0;
-		description = "An admin command to view unicode info.";
+		description = "A command to view unicode info.";
 		category = Categories.DEVELOPER;
 		permission = CustomPermission.DEV;
 	}

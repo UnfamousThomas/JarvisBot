@@ -24,17 +24,16 @@ public class InfoCommand extends Command {
     }
     @Override
     public void run(Member m, List<String> args, MessageReceivedEvent event) {
-        event.getChannel().sendMessage("Here is some info about the server").queue();
         event.getChannel().sendMessage(info(event.getGuild(), event.getJDA().getShardInfo().getShardTotal())).queue();
 
     }
 
     private MessageEmbed info(Guild g, int totalshards) {
         EmbedBuilder builder = new EmbedBuilder();
-        builder.setTitle("Info");
-        builder.addField("Creators","UnfamousThomas#9462\n" + "Sheep#3771", true);
+        builder.setTitle("Server Info");
+        builder.addField("Creators","UnfamousThomas#9462\n" + "\nSheep#3771", true);
         builder.addBlankField(false);
-        builder.addField("Version","0.0.1", true);
+        builder.addField("Version","0.0.2", true);
         builder.addField("Shards", String.valueOf(totalshards), true);
         builder.setColor(Color.decode("#3498db"));
         builder.setFooter( g.getName(), g.getIconUrl());

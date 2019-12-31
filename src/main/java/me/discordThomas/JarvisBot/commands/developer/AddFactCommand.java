@@ -16,7 +16,7 @@ public class AddFactCommand extends Command {
 	public AddFactCommand() {
 		super("addfact");
 		minArgs = 3;
-		description = "An DEV command to add facts!";
+		description = "A command to add facts!";
 		category = Categories.DEVELOPER;
 		permission = CustomPermission.DEV;
 	}
