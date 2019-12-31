@@ -3,6 +3,7 @@ package me.discordThomas.JarvisBot.commands.useful;
 import me.discordThomas.JarvisBot.commands.api.Categories;
 import me.discordThomas.JarvisBot.commands.api.Command;
 import me.discordThomas.JarvisBot.utils.CustomPermission;
+import me.discordThomas.JarvisBot.utils.DataFields;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
@@ -17,7 +18,7 @@ public class InfoCommand extends Command {
         super("info");
         minArgs = 0;
         maxArgs = 0;
-        description = "Tells you info about the bot. | Usage: `.info`";
+        description = "Tells you info about the bot. | Usage: `" + DataFields.prefix + "info`";
         category =  Categories.USEFUL;
         permission = CustomPermission.MEMBER;
 

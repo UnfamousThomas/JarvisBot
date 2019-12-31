@@ -3,6 +3,7 @@ package me.discordThomas.JarvisBot.commands.fun;
 import me.discordThomas.JarvisBot.commands.api.Categories;
 import me.discordThomas.JarvisBot.commands.api.Command;
 import me.discordThomas.JarvisBot.utils.CustomPermission;
+import me.discordThomas.JarvisBot.utils.DataFields;
 import me.discordThomas.JarvisBot.utils.mysql.MySQLManager;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
@@ -20,7 +21,7 @@ public class DadJokeCommand extends Command {
 	public DadJokeCommand() {
 		super("dadjoke");
 		minArgs = 0;
-		description = "A command for dad jokes | Usage: `.dadjoke`";
+		description = "A command for dad jokes | Usage: `" + DataFields.prefix + "dadjoke`";
 		category = Categories.FUN;
 		permission = CustomPermission.MEMBER;
 	}

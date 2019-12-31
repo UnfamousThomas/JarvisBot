@@ -2,7 +2,9 @@ package me.discordThomas.JarvisBot.commands.api;
 
 import com.google.common.collect.Maps;
 import me.discordThomas.JarvisBot.utils.CustomPermission;
+import me.discordThomas.JarvisBot.utils.DataFields;
 import me.discordThomas.JarvisBot.utils.Logger;
+import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
@@ -51,20 +53,28 @@ public abstract class Command {
 		return;
 		}
 
-		if(permission.perm == null || !(event.getMember().getPermissions().contains(permission.perm))) {
-				if(permission.perm == null && !(Arrays.asList(permission.returnDev()).contains(event.getMember().getUser().getId()))) {
+		if(permission == CustomPermission.BOTHELPER && DataFields.botHelperList.contains(event.getMember().getUser().getIdLong())) {
+			run(event.getMember(), args, event);
+			return;
+		} else if(permission == CustomPermission.BOTHELPER && !(DataFields.botHelperList.contains(event.getMember().getUser().getIdLong()))) {
+			event.getChannel().sendMessage("Invalid permissions.").queue();
+			return;
+		}
+
+		if(permission.perm.equals("DEV") || !(event.getMember().getPermissions().contains(Permission.valueOf(permission.perm)))) {
+				if(permission.perm.equals("DEV") && !(Arrays.asList(permission.returnDev()).contains(event.getMember().getUser().getId()))) {
 				event.getChannel().sendMessage("Invalid permissions.").queue();
 
 					return;
 			}
-				if(!(permission.perm == null) &&!(event.getMember().getPermissions().contains(permission.perm))) {
+				if(!(permission.perm.equals("DEV")) && !(event.getMember().getPermissions().contains(Permission.valueOf(permission.perm)))) {
 					event.getChannel().sendMessage("Invalid permissions.").queue();
 
 					return;
 				}
 
 			run(event.getMember(), args, event);
-		} else if(event.getMember().getPermissions().contains(permission.perm)) {
+		} else if(event.getMember().getPermissions().contains(Permission.valueOf(permission.perm))) {
 
 			run(event.getMember(), args, event);
 		}

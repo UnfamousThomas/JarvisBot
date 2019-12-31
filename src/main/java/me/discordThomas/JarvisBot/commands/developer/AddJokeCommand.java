@@ -3,6 +3,7 @@ package me.discordThomas.JarvisBot.commands.developer;
 import me.discordThomas.JarvisBot.commands.api.Categories;
 import me.discordThomas.JarvisBot.commands.api.Command;
 import me.discordThomas.JarvisBot.utils.CustomPermission;
+import me.discordThomas.JarvisBot.utils.DataFields;
 import me.discordThomas.JarvisBot.utils.mysql.MySQLManager;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
@@ -15,9 +16,9 @@ public class AddJokeCommand extends Command {
 	public AddJokeCommand() {
 		super("addjoke");
 		minArgs = 3;
-		description = "Adds dad jokes to the database.| Usage: `.addjoke [joke]`";
-		category = Categories.DEVELOPER;
-		permission = CustomPermission.DEV;
+		description = "Adds dad jokes to the database. | Usage: `" + DataFields.prefix + "[joke]`";
+		category = Categories.BOTHELPER;
+		permission = CustomPermission.BOTHELPER;
 	}
 
 	@Override

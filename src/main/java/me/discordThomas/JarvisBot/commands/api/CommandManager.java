@@ -1,6 +1,7 @@
 package me.discordThomas.JarvisBot.commands.api;
 
 import com.google.common.collect.Maps;
+import me.discordThomas.JarvisBot.utils.DataFields;
 import me.discordThomas.JarvisBot.utils.Logger;
 import me.discordThomas.JarvisBot.utils.ReadPropertyFile;
 import net.dv8tion.jda.api.JDABuilder;
@@ -33,13 +34,12 @@ public class CommandManager extends ListenerAdapter {
 			registerCommand(command);
 	}
 
-	public static void init(JDABuilder builder) throws IOException {
+	public static void init(JDABuilder builder)  {
 		CommandManager manager = new CommandManager();
 		instance = manager;
 		builder.addEventListeners(manager);
 
-		ReadPropertyFile properties = new ReadPropertyFile();
-		prefix = properties.getPropValues().get("prefix");
+		prefix = DataFields.prefix;
 
 		helpBuilder = new HelpBuilder();
 

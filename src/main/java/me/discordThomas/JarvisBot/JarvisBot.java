@@ -11,6 +11,7 @@ import me.discordThomas.JarvisBot.commands.useful.InfoCommand;
 import me.discordThomas.JarvisBot.commands.useful.PingCommand;
 import me.discordThomas.JarvisBot.listeners.onGuildMessageReactionAdd;
 import me.discordThomas.JarvisBot.listeners.onReady;
+import me.discordThomas.JarvisBot.utils.DataFields;
 import me.discordThomas.JarvisBot.utils.ReadPropertyFile;
 import me.discordThomas.JarvisBot.utils.mysql.MySQLManager;
 import net.dv8tion.jda.api.JDABuilder;
@@ -26,6 +27,7 @@ public class JarvisBot {
 		String pass = properties.getPropValues().get("mysqlpass");
 		int shards = Integer.parseInt(properties.getPropValues().get("shards"));
 		devids = properties.getPropValues().get("devs").split(",");
+		DataFields.setPrefix(properties.getPropValues().get("prefix"));
 		JDABuilder shardBuilder = new JDABuilder(key);
 		CommandManager.init(shardBuilder);
 		shardBuilder.setStatus(OnlineStatus.ONLINE);
@@ -58,6 +60,14 @@ public class JarvisBot {
 		MySQLManager.createTable("daily_facts", "id INT NOT NULL AUTO_INCREMENT , animal TEXT NOT NULL , fact TEXT NOT NULL , date DATE NOT NULL , PRIMARY KEY (id)");
 		MySQLManager.createTable("normal_jokes", "`id` INT NOT NULL AUTO_INCREMENT , `text` TEXT NOT NULL , PRIMARY KEY (`id`)");
 		MySQLManager.createTable("dad_jokes", "`id` INT NOT NULL AUTO_INCREMENT , `text` TEXT NOT NULL , PRIMARY KEY (`id`)");
+		MySQLManager.createTable("bothelpers", " `id` INT NOT NULL AUTO_INCREMENT , `userid` BIGINT NOT NULL , `username` TEXT NOT NULL , PRIMARY KEY (`id`)");
+
+
+		MySQLManager.select("SELECT * FROM bothelpers", resultSet -> {
+			while(resultSet.next()) {
+				DataFields.addBotHelper(resultSet.getLong("userid"));
+			}
+		});
 
 	}
 }

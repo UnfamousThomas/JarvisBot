@@ -1,6 +1,7 @@
 package me.discordThomas.JarvisBot.commands.api;
 
 import me.discordThomas.JarvisBot.utils.CustomPermission;
+import me.discordThomas.JarvisBot.utils.DataFields;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
@@ -13,7 +14,7 @@ public class HelpCommand extends Command {
 		super("help");
 		minArgs = 0;
 		maxArgs = 1;
-		description = "A command to view commands. | Usage: `.help`";
+		description = "A command to view commands. | Usage: `" + DataFields.prefix + "help`";
 		category = Categories.USEFUL;
 		permission = CustomPermission.MEMBER;
 		aliases = alias("ah");

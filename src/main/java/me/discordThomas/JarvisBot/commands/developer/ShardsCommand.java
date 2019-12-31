@@ -3,6 +3,7 @@ package me.discordThomas.JarvisBot.commands.developer;
 import me.discordThomas.JarvisBot.commands.api.Categories;
 import me.discordThomas.JarvisBot.commands.api.Command;
 import me.discordThomas.JarvisBot.utils.CustomPermission;
+import me.discordThomas.JarvisBot.utils.DataFields;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Guild;
@@ -21,7 +22,7 @@ public class ShardsCommand extends Command {
 		super("shards");
 		minArgs = 0;
 		maxArgs = 0;
-		description = "A command to view shard info. | Usage: `.shards`";
+		description = "A command to view shard info. | Usage: `" + DataFields.prefix + "shards`";
 		category = Categories.DEVELOPER;
 		permission = CustomPermission.DEV;
 	}

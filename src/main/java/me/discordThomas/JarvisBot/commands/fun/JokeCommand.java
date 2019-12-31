@@ -4,6 +4,7 @@ import me.discordThomas.JarvisBot.commands.api.Categories;
 import me.discordThomas.JarvisBot.commands.api.Command;
 import me.discordThomas.JarvisBot.commands.api.CommandManager;
 import me.discordThomas.JarvisBot.utils.CustomPermission;
+import me.discordThomas.JarvisBot.utils.DataFields;
 import me.discordThomas.JarvisBot.utils.mysql.MySQLManager;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
@@ -22,7 +23,7 @@ public class JokeCommand extends Command {
         minArgs = 0;
         maxArgs = 0;
         aliases = alias("funny");
-        description = "Tells a joke! | Usage: `.joke`";
+        description = "Tells a joke! | Usage: `" + DataFields.prefix + "joke`";
         category =  Categories.FUN;
         permission = CustomPermission.MEMBER;
 

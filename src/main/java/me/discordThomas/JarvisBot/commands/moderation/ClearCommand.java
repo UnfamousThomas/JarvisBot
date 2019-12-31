@@ -3,6 +3,7 @@ package me.discordThomas.JarvisBot.commands.moderation;
 import me.discordThomas.JarvisBot.commands.api.Categories;
 import me.discordThomas.JarvisBot.commands.api.Command;
 import me.discordThomas.JarvisBot.utils.CustomPermission;
+import me.discordThomas.JarvisBot.utils.DataFields;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
@@ -13,7 +14,8 @@ public class ClearCommand extends Command {
 	public ClearCommand() {
 		super("clear");
 		maxArgs = 2;
-		description = "A command to clear the chat! | If no args specified, clears 10 messages in current channel. Usage: `.clear (amount) (channel)`";
+		description = "A command to clear the chat! | If no args specified, clears 10 messages in current channel. Usage: `" + DataFields.prefix +
+		"clear (amount) (channel)`";
 		category = Categories.MODERATE;
 		permission = CustomPermission.MODERATOR;
 	}

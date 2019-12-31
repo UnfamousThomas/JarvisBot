@@ -4,6 +4,7 @@ import me.discordThomas.JarvisBot.commands.api.Categories;
 import me.discordThomas.JarvisBot.commands.api.Command;
 import me.discordThomas.JarvisBot.commands.api.CommandManager;
 import me.discordThomas.JarvisBot.utils.CustomPermission;
+import me.discordThomas.JarvisBot.utils.DataFields;
 import me.discordThomas.JarvisBot.utils.mysql.MySQLManager;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
@@ -16,9 +17,9 @@ public class AddFactCommand extends Command {
 	public AddFactCommand() {
 		super("addfact");
 		minArgs = 3;
-		description = "A command to add facts! | Date format: `yyyy-mm-dd`. Usage: `.addfact [animal] [date] [fact]`";
-		category = Categories.DEVELOPER;
-		permission = CustomPermission.DEV;
+		description = "A command to add facts! | Date format: `yyyy-mm-dd`. Usage: `" + DataFields.prefix + "addfact [animal] [date] [fact]`";
+		category = Categories.BOTHELPER;
+		permission = CustomPermission.BOTHELPER;
 	}
 
 	@Override

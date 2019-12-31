@@ -1,6 +1,5 @@
 package me.discordThomas.JarvisBot.commands.api;
 
-import me.discordThomas.JarvisBot.utils.Logger;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
 
@@ -12,6 +11,7 @@ public class HelpBuilder {
 	private StringBuilder FunCommands = new StringBuilder().append("\n");
 	private StringBuilder UsefulCommands = new StringBuilder().append("\n");
 	private StringBuilder ModCommands = new StringBuilder().append("\n");
+	private StringBuilder BotHelperCommands = new StringBuilder().append("\n");
 
 	public void addCommand(Command command) {
 		switch (command.category) {
@@ -62,6 +62,15 @@ public class HelpBuilder {
 
 				}
 				break;
+			case BOTHELPER:
+				if(!(command.permission == null)) {
+					BotHelperCommands.append(command.name).append(" - ").append(command.description).append(" - ").append(command.permission.name()).append("\n");
+
+				} else {
+					BotHelperCommands.append(command.name).append(" - ").append(command.description).append(" - ").append(command.permission.name()).append("\n");
+
+				}
+				break;
 		}
 	}
 
@@ -70,9 +79,10 @@ public class HelpBuilder {
 		builder.setTitle("Command Help");
 		builder.setColor(Color.decode("#3498db"));
 		builder.addField("Developer Commands", DevCommands.toString(), false);
+		builder.addField("Bot Helper Commands", BotHelperCommands.toString(), false);
 		builder.addField("Admin Commands", AdminCommands.toString(), false);
-		builder.addField("Fun Commands", FunCommands.toString(), false);
 		builder.addField("Moderation Commands", ModCommands.toString(), false);
+		builder.addField("Fun Commands", FunCommands.toString(), false);
 		builder.addField("Useful Commands", UsefulCommands.toString(), false);
 		builder.setFooter(m.getEffectiveName(), m.getUser().getEffectiveAvatarUrl());
 		return builder;

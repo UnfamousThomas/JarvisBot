@@ -5,6 +5,7 @@ public enum Categories {
 	FUN,
 	MODERATE,
 	DEVELOPER,
+	BOTHELPER,
 	USEFUL;
 
 	Categories() {
