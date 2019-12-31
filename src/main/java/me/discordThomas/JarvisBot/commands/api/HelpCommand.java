@@ -20,6 +20,7 @@ public class HelpCommand extends Command {
 	}
 	@Override
 	public void run(Member m, List<String> args, MessageReceivedEvent event) {
+		event.getChannel().sendMessage("Sending you a DM!").queue();
 		HelpBuilder builder = CommandManager.helpBuilder;
 		EmbedBuilder embedBuilder = builder.helpBuilder(m);
 		event.getMember().getUser().openPrivateChannel().queue(channel -> {
