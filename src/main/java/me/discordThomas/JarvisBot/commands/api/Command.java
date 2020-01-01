@@ -6,6 +6,7 @@ import me.discordThomas.JarvisBot.utils.DataFields;
 import me.discordThomas.JarvisBot.utils.Logger;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.Arrays;
@@ -52,32 +53,49 @@ public abstract class Command {
 			event.getChannel().sendMessage("Invalid usage. Please use .help.").queue();
 		return;
 		}
-
-		if(permission == CustomPermission.BOTHELPER && DataFields.botHelperList.contains(event.getMember().getUser().getIdLong())) {
-			run(event.getMember(), args, event);
-			return;
-		} else if(permission == CustomPermission.BOTHELPER && !(DataFields.botHelperList.contains(event.getMember().getUser().getIdLong()))) {
-			event.getChannel().sendMessage("Invalid permissions.").queue();
-			return;
-		}
-
-		if(permission.perm.equals("DEV") || !(event.getMember().getPermissions().contains(Permission.valueOf(permission.perm)))) {
-				if(permission.perm.equals("DEV") && !(Arrays.asList(permission.returnDev()).contains(event.getMember().getUser().getId()))) {
-				event.getChannel().sendMessage("Invalid permissions.").queue();
-
-					return;
-			}
-				if(!(permission.perm.equals("DEV")) && !(event.getMember().getPermissions().contains(Permission.valueOf(permission.perm)))) {
-					event.getChannel().sendMessage("Invalid permissions.").queue();
-
+		
+		TextChannel textChannel = event.getTextChannel();
+		if(permission == CustomPermission.DEV || permission == CustomPermission.BOTHELPER) {
+			if(permission == CustomPermission.DEV) {
+				if(!(Arrays.asList(permission.returnDev()).contains(event.getAuthor().getId()))) {
+					sendPermissionMessage(textChannel);
 					return;
 				}
-
-			run(event.getMember(), args, event);
-		} else if(event.getMember().getPermissions().contains(Permission.valueOf(permission.perm))) {
-
-			run(event.getMember(), args, event);
+			} else {
+				if(!(DataFields.botHelperList.contains(event.getAuthor().getIdLong())) && !(Arrays.asList(permission.returnDev()).contains(event.getAuthor().getId()))) {
+					sendPermissionMessage(textChannel);
+					return;
+				}
+			}
 		}
+
+		switch (permission) {
+			case HELPER:
+				if(!(event.getMember().getPermissions().contains(Permission.valueOf(CustomPermission.HELPER.perm)))) {
+					sendPermissionMessage(textChannel);
+					return;
+				}
+				break;
+			case ADMIN:
+				if(!(event.getMember().getPermissions().contains(Permission.valueOf(CustomPermission.ADMIN.perm)))) {
+					sendPermissionMessage(textChannel);
+					return;
+				}
+				break;
+			case MODERATOR:
+				if(!(event.getMember().getPermissions().contains(Permission.valueOf(CustomPermission.MODERATOR.perm)))) {
+					sendPermissionMessage(textChannel);
+					return;
+				}
+				break;
+			case MEMBER:
+				if(!(event.getMember().getPermissions().contains(Permission.valueOf(CustomPermission.MEMBER.perm)))) {
+					sendPermissionMessage(textChannel);
+					return;
+				}
+				break;
+		}
+		run(event.getMember(), args, event);
 	}
 
 	protected void addSubcommands(Command... commands) {
@@ -92,5 +110,8 @@ public abstract class Command {
 		return aliases;
 	}
 
+	private void sendPermissionMessage(TextChannel tc) {
+		tc.sendMessage("You do not have sufficient permissions for that command.").queue();
+	}
 	public abstract void run(Member m, List<String> args, MessageReceivedEvent event);
 }

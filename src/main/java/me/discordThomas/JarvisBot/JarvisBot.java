@@ -40,13 +40,12 @@ public class JarvisBot {
 				new DailyFactsCommand(),
 				new InfoCommand(),
 				new UnicodeCommand(),
-				new AddFactCommand(),
 				new JokeCommand(),
-				new AddJokeCommand(),
 				new DadJokeCommand(),
-				new AddDadJokeCommand(),
 				new ClearCommand(),
-				new PingCommand()
+				new PingCommand(),
+				new HelperCommand(),
+				new AddCommand()
 
 		);
 

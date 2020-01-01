@@ -12,6 +12,8 @@ public class DataFields {
 
 	public static List<Long> botHelperList = new ArrayList<>();
 
+	public static List<Long> blacklistedPeopleList = new ArrayList<>();
+
 	public static String prefix = ".";
 
 	public static void setPrefix(String newPrefix) {
@@ -23,4 +25,6 @@ public class DataFields {
 	public static void addBotHelper(long userID) {
 		botHelperList.add(userID);
 	}
+
+	public static void addBlacklist(long userID) { blacklistedPeopleList.add(userID); }
  }
