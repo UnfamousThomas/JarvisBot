@@ -17,57 +17,56 @@ public class HelpBuilder {
 		switch (command.category) {
 			case DEVELOPER:
 				if(!(command.permission == null)) {
-					DevCommands.append(command.name).append(" - ").append(command.description).append(" - ").append(command.permission.name()).append("\n");
+					DevCommands.append("**").append(command.name.toUpperCase()).append("**").append(" - ").append(command.description).append(" - ").append(command.permission.name()).append("\n");
 				} else {
-					DevCommands.append(command.name).append(" - ").append(command.description).append(" - ").append(command.permission.name()).append("\n");
-				}
+					DevCommands.append("**").append(command.name.toUpperCase()).append("**").append(" - ").append(command.description).append(" - ").append(command.permission.name()).append("\n");				}
 				break;
 
 			case ADMIN:
 				if(!(command.permission == null)) {
-					AdminCommands.append(command.name).append(" - ").append(command.description).append(" - ").append(command.permission.name()).append("\n");
+					AdminCommands.append("**").append(command.name.toUpperCase()).append("**").append(" - ").append(command.description).append(" - ").append(command.permission.name()).append("\n");
 
 				} else {
-					AdminCommands.append(command.name).append(" - ").append(command.description).append(" - ").append(command.permission.name()).append("\n");
+					AdminCommands.append("**").append(command.name.toUpperCase()).append("**").append(" - ").append(command.description).append(" - ").append(command.permission.name()).append("\n");
 
 				}
 				break;
 
 			case FUN:
 				if(!(command.permission == null)) {
-					FunCommands.append(command.name).append(" - ").append(command.description).append(" - ").append(command.permission.name()).append("\n");
+					FunCommands.append("**").append(command.name.toUpperCase()).append("**").append(" - ").append(command.description).append(" - ").append(command.permission.name()).append("\n");
 
 				} else {
-					FunCommands.append(command.name).append(" - ").append(command.description).append(" - ").append(command.permission.name()).append("\n");
+					FunCommands.append("**").append(command.name.toUpperCase()).append("**").append(" - ").append(command.description).append(" - ").append(command.permission.name()).append("\n");
 
 				}
 				break;
 
 			case USEFUL:
 				if(!(command.permission == null)) {
-					UsefulCommands.append(command.name).append(" - ").append(command.description).append(" - ").append(command.permission.name()).append("\n");
+					UsefulCommands.append("**").append(command.name.toUpperCase()).append("**").append(" - ").append(command.description).append(" - ").append(command.permission.name()).append("\n");
 
 				} else {
-					UsefulCommands.append(command.name).append(" - ").append(command.description).append(" - ").append(command.permission.name()).append("\n");
+					UsefulCommands.append("**").append(command.name.toUpperCase()).append("**").append(" - ").append(command.description).append(" - ").append(command.permission.name()).append("\n");
 
 				}
 				break;
 
 			case MODERATE:
 				if(!(command.permission == null)) {
-					ModCommands.append(command.name).append(" - ").append(command.description).append(" - ").append(command.permission.name()).append("\n");
+					ModCommands.append("**").append(command.name.toUpperCase()).append("**").append(" - ").append(command.description).append(" - ").append(command.permission.name()).append("\n");
 
 				} else {
-					ModCommands.append(command.name).append(" - ").append(command.description).append(" - ").append(command.permission.name()).append("\n");
+					ModCommands.append("**").append(command.name.toUpperCase()).append("**").append(" - ").append(command.description).append(" - ").append(command.permission.name()).append("\n");
 
 				}
 				break;
 			case BOTHELPER:
 				if(!(command.permission == null)) {
-					BotHelperCommands.append(command.name).append(" - ").append(command.description).append(" - ").append(command.permission.name()).append("\n");
+					BotHelperCommands.append("**").append(command.name.toUpperCase()).append("**").append(" - ").append(command.description).append(" - ").append(command.permission.name()).append("\n");
 
 				} else {
-					BotHelperCommands.append(command.name).append(" - ").append(command.description).append(" - ").append(command.permission.name()).append("\n");
+					BotHelperCommands.append("**").append(command.name.toUpperCase()).append("**").append(" - ").append(command.description).append(" - ").append(command.permission.name()).append("\n");
 
 				}
 				break;
