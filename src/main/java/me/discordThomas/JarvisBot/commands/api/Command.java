@@ -53,7 +53,7 @@ public abstract class Command {
 			event.getChannel().sendMessage("Invalid usage. Please use .help.").queue();
 		return;
 		}
-		
+
 		TextChannel textChannel = event.getTextChannel();
 		if(permission == CustomPermission.DEV || permission == CustomPermission.BOTHELPER) {
 			if(permission == CustomPermission.DEV) {

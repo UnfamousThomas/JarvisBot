@@ -1,5 +1,6 @@
 package me.discordThomas.JarvisBot;
 
+import me.discordThomas.JarvisBot.commands.admin.LeaveCommand;
 import me.discordThomas.JarvisBot.commands.api.CommandManager;
 import me.discordThomas.JarvisBot.commands.api.HelpCommand;
 import me.discordThomas.JarvisBot.commands.developer.*;
@@ -8,6 +9,7 @@ import me.discordThomas.JarvisBot.commands.fun.DailyFactsCommand;
 import me.discordThomas.JarvisBot.commands.fun.JokeCommand;
 import me.discordThomas.JarvisBot.commands.moderation.ClearCommand;
 import me.discordThomas.JarvisBot.commands.useful.InfoCommand;
+import me.discordThomas.JarvisBot.commands.useful.InviteCommand;
 import me.discordThomas.JarvisBot.commands.useful.PingCommand;
 import me.discordThomas.JarvisBot.listeners.onGuildMessageReactionAdd;
 import me.discordThomas.JarvisBot.listeners.onReady;
@@ -45,7 +47,9 @@ public class JarvisBot {
 				new ClearCommand(),
 				new PingCommand(),
 				new HelperCommand(),
-				new AddCommand()
+				new AddCommand(),
+				new InviteCommand(),
+				new LeaveCommand()
 
 		);
 
