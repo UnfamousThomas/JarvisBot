@@ -3,14 +3,19 @@ package me.discordThomas.JarvisBot;
 import me.discordThomas.JarvisBot.commands.admin.LeaveCommand;
 import me.discordThomas.JarvisBot.commands.api.CommandManager;
 import me.discordThomas.JarvisBot.commands.api.HelpCommand;
-import me.discordThomas.JarvisBot.commands.developer.*;
+import me.discordThomas.JarvisBot.commands.developer.AddCommand;
+import me.discordThomas.JarvisBot.commands.developer.HelperCommand;
+import me.discordThomas.JarvisBot.commands.developer.ShardsCommand;
+import me.discordThomas.JarvisBot.commands.developer.UnicodeCommand;
 import me.discordThomas.JarvisBot.commands.fun.DadJokeCommand;
 import me.discordThomas.JarvisBot.commands.fun.DailyFactsCommand;
 import me.discordThomas.JarvisBot.commands.fun.JokeCommand;
 import me.discordThomas.JarvisBot.commands.moderation.ClearCommand;
-import me.discordThomas.JarvisBot.commands.useful.InfoCommand;
 import me.discordThomas.JarvisBot.commands.useful.InviteCommand;
 import me.discordThomas.JarvisBot.commands.useful.PingCommand;
+import me.discordThomas.JarvisBot.commands.useful.info.BotInfoCommand;
+import me.discordThomas.JarvisBot.commands.useful.info.ServerInfoCommand;
+import me.discordThomas.JarvisBot.commands.useful.info.UserInfoCommand;
 import me.discordThomas.JarvisBot.listeners.onGuildMessageReactionAdd;
 import me.discordThomas.JarvisBot.listeners.onReady;
 import me.discordThomas.JarvisBot.utils.DataFields;
@@ -18,7 +23,6 @@ import me.discordThomas.JarvisBot.utils.ReadPropertyFile;
 import me.discordThomas.JarvisBot.utils.mysql.MySQLManager;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
-import net.dv8tion.jda.api.entities.Activity;
 
 public class JarvisBot {
 
@@ -40,7 +44,7 @@ public class JarvisBot {
 				new ShardsCommand(),
 				new HelpCommand(),
 				new DailyFactsCommand(),
-				new InfoCommand(),
+				new ServerInfoCommand(),
 				new UnicodeCommand(),
 				new JokeCommand(),
 				new DadJokeCommand(),
@@ -49,7 +53,9 @@ public class JarvisBot {
 				new HelperCommand(),
 				new AddCommand(),
 				new InviteCommand(),
-				new LeaveCommand()
+				new LeaveCommand(),
+				new UserInfoCommand(),
+				new BotInfoCommand()
 
 		);
 
