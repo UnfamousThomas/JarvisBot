@@ -1,6 +1,7 @@
 package me.discordThomas.JarvisBot.listeners;
 
 import me.discordThomas.JarvisBot.commands.api.CommandManager;
+import me.discordThomas.JarvisBot.commands.fun.dailyfact.Animal;
 import me.discordThomas.JarvisBot.utils.DataFields;
 import me.discordThomas.JarvisBot.utils.mysql.MySQLManager;
 import net.dv8tion.jda.api.entities.Member;
@@ -28,18 +29,18 @@ public class onGuildMessageReactionAdd extends ListenerAdapter {
 		if(DataFields.factsMap.get(event.getUserIdLong()) != null && DataFields.factsMap.get(event.getUserIdLong()) == event.getMessageIdLong()) {
 			if(event.getReactionEmote().getAsCodepoints().equals("U+1f411")) {
 				//Sheep:
-				fact("Sheep", event.getMember());
+				fact(Animal.CHICKEN, event.getMember());
 			}
 
 			if(event.getReactionEmote().getAsCodepoints().equals("U+1f991")) {
 				//Squuid:
-				fact("Squid", event.getMember());
+				fact(Animal.SQUID, event.getMember());
 
 			}
 
 			if(event.getReactionEmote().getAsCodepoints().equals("U+1f414")) {
 				//Chicken:
-				fact("Chicken", event.getMember());
+				fact(Animal.CHICKEN, event.getMember());
 
 			}
 			event.getReaction().removeReaction(event.getUser()).queue();
@@ -48,23 +49,17 @@ public class onGuildMessageReactionAdd extends ListenerAdapter {
 
 	}
 
-	public void fact(String animal, Member m) {
-		animal = animal.toUpperCase();
-
-		String finalAnimal = animal;
-		MySQLManager.select("Select * from daily_facts WHERE animal=? AND date=CURRENT_DATE", resultSet -> {
-			if(resultSet.next()) {
-			String fact = resultSet.getString("fact");
+	private void fact(Animal animal, Member m) {
+		if(DataFields.factsStringMap.get(animal) != null) {
+			String fact = DataFields.factsStringMap.get(animal);
 			m.getUser().openPrivateChannel().queue(channel -> {
-				channel.sendMessage("Your daily fact for the animal " + finalAnimal.toLowerCase() + " is:").queue();
+				channel.sendMessage("Your daily fact for the animal " + animal.name().toLowerCase() + " is:").queue();
 				channel.sendMessage(fact).queue();
 			});
 		} else {
 				m.getUser().openPrivateChannel().queue(channel -> {
-					channel.sendMessage("Fact about " + finalAnimal + " not found.").queue();
+					channel.sendMessage("Fact about " + animal.name().toLowerCase() + " not found.").queue();
 				});
 			}
-
-		}, animal);
 	}
 }

@@ -16,6 +16,7 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class Command {
 	final String name;
+	public String capitalizedName;
 
 	public CustomPermission permission;
 	public int minArgs = 0;
@@ -30,6 +31,7 @@ public abstract class Command {
 
 	public Command(String name) {
 		this.name = name;
+		this.capitalizedName = this.name.substring(0, 1).toUpperCase() + this.name.substring(1);
 	}
 
 	public void execute(MessageReceivedEvent event, List<String> args) {

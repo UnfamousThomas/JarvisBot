@@ -1,7 +1,8 @@
-package me.discordThomas.JarvisBot.commands.developer;
+package me.discordThomas.JarvisBot.commands.bothelper;
 
 import me.discordThomas.JarvisBot.commands.api.Categories;
 import me.discordThomas.JarvisBot.commands.api.Command;
+import me.discordThomas.JarvisBot.commands.fun.dailyfact.Animal;
 import me.discordThomas.JarvisBot.utils.CustomPermission;
 import me.discordThomas.JarvisBot.utils.DataFields;
 import me.discordThomas.JarvisBot.utils.mysql.MySQLManager;
@@ -14,7 +15,7 @@ public class AddCommand extends Command {
 	public AddCommand() {
 		super("add");
 		minArgs = 2;
-		description = "Adds things. | Usage: `" + DataFields.prefix + "add [type] (animal) (date) [content]`";
+		description = "Adds things. | Usage: `" + DataFields.prefix + "add [dadjoke/joke/fact] (animal) (date) [content]`";
 		category = Categories.BOTHELPER;
 		permission = CustomPermission.BOTHELPER;
 	}
@@ -40,6 +41,8 @@ public class AddCommand extends Command {
 							sb.toString());
 
 					m.getUser().openPrivateChannel().queue(channel -> channel.sendMessage("Dad Joke: ```" + sb.toString() + "``` has been added.").queue());
+
+					DataFields.dadJokesList.add(sb.toString());
 				} catch (Exception ex) {
 					ex.printStackTrace();
 				}
@@ -62,6 +65,7 @@ public class AddCommand extends Command {
 							stringBuilder.toString());
 
 					m.getUser().openPrivateChannel().queue(channel -> channel.sendMessage("Joke: `" + stringBuilder.toString() + "` has been added.").queue());
+					DataFields.normalJokesList.add(stringBuilder.toString());
 				} catch (Exception ex) {
 					ex.printStackTrace();
 				}
@@ -91,12 +95,13 @@ public class AddCommand extends Command {
 							stringBuilder1.toString(),
 							date);
 					//yyyy - mm - dd
-
+					DataFields.factsStringMap.put(Animal.valueOf(animal.toUpperCase()), stringBuilder1.toString());
 					m.getUser().openPrivateChannel().queue(channel -> channel.sendMessage("Fact for animal " + animal + " has been added for date: " + date + " with text: " + stringBuilder1.toString() + ".").queue());
 				} catch (Exception ex) {
 					ex.printStackTrace();
 				}
 				break;
+
 		}
 	}
 }

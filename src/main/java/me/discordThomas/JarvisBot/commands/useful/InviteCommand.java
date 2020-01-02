@@ -23,7 +23,7 @@ public class InviteCommand extends Command {
 		event.getChannel().sendMessage(inviteBuilder().build()).queue();
 	}
 
-	public EmbedBuilder inviteBuilder() {
+	private EmbedBuilder inviteBuilder() {
 		EmbedBuilder builder = new EmbedBuilder();
 		builder.setColor(Color.decode("#3498db"));
 		builder.setTitle("Jarvis Invite");

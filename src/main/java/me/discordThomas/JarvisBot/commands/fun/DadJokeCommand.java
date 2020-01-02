@@ -14,6 +14,7 @@ import org.apache.commons.lang3.StringEscapeUtils;
 
 import java.awt.*;
 import java.util.List;
+import java.util.Random;
 
 public class DadJokeCommand extends Command {
 
@@ -28,16 +29,14 @@ public class DadJokeCommand extends Command {
 
 	@Override
 	public void run(Member m, List<String> args, MessageReceivedEvent event) {
-		MySQLManager.select("SELECT * from dad_jokes ORDER BY RAND() LIMIT 1", resultSet -> {
-			if (resultSet.next()) {
-				event.getChannel().sendMessage(dailyFact(event.getGuild(), resultSet.getString("text"))).queue();
-			} else {
-				event.getChannel().sendMessage("Joke not found.").queue();
-			}
-		});
+		if(DataFields.dadJokesList.size() > 0) {
+			int jokeIndex = new Random().nextInt(DataFields.dadJokesList.size());
+			String jokeText = DataFields.dadJokesList.get(jokeIndex);
+			event.getChannel().sendMessage(jokeEmbed(event.getGuild(), jokeText)).queue();
+		}
 	}
 
-	private MessageEmbed dailyFact(Guild g, String text) {
+	private MessageEmbed jokeEmbed(Guild g, String text) {
 		EmbedBuilder builder = new EmbedBuilder();
 		builder.setTitle("A bad dad joke!");
 		builder.addField("Joke", StringEscapeUtils.unescapeJava(text), false);

@@ -48,6 +48,7 @@ public class CommandManager extends ListenerAdapter {
 	}
 
 	public void onMessageReceived(MessageReceivedEvent event) {
+		if(DataFields.blacklistedPeopleList.contains(event.getAuthor().getIdLong())) return;
 		if(prefix == null) prefix = ".";
 
 		String[] argArray = event.getMessage().getContentRaw().split(" ");

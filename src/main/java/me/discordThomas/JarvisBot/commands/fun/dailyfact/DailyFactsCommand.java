@@ -1,4 +1,4 @@
-package me.discordThomas.JarvisBot.commands.fun;
+package me.discordThomas.JarvisBot.commands.fun.dailyfact;
 
 import me.discordThomas.JarvisBot.commands.api.Categories;
 import me.discordThomas.JarvisBot.commands.api.Command;
@@ -18,10 +18,10 @@ import java.util.List;
 public class DailyFactsCommand extends Command {
 
     public DailyFactsCommand(){
-        super("df");
+        super("dailyfact");
         minArgs = 0;
         maxArgs = 0;
-        aliases = alias("dailyfacts","fact");
+        aliases = alias("df","fact");
         description = "Tells daily facts about the selected animal. | Usage: `" + DataFields.prefix + "dailyfact`";
         category =  Categories.FUN;
         permission = CustomPermission.MEMBER;

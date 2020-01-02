@@ -9,6 +9,7 @@ import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class ClearCommand extends Command {
 	public ClearCommand() {
@@ -29,6 +30,7 @@ public class ClearCommand extends Command {
 						message.delete().queue();
 					}
 				}));
+				event.getChannel().sendMessage("11 messages have been deleted from this channel.").queue(message -> message.delete().queueAfter(1, TimeUnit.MINUTES));
 				break;
 
 			case 1:
@@ -40,6 +42,8 @@ public class ClearCommand extends Command {
 									message.delete().queue();
 								}
 					}));
+					event.getChannel().sendMessage(amount + " messages have been deleted from " + event.getTextChannel().getAsMention()).queue(message -> message.delete().queueAfter(1, TimeUnit.MINUTES));
+
 				} catch (Exception ex) {
 					event.getChannel().sendMessage("Something went wrong. Try again!").queue();
 				}
@@ -66,6 +70,8 @@ public class ClearCommand extends Command {
 							message.delete().queue();
 						}
 					}));
+
+					event.getChannel().sendMessage(amountString + " messages have been deleted from " + textChannel.getAsMention()).queue(message -> message.delete().queueAfter(1, TimeUnit.MINUTES));
 				} catch (Exception ex) {
 					event.getChannel().sendMessage("Something went wrong. Try again!").queue();
 				}

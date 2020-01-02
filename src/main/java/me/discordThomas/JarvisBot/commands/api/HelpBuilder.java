@@ -17,56 +17,56 @@ public class HelpBuilder {
 		switch (command.category) {
 			case DEVELOPER:
 				if(!(command.permission == null)) {
-					DevCommands.append("\n").append("*").append(command.name.toUpperCase()).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());
+					DevCommands.append("\n").append("*").append(command.capitalizedName).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());
 				} else {
-					DevCommands.append("\n").append("*").append(command.name.toUpperCase()).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());				}
+					DevCommands.append("\n").append("*").append(command.capitalizedName).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());				}
 				break;
 
 			case ADMIN:
 				if(!(command.permission == null)) {
-					AdminCommands.append("\n").append("*").append(command.name.toUpperCase()).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());
+					AdminCommands.append("\n").append("*").append(command.capitalizedName).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());
 
 				} else {
-					AdminCommands.append("\n").append("*").append(command.name.toUpperCase()).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());
+					AdminCommands.append("\n").append("*").append(command.capitalizedName).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());
 
 				}
 				break;
 
 			case FUN:
 				if(!(command.permission == null)) {
-					FunCommands.append("\n").append("*").append(command.name.toUpperCase()).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());
+					FunCommands.append("\n").append("*").append(command.capitalizedName).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());
 
 				} else {
-					FunCommands.append("\n").append("*").append(command.name.toUpperCase()).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());
+					FunCommands.append("\n").append("*").append(command.capitalizedName).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());
 
 				}
 				break;
 
 			case USEFUL:
 				if(!(command.permission == null)) {
-					UsefulCommands.append("\n").append("*").append(command.name.toUpperCase()).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());
+					UsefulCommands.append("\n").append("*").append(command.capitalizedName).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());
 
 				} else {
-					UsefulCommands.append("\n").append("*").append(command.name.toUpperCase()).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());
+					UsefulCommands.append("\n").append("*").append(command.capitalizedName).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());
 
 				}
 				break;
 
 			case MODERATE:
 				if(!(command.permission == null)) {
-					ModCommands.append("\n").append("*").append(command.name.toUpperCase()).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());
+					ModCommands.append("\n").append("*").append(command.capitalizedName).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());
 
 				} else {
-					ModCommands.append("\n").append("*").append(command.name.toUpperCase()).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());
+					ModCommands.append("\n").append("*").append(command.capitalizedName).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());
 
 				}
 				break;
 			case BOTHELPER:
 				if(!(command.permission == null)) {
-					BotHelperCommands.append("\n").append("*").append(command.name.toUpperCase()).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());
+					BotHelperCommands.append("\n").append("*").append(command.capitalizedName).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());
 
 				} else {
-					BotHelperCommands.append("\n").append("*").append(command.name.toUpperCase()).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());
+					BotHelperCommands.append("\n").append("*").append(command.capitalizedName).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());
 
 				}
 				break;

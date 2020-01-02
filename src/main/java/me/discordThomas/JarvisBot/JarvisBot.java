@@ -3,12 +3,13 @@ package me.discordThomas.JarvisBot;
 import me.discordThomas.JarvisBot.commands.admin.LeaveCommand;
 import me.discordThomas.JarvisBot.commands.api.CommandManager;
 import me.discordThomas.JarvisBot.commands.api.HelpCommand;
-import me.discordThomas.JarvisBot.commands.developer.AddCommand;
+import me.discordThomas.JarvisBot.commands.bothelper.AddCommand;
+import me.discordThomas.JarvisBot.commands.developer.BlacklistCommand;
 import me.discordThomas.JarvisBot.commands.developer.HelperCommand;
 import me.discordThomas.JarvisBot.commands.developer.ShardsCommand;
 import me.discordThomas.JarvisBot.commands.developer.UnicodeCommand;
 import me.discordThomas.JarvisBot.commands.fun.DadJokeCommand;
-import me.discordThomas.JarvisBot.commands.fun.DailyFactsCommand;
+import me.discordThomas.JarvisBot.commands.fun.dailyfact.DailyFactsCommand;
 import me.discordThomas.JarvisBot.commands.fun.JokeCommand;
 import me.discordThomas.JarvisBot.commands.moderation.ClearCommand;
 import me.discordThomas.JarvisBot.commands.useful.InviteCommand;
@@ -20,6 +21,7 @@ import me.discordThomas.JarvisBot.listeners.onGuildMessageReactionAdd;
 import me.discordThomas.JarvisBot.listeners.onReady;
 import me.discordThomas.JarvisBot.utils.DataFields;
 import me.discordThomas.JarvisBot.utils.ReadPropertyFile;
+import me.discordThomas.JarvisBot.utils.UsefulMethods;
 import me.discordThomas.JarvisBot.utils.mysql.MySQLManager;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
@@ -55,7 +57,8 @@ public class JarvisBot {
 				new InviteCommand(),
 				new LeaveCommand(),
 				new UserInfoCommand(),
-				new BotInfoCommand()
+				new BotInfoCommand(),
+				new BlacklistCommand()
 
 		);
 
@@ -65,12 +68,15 @@ public class JarvisBot {
 		}
 
 		MySQLManager.init("164.132.207.169", "JarvisDC", "Jarvis", pass);
-		MySQLManager.createTable("guild_perms"," `guildID` BIGINT NOT NULL , `modRoles` TEXT NOT NULL , `adminRoles` TEXT NOT NULL , `ownerRoles` TEXT NOT NULL, `ownerID` BIGINT NOT NULL DEFAULT '206383620531683328'");
 		MySQLManager.createTable("daily_facts", "id INT NOT NULL AUTO_INCREMENT , animal TEXT NOT NULL , fact TEXT NOT NULL , date DATE NOT NULL , PRIMARY KEY (id)");
 		MySQLManager.createTable("normal_jokes", "`id` INT NOT NULL AUTO_INCREMENT , `text` TEXT NOT NULL , PRIMARY KEY (`id`)");
 		MySQLManager.createTable("dad_jokes", "`id` INT NOT NULL AUTO_INCREMENT , `text` TEXT NOT NULL , PRIMARY KEY (`id`)");
 		MySQLManager.createTable("bothelpers", " `id` INT NOT NULL AUTO_INCREMENT , `userid` BIGINT NOT NULL , `username` TEXT NOT NULL , PRIMARY KEY (`id`)");
-
+		MySQLManager.createTable("guildbot_settings", " `id` INT NOT NULL AUTO_INCREMENT , `guild` BIGINT NOT NULL , `settings` TEXT NOT NULL , `value` TEXT NOT NULL , PRIMARY KEY (`id`)");
+		MySQLManager.createTable("blacklisted_users", "`id` INT NOT NULL AUTO_INCREMENT , `userid` BIGINT NOT NULL , `reason` TEXT NOT NULL , PRIMARY KEY (`id`)");
+		new UsefulMethods().loadDadJokes();
+		new UsefulMethods().loadNormalJokes();
+		new UsefulMethods().loadAnimals();
 
 		MySQLManager.select("SELECT * FROM bothelpers", resultSet -> {
 			while(resultSet.next()) {
@@ -79,4 +85,5 @@ public class JarvisBot {
 		});
 
 	}
+
 }
