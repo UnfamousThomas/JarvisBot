@@ -5,16 +5,23 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/JarvisBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/JarvisBot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/api/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/api/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/api/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/api/CommandManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/api/HelpBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/api/HelpBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/developer/AddCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/bothelper/AddCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/api/HelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/api/HelpCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/bothelper/AddCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/bothelper/AddCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/developer/BlacklistCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/developer/BlacklistCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/developer/HelperCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/developer/HelperCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/developer/ShardsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/developer/ShardsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/developer/UnicodeCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/developer/UnicodeCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/fun/DadJokeCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/fun/DadJokeCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/fun/DailyFactsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/fun/dailyfact/DailyFactsCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/fun/JokeCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/fun/JokeCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/fun/dailyfact/DailyFactsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/fun/dailyfact/DailyFactsCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/moderation/ClearCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/moderation/ClearCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/useful/InviteCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/useful/InviteCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/listeners/onGuildMessageReactionAdd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/listeners/onGuildMessageReactionAdd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/utils/DataFields.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/utils/DataFields.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/useful/PingCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/useful/PingCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/useful/info/BotInfoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/useful/info/BotInfoCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/useful/info/ServerInfoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/useful/info/ServerInfoCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/useful/info/UserInfoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/useful/info/UserInfoCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/utils/CustomPermission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/utils/CustomPermission.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -123,7 +130,7 @@
       <workItem from="1577887619740" duration="1444000" />
       <workItem from="1577891130689" duration="4085000" />
       <workItem from="1577900686251" duration="22000" />
-      <workItem from="1577989622117" duration="5865000" />
+      <workItem from="1577989622117" duration="9408000" />
     </task>
     <servers />
   </component>

@@ -15,9 +15,10 @@ public class AddCommand extends Command {
 	public AddCommand() {
 		super("add");
 		minArgs = 2;
-		description = "Adds things. | Usage: `" + DataFields.prefix + "add [dadjoke/joke/fact] (animal) (date) [content]`";
+		description = "Adds things.";
 		category = Categories.BOTHELPER;
 		permission = CustomPermission.BOTHELPER;
+		usage = "`" + DataFields.prefix + "add [dadjoke/joke/fact] (animal) (date) [content]`";
 	}
 	@Override
 	public void run(Member m, List<String> args, MessageReceivedEvent event) {

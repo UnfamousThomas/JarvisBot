@@ -19,6 +19,7 @@ public abstract class Command {
 	public String capitalizedName;
 
 	public CustomPermission permission;
+	public String usage;
 	public int minArgs = 0;
 	public int maxArgs = Integer.MAX_VALUE;
 
@@ -72,12 +73,6 @@ public abstract class Command {
 		}
 
 		switch (permission) {
-			case HELPER:
-				if(!(event.getMember().getPermissions().contains(Permission.valueOf(CustomPermission.HELPER.perm)))) {
-					sendPermissionMessage(textChannel);
-					return;
-				}
-				break;
 			case ADMIN:
 				if(!(event.getMember().getPermissions().contains(Permission.valueOf(CustomPermission.ADMIN.perm)))) {
 					sendPermissionMessage(textChannel);

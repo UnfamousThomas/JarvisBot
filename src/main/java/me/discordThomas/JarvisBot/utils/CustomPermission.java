@@ -2,12 +2,10 @@ package me.discordThomas.JarvisBot.utils;
 
 
 import me.discordThomas.JarvisBot.JarvisBot;
-import net.dv8tion.jda.api.Permission;
 
 public enum CustomPermission {
 	ADMIN("ADMINISTRATOR"),
 	MODERATOR("KICK_MEMBERS"),
-	HELPER("NICKNAME_CHANGE"),
 	MEMBER("MESSAGE_READ"),
 	BOTHELPER("BOTHELPER"),
 	DEV("DEV");

@@ -21,7 +21,8 @@ public class UnicodeCommand extends Command {
 		super("unicode");
 		minArgs = 0;
 		maxArgs = 0;
-		description = "Displays unicode info for developers. | Usage: `" + DataFields.prefix + "unicode`";
+		description = "Displays unicode info for developers.";
+		usage = "`" + DataFields.prefix + "unicode`";
 		category = Categories.DEVELOPER;
 		permission = CustomPermission.DEV;
 	}

@@ -20,14 +20,13 @@ import me.discordThomas.JarvisBot.commands.useful.info.UserInfoCommand;
 import me.discordThomas.JarvisBot.listeners.onGuildMessageReactionAdd;
 import me.discordThomas.JarvisBot.listeners.onReady;
 import me.discordThomas.JarvisBot.utils.DataFields;
+import me.discordThomas.JarvisBot.utils.LoadingMethods;
 import me.discordThomas.JarvisBot.utils.ReadPropertyFile;
-import me.discordThomas.JarvisBot.utils.UsefulMethods;
 import me.discordThomas.JarvisBot.utils.mysql.MySQLManager;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 
 public class JarvisBot {
-
 	public static String[] devids = null;
 	public static void main(String[] args) throws Exception {
 		ReadPropertyFile properties = new ReadPropertyFile();
@@ -74,9 +73,9 @@ public class JarvisBot {
 		MySQLManager.createTable("bothelpers", " `id` INT NOT NULL AUTO_INCREMENT , `userid` BIGINT NOT NULL , `username` TEXT NOT NULL , PRIMARY KEY (`id`)");
 		MySQLManager.createTable("guildbot_settings", " `id` INT NOT NULL AUTO_INCREMENT , `guild` BIGINT NOT NULL , `settings` TEXT NOT NULL , `value` TEXT NOT NULL , PRIMARY KEY (`id`)");
 		MySQLManager.createTable("blacklisted_users", "`id` INT NOT NULL AUTO_INCREMENT , `userid` BIGINT NOT NULL , `reason` TEXT NOT NULL , PRIMARY KEY (`id`)");
-		new UsefulMethods().loadDadJokes();
-		new UsefulMethods().loadNormalJokes();
-		new UsefulMethods().loadAnimals();
+		new LoadingMethods().loadDadJokes();
+		new LoadingMethods().loadNormalJokes();
+		new LoadingMethods().loadAnimals();
 
 		MySQLManager.select("SELECT * FROM bothelpers", resultSet -> {
 			while(resultSet.next()) {

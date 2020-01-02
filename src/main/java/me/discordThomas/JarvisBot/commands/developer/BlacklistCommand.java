@@ -15,6 +15,7 @@ public class BlacklistCommand extends Command {
 		super("blacklist");
 		minArgs = 2;
 		description = "Modifies blacklisted people in the database. | Usage: `" + DataFields.prefix + "blaclist [add/remove] [userID] (reason)`";
+		usage = "`" + DataFields.prefix + "blaclist [add/remove] [userID] (reason)`";
 		category = Categories.DEVELOPER;
 		permission = CustomPermission.DEV;
 	}

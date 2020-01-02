@@ -22,7 +22,8 @@ public class DailyFactsCommand extends Command {
         minArgs = 0;
         maxArgs = 0;
         aliases = alias("df","fact");
-        description = "Tells daily facts about the selected animal. | Usage: `" + DataFields.prefix + "dailyfact`";
+        description = "Tells daily facts about the selected animal.";
+        usage = "`" + DataFields.prefix + "dailyfact`";
         category =  Categories.FUN;
         permission = CustomPermission.MEMBER;
 

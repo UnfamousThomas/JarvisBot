@@ -14,7 +14,8 @@ import java.util.List;
 public class InviteCommand extends Command {
 	public InviteCommand() {
 		super("invite");
-		description = "Get the bots invite. | Usage: `" + DataFields.prefix + "invite`";
+		description = "Get the bots invite.";
+		usage = "`" + DataFields.prefix + "invite`";
 		category = Categories.USEFUL;
 		permission = CustomPermission.MEMBER;
 	}

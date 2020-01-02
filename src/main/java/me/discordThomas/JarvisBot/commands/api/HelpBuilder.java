@@ -73,7 +73,7 @@ public class HelpBuilder {
 		}
 	}
 
-	public  EmbedBuilder helpBuilder(Member m) {
+	EmbedBuilder helpBuilderDev(Member m) {
 		EmbedBuilder builder = new EmbedBuilder();
 		builder.setTitle("Command Help");
 		builder.setColor(Color.decode("#3498db"));
@@ -81,6 +81,52 @@ public class HelpBuilder {
 		builder.addField("Bot Helper Commands", BotHelperCommands.toString(), false);
 		builder.addField("Admin Commands", AdminCommands.toString(), false);
 		builder.addField("Moderation Commands", ModCommands.toString(), false);
+		builder.addField("Fun Commands", FunCommands.toString(), false);
+		builder.addField("Useful Commands", UsefulCommands.toString(), false);
+		builder.setFooter(m.getEffectiveName(), m.getUser().getEffectiveAvatarUrl());
+		return builder;
+	}
+
+	EmbedBuilder helpBuilderBotHelper(Member m) {
+		EmbedBuilder builder = new EmbedBuilder();
+		builder.setTitle("Command Help");
+		builder.setColor(Color.decode("#3498db"));
+		builder.addField("Bot Helper Commands", BotHelperCommands.toString(), false);
+		builder.addField("Admin Commands", AdminCommands.toString(), false);
+		builder.addField("Moderation Commands", ModCommands.toString(), false);
+		builder.addField("Fun Commands", FunCommands.toString(), false);
+		builder.addField("Useful Commands", UsefulCommands.toString(), false);
+		builder.setFooter(m.getEffectiveName(), m.getUser().getEffectiveAvatarUrl());
+		return builder;
+	}
+
+	EmbedBuilder helpBuilderAdmin(Member m) {
+		EmbedBuilder builder = new EmbedBuilder();
+		builder.setTitle("Command Help");
+		builder.setColor(Color.decode("#3498db"));
+		builder.addField("Admin Commands", AdminCommands.toString(), false);
+		builder.addField("Moderation Commands", ModCommands.toString(), false);
+		builder.addField("Fun Commands", FunCommands.toString(), false);
+		builder.addField("Useful Commands", UsefulCommands.toString(), false);
+		builder.setFooter(m.getEffectiveName(), m.getUser().getEffectiveAvatarUrl());
+		return builder;
+	}
+
+	EmbedBuilder helpBuilderMod(Member m) {
+		EmbedBuilder builder = new EmbedBuilder();
+		builder.setTitle("Command Help");
+		builder.setColor(Color.decode("#3498db"));
+		builder.addField("Moderation Commands", ModCommands.toString(), false);
+		builder.addField("Fun Commands", FunCommands.toString(), false);
+		builder.addField("Useful Commands", UsefulCommands.toString(), false);
+		builder.setFooter(m.getEffectiveName(), m.getUser().getEffectiveAvatarUrl());
+		return builder;
+	}
+
+	EmbedBuilder helpBuilderMember(Member m) {
+		EmbedBuilder builder = new EmbedBuilder();
+		builder.setTitle("Command Help");
+		builder.setColor(Color.decode("#3498db"));
 		builder.addField("Fun Commands", FunCommands.toString(), false);
 		builder.addField("Useful Commands", UsefulCommands.toString(), false);
 		builder.setFooter(m.getEffectiveName(), m.getUser().getEffectiveAvatarUrl());

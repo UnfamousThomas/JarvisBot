@@ -19,7 +19,8 @@ public class BotInfoCommand extends Command {
 	public BotInfoCommand() {
 		super("botinfo");
 		minArgs = 0;
-		description = "Tells you info about the bot. | Usage: `" + DataFields.prefix + "botinfo`";
+		description = "Tells you info about the bot.";
+		usage = "`" + DataFields.prefix + "botinfo`";
 		category = Categories.USEFUL;
 		permission = CustomPermission.MEMBER;
 

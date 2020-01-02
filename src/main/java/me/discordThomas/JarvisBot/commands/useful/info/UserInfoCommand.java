@@ -20,10 +20,10 @@ public class UserInfoCommand extends Command {
         super("userinfo");
         minArgs = 0;
         maxArgs = 1;
-        description = "Tells you info about a user. | Usage: `" + DataFields.prefix + "userinfo (username / id)`";
+        description = "Tells you info about a user.";
         category =  Categories.USEFUL;
         permission = CustomPermission.MEMBER;
-
+        usage = "`" + DataFields.prefix + "userinfo (username / id)`";
     }
     @Override
     public void run(Member m, List<String> args, MessageReceivedEvent event) {
@@ -78,16 +78,6 @@ public class UserInfoCommand extends Command {
         return builder.build();
     }
 
-    private String convertVerificationLevel(Guild.VerificationLevel verificationLevel) {
-        String[] names = verificationLevel.name().toLowerCase().split("_");
-        StringBuilder out = new StringBuilder();
-
-        for(String name : names) {
-            out.append(Character.toUpperCase(name.charAt(0))).append(name.substring(1)).append(" ");
-        }
-
-        return out.toString().trim();
-    }
 
 
 }

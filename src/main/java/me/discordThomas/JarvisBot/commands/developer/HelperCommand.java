@@ -18,7 +18,8 @@ public class HelperCommand extends Command {
 		super("helper");
 		minArgs = 2;
 		maxArgs = 3;
-		description = "Modifies helpers in the database. | Usage: `" + DataFields.prefix + "helper [add/remove] [userID] (name)`";
+		description = "Modifies helpers in the database.";
+		usage = "`" + DataFields.prefix + "helper [add/remove] [userID] (name)`";
 		category = Categories.DEVELOPER;
 		permission = CustomPermission.DEV;
 	}

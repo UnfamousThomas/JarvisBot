@@ -24,7 +24,8 @@ public class JokeCommand extends Command {
         minArgs = 0;
         maxArgs = 0;
         aliases = alias("funny");
-        description = "Tells a joke! | Usage: `" + DataFields.prefix + "joke`";
+        description = "Tells a joke!";
+        usage = "`" + DataFields.prefix + "joke`";
         category =  Categories.FUN;
         permission = CustomPermission.MEMBER;
 

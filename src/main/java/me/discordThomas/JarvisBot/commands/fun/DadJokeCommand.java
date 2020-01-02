@@ -22,7 +22,8 @@ public class DadJokeCommand extends Command {
 	public DadJokeCommand() {
 		super("dadjoke");
 		minArgs = 0;
-		description = "A command for dad jokes | Usage: `" + DataFields.prefix + "dadjoke`";
+		description = "A command for dad jokes.";
+		usage = "`" + DataFields.prefix + "dadjoke`";
 		category = Categories.FUN;
 		permission = CustomPermission.MEMBER;
 	}

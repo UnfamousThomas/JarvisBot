@@ -15,8 +15,8 @@ public class ClearCommand extends Command {
 	public ClearCommand() {
 		super("clear");
 		maxArgs = 2;
-		description = "A command to clear the chat! | If no args specified, clears 10 messages in current channel. Usage: `" + DataFields.prefix +
-		"clear (amount) (channel)`";
+		description = "A command to clear the chat! | If no args specified, clears 10 messages in current channel.";
+		usage = "`" + DataFields.prefix + "clear (amount) (channel)`";
 		category = Categories.MODERATE;
 		permission = CustomPermission.MODERATOR;
 	}

@@ -21,7 +21,8 @@ public class ServerInfoCommand extends Command {
     public ServerInfoCommand(){
         super("serverinfo");
         minArgs = 0;
-        description = "Tells you info about the server. | Usage: `" + DataFields.prefix + "serverinfo`";
+        description = "Tells you info about the server.";
+        usage = "`" + DataFields.prefix + "serverinfo`";
         category =  Categories.USEFUL;
         permission = CustomPermission.MEMBER;
 

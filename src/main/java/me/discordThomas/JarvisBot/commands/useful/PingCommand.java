@@ -8,14 +8,14 @@ import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.List;
-import java.util.Objects;
 
 public class PingCommand extends Command {
 	public PingCommand() {
 		super("ping");
 		maxArgs = 0;
 		minArgs = 0;
-		description = "A command to ping the bot! | Usage: `" + DataFields.prefix + "ping`";
+		description = "A command to ping the bot!";
+		usage = "`" + DataFields.prefix + "ping`";
 		category = Categories.USEFUL;
 		permission = CustomPermission.MEMBER;
 	}
