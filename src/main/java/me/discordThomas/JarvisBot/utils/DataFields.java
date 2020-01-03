@@ -1,6 +1,7 @@
 package me.discordThomas.JarvisBot.utils;
 
 import me.discordThomas.JarvisBot.commands.fun.dailyfact.Animal;
+import net.dv8tion.jda.api.entities.Guild;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,7 +13,7 @@ public class DataFields {
 
 	public static HashMap<Long, Long> factsMap = new HashMap<>();
 
-	public static List<Long> botHelperList = new ArrayList<>();
+	public static HashMap<Long, String> botHelperList = new HashMap<>();
 
 	public static List<String> dadJokesList = new ArrayList<>();
 
@@ -20,7 +21,9 @@ public class DataFields {
 
 	public static HashMap<Animal, String> factsStringMap = new HashMap<>(3);
 
-	public static List<Long> blacklistedPeopleList = new ArrayList<>();
+	public static HashMap<Long, String> blacklistedPeopleList = new HashMap<>();
+
+	public static List<Guild> guildsList = new ArrayList<>();
 
 	public static String prefix = ".";
 
@@ -32,11 +35,5 @@ public class DataFields {
 		}
 	}
 
-	public static void addBotHelper(long userID) {
-		botHelperList.add(userID);
-	}
 
-	public static void addBlacklist(long userID) {
-		blacklistedPeopleList.add(userID);
-	}
 }

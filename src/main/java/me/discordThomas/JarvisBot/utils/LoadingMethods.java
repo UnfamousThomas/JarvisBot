@@ -47,7 +47,7 @@ public class LoadingMethods {
 		MySQLManager.select("SELECT * FROM blacklisted_users", resultSet -> {
 			while (resultSet.next()) {
 				Long id = resultSet.getLong("userid");
-				DataFields.blacklistedPeopleList.add(id);
+				DataFields.blacklistedPeopleList.put(id, resultSet.getString("reason"));
 			}
 		});
 	}

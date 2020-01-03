@@ -37,7 +37,7 @@ public class HelperCommand extends Command {
 							userID,
 							name);
 
-					DataFields.addBotHelper(userID);
+					DataFields.botHelperList.put(userID, name);
 					event.getChannel().sendMessage("Bot helper has been added.").queue();
 				} catch (Exception ex) {
 					event.getChannel().sendMessage("Something went wrong. Try again!").queue();

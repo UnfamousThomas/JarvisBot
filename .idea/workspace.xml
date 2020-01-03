@@ -4,11 +4,15 @@
     <list default="true" id="6b77d5a8-68f0-440d-a4f7-d36852fefd60" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/JarvisBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/JarvisBot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/useful/info/BotInfoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/useful/info/BotInfoCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/useful/info/ServerInfoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/useful/info/ServerInfoCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/useful/info/UserInfoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/useful/info/UserInfoCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/api/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/api/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/api/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/api/CommandManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/api/HelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/api/HelpCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/developer/BlacklistCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/developer/BlacklistCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/developer/HelperCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/developer/HelperCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/listeners/onReady.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/listeners/onReady.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/settings/SettingManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/settings/SettingManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/settings/SettingType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/settings/SettingType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/utils/DataFields.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/utils/DataFields.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/utils/LoadingMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/utils/LoadingMethods.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,6 +56,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -161,7 +166,7 @@
       <workItem from="1577891130689" duration="4085000" />
       <workItem from="1577900686251" duration="22000" />
       <workItem from="1577989622117" duration="12308000" />
-      <workItem from="1578007748186" duration="5478000" />
+      <workItem from="1578007748186" duration="10441000" />
     </task>
     <servers />
   </component>

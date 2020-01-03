@@ -37,7 +37,7 @@ public class HelpCommand extends Command {
 				event.getMember().getUser().openPrivateChannel().queue(channel -> channel.sendMessage(builder.helpBuilderDev(event.getMember()).build()).queue());
 				return;
 			}
-			if (DataFields.botHelperList.contains(id)) {
+			if (DataFields.botHelperList.get(id) != null) {
 				event.getMember().getUser().openPrivateChannel().queue(channel -> channel.sendMessage(builder.helpBuilderBotHelper(event.getMember()).build()).queue());
 				return;
 			}

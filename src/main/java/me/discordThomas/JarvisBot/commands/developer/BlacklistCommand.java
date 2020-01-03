@@ -35,7 +35,7 @@ public class BlacklistCommand extends Command {
 							userID,
 							reason);
 
-					DataFields.addBlacklist(userID);
+					DataFields.blacklistedPeopleList.put(userID, reason);
 					event.getChannel().sendMessage("User has been blacklisted.").queue();
 				} catch (Exception ex) {
 					event.getChannel().sendMessage("Something went wrong. Try again!").queue();

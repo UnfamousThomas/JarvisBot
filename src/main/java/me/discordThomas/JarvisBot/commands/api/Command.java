@@ -64,7 +64,7 @@ public abstract class Command {
 					return;
 				}
 			} else {
-				if (!(DataFields.botHelperList.contains(event.getAuthor().getIdLong())) && !(Arrays.asList(permission.returnDev()).contains(event.getAuthor().getId()))) {
+				if (DataFields.botHelperList.get(event.getAuthor().getIdLong()) != null && !(Arrays.asList(permission.returnDev()).contains(event.getAuthor().getId()))) {
 					sendPermissionMessage(textChannel);
 					return;
 				}
