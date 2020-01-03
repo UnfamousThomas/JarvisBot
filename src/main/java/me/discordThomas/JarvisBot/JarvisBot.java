@@ -26,20 +26,27 @@ import me.discordThomas.JarvisBot.utils.mysql.MySQLManager;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class JarvisBot {
 	public static String[] devids = null;
 	public static void main(String[] args) throws Exception {
-		ReadPropertyFile properties = new ReadPropertyFile();
-		String key = properties.getPropValues().get("key");
-		String pass = properties.getPropValues().get("mysqlpass");
-		int shards = Integer.parseInt(properties.getPropValues().get("shards"));
-		devids = properties.getPropValues().get("devs").split(",");
-		DataFields.setPrefix(properties.getPropValues().get("prefix"));
+		ReadPropertyFile readPropertyFile = new ReadPropertyFile();
+		Map<String, String> results = readPropertyFile.getPropValues();
+		String key = results.get("key");
+		String pass = results.get("mysqlpass");
+		int shards = Integer.parseInt(results.get("shards"));
+		devids = results.get("devs").split(",");
+		DataFields.setPrefix(results.get("prefix"));
 		JDABuilder shardBuilder = new JDABuilder(key);
 		CommandManager.init(shardBuilder);
 		shardBuilder.setStatus(OnlineStatus.ONLINE);
 		shardBuilder.addEventListeners(new onReady());
 		shardBuilder.addEventListeners(new onGuildMessageReactionAdd());
+		String version = results.get("version");
+		DataFields.version = "#" + (Integer.parseInt(version) + 1);
 
 		CommandManager.registerCommands(
 				new ShardsCommand(),
@@ -83,6 +90,7 @@ public class JarvisBot {
 			}
 		});
 
+		readPropertyFile.setVersion(version);
 	}
 
 }

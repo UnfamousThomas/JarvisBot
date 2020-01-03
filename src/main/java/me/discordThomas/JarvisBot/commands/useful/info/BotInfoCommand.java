@@ -39,6 +39,7 @@ public class BotInfoCommand extends Command {
 		builder.addField("Guild Amount", String.valueOf(jda.getGuilds().size()), true);
 		builder.addField("Created At", jda.getSelfUser().getTimeCreated().format(DateTimeFormatter.RFC_1123_DATE_TIME), true);
 		builder.addBlankField(false);
+		builder.addField("Build Version", DataFields.version, false);
 		builder.setThumbnail(jda.getSelfUser().getEffectiveAvatarUrl());
 		builder.setColor(Color.decode("#3498db"));
 		builder.setFooter(jda.getSelfUser().getName(), jda.getSelfUser().getEffectiveAvatarUrl());

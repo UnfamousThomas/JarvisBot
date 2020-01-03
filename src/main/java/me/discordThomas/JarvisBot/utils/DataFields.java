@@ -24,6 +24,8 @@ public class DataFields {
 
 	public static String prefix = ".";
 
+	public static String version = "#1";
+
 	public static void setPrefix(String newPrefix) {
 		if(newPrefix != null) {
 			prefix = newPrefix;
