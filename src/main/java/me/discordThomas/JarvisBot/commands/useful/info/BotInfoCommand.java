@@ -34,9 +34,12 @@ public class BotInfoCommand extends Command {
 		EmbedBuilder builder = new EmbedBuilder();
 		builder.setTitle("Bot Info");
 		builder.addField("Developers", "**Sheep & UnfamousThomas**", true);
-		builder.addField("Bots ping", String.valueOf(jda.getGatewayPing()), true);
-		builder.addField("Shards guild amount", String.valueOf(jda.getGuilds().size()), true);
+		builder.addField("Bot Gateway ping", String.valueOf(jda.getGatewayPing()), true);
+		builder.addField("Guild amount", String.valueOf(DataFields.guildsList.size()), true);
 		builder.addField("Bots account created at", jda.getSelfUser().getTimeCreated().format(DateTimeFormatter.RFC_1123_DATE_TIME), true);
+		builder.addBlankField(false);
+		builder.addField("Public Discord", "[LINK](https://discord.gg/7nCEAvA)", false);
+		builder.addField("Bot Invite:", "[LINK](https://discordapp.com/api/oauth2/authorize?client_id=658780975496691716&permissions=8&scope=bot)", true);
 		builder.addBlankField(false);
 		builder.addField("Build version", DataFields.version, false);
 		builder.setThumbnail(jda.getSelfUser().getEffectiveAvatarUrl());

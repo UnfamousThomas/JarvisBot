@@ -74,6 +74,8 @@ public class JarvisBot {
 			for (int i = 0; i < shards; i++) {
 				shardBuilder.useSharding(i, shards);
 				instanceList.add(shardBuilder.build());
+				//TODO: IMPLEMENT MUSIC (LAVAPLAYER)
+				//TODO: ONCE WE HAVE OVER 1k GUILDS - Implement usage of Lavalink to use multiple nodes for music
 			}
 
 			MySQLManager.init("164.132.207.169", "JarvisDC", "Jarvis", pass);
