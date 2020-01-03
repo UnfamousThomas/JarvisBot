@@ -9,8 +9,8 @@ import me.discordThomas.JarvisBot.commands.developer.HelperCommand;
 import me.discordThomas.JarvisBot.commands.developer.ShardsCommand;
 import me.discordThomas.JarvisBot.commands.developer.UnicodeCommand;
 import me.discordThomas.JarvisBot.commands.fun.DadJokeCommand;
-import me.discordThomas.JarvisBot.commands.fun.dailyfact.DailyFactsCommand;
 import me.discordThomas.JarvisBot.commands.fun.JokeCommand;
+import me.discordThomas.JarvisBot.commands.fun.dailyfact.DailyFactsCommand;
 import me.discordThomas.JarvisBot.commands.moderation.ClearCommand;
 import me.discordThomas.JarvisBot.commands.useful.InviteCommand;
 import me.discordThomas.JarvisBot.commands.useful.PingCommand;
@@ -26,12 +26,12 @@ import me.discordThomas.JarvisBot.utils.mysql.MySQLManager;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class JarvisBot {
 	public static String[] devids = null;
+
 	public static void main(String[] args) throws Exception {
 		ReadPropertyFile readPropertyFile = new ReadPropertyFile();
 		Map<String, String> results = readPropertyFile.getPropValues();
@@ -45,9 +45,6 @@ public class JarvisBot {
 		shardBuilder.setStatus(OnlineStatus.ONLINE);
 		shardBuilder.addEventListeners(new onReady());
 		shardBuilder.addEventListeners(new onGuildMessageReactionAdd());
-		String version = results.get("version");
-		DataFields.version = "#" + (Integer.parseInt(version) + 1);
-
 		CommandManager.registerCommands(
 				new ShardsCommand(),
 				new HelpCommand(),
@@ -68,7 +65,7 @@ public class JarvisBot {
 
 		);
 
-		for(int i = 0; i < shards; i++) {
+		for (int i = 0; i < shards; i++) {
 			shardBuilder.useSharding(i, shards)
 					.build();
 		}
@@ -80,17 +77,26 @@ public class JarvisBot {
 		MySQLManager.createTable("bothelpers", " `id` INT NOT NULL AUTO_INCREMENT , `userid` BIGINT NOT NULL , `username` TEXT NOT NULL , PRIMARY KEY (`id`)");
 		MySQLManager.createTable("guildbot_settings", " `id` INT NOT NULL AUTO_INCREMENT , `guild` BIGINT NOT NULL , `settings` TEXT NOT NULL , `value` TEXT NOT NULL , PRIMARY KEY (`id`)");
 		MySQLManager.createTable("blacklisted_users", "`id` INT NOT NULL AUTO_INCREMENT , `userid` BIGINT NOT NULL , `reason` TEXT NOT NULL , PRIMARY KEY (`id`)");
+		MySQLManager.createTable("bot_version", " `version` INT NOT NULL");
 		new LoadingMethods().loadDadJokes();
 		new LoadingMethods().loadNormalJokes();
 		new LoadingMethods().loadAnimals();
 
 		MySQLManager.select("SELECT * FROM bothelpers", resultSet -> {
-			while(resultSet.next()) {
+			while (resultSet.next()) {
 				DataFields.addBotHelper(resultSet.getLong("userid"));
 			}
 		});
+		AtomicInteger version = new AtomicInteger();
+		MySQLManager.select("SELECT * FROM bot_version", resultSet -> {
+			if (resultSet.next()) {
+				version.set(resultSet.getInt("version"));
 
-		readPropertyFile.setVersion(version);
+				DataFields.version = "#" + (version.get() + 1);
+				MySQLManager.execute("UPDATE bot_version SET version=?",
+						(version.get() + 1));
+			}
+		});
 	}
 
 }

@@ -32,7 +32,7 @@ public class Logger {
 				System.out.println(GREEN + "[SUCCESS] " + WHITE + message);
 				break;
 			case OUTLINE:
-				System.out.println(WHITE +  message);
+				System.out.println(WHITE + message);
 				break;
 		}
 	}
@@ -59,6 +59,6 @@ public class Logger {
 
 	}
 
-	public enum Level { ERROR, WARNING, INFO, SUCCESS, OUTLINE }
+	public enum Level {ERROR, WARNING, INFO, SUCCESS, OUTLINE}
 
 }

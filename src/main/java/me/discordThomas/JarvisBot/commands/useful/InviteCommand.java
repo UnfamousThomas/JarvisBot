@@ -19,6 +19,7 @@ public class InviteCommand extends Command {
 		category = Categories.USEFUL;
 		permission = CustomPermission.MEMBER;
 	}
+
 	@Override
 	public void run(Member m, List<String> args, MessageReceivedEvent event) {
 		event.getChannel().sendMessage(inviteBuilder().build()).queue();

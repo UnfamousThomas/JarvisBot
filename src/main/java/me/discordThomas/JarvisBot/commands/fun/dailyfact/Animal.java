@@ -5,5 +5,6 @@ public enum Animal {
 	SQUID,
 	SHEEP;
 
-	Animal(){}
+	Animal() {
+	}
 }

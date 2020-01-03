@@ -24,7 +24,7 @@ public class HelpCommand extends Command {
 		category = Categories.USEFUL;
 		permission = CustomPermission.MEMBER;
 		aliases = alias("ah", "ehh");
-		usage =  "`" + DataFields.prefix + "help (command)`";
+		usage = "`" + DataFields.prefix + "help (command)`";
 	}
 
 	@Override

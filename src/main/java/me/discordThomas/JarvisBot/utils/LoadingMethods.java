@@ -27,17 +27,17 @@ public class LoadingMethods {
 
 	public void loadAnimals() {
 		MySQLManager.select("SELECT * from daily_facts WHERE animal='SHEEP' AND date=CURRENT_DATE", resultSet -> {
-			if(resultSet.next()) {
+			if (resultSet.next()) {
 				DataFields.factsStringMap.put(Animal.SHEEP, resultSet.getString("fact"));
 			}
 		});
 		MySQLManager.select("SELECT * from daily_facts WHERE animal='SQUID' AND date=CURRENT_DATE", resultSet -> {
-			if(resultSet.next()) {
+			if (resultSet.next()) {
 				DataFields.factsStringMap.put(Animal.SQUID, resultSet.getString("fact"));
 			}
 		});
 		MySQLManager.select("SELECT * from daily_facts WHERE animal='CHICKEN' AND date=CURRENT_DATE", resultSet -> {
-			if(resultSet.next()) {
+			if (resultSet.next()) {
 				DataFields.factsStringMap.put(Animal.CHICKEN, resultSet.getString("fact"));
 			}
 		});
@@ -45,7 +45,7 @@ public class LoadingMethods {
 
 	public void loadBlacklists() {
 		MySQLManager.select("SELECT * FROM blacklisted_users", resultSet -> {
-			while(resultSet.next()) {
+			while (resultSet.next()) {
 				Long id = resultSet.getLong("userid");
 				DataFields.blacklistedPeopleList.add(id);
 			}

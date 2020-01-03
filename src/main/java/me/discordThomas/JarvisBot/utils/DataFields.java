@@ -27,7 +27,7 @@ public class DataFields {
 	public static String version = "#1";
 
 	public static void setPrefix(String newPrefix) {
-		if(newPrefix != null) {
+		if (newPrefix != null) {
 			prefix = newPrefix;
 		}
 	}
@@ -36,5 +36,7 @@ public class DataFields {
 		botHelperList.add(userID);
 	}
 
-	public static void addBlacklist(long userID) { blacklistedPeopleList.add(userID); }
- }
+	public static void addBlacklist(long userID) {
+		blacklistedPeopleList.add(userID);
+	}
+}

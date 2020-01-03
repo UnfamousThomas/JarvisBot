@@ -20,6 +20,7 @@ public class AddCommand extends Command {
 		permission = CustomPermission.BOTHELPER;
 		usage = "`" + DataFields.prefix + "add [dadjoke/joke/fact] (animal) (date) [content]`";
 	}
+
 	@Override
 	public void run(Member m, List<String> args, MessageReceivedEvent event) {
 		String type = args.get(0).toLowerCase();

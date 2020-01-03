@@ -4,7 +4,6 @@ import me.discordThomas.JarvisBot.commands.api.Categories;
 import me.discordThomas.JarvisBot.commands.api.Command;
 import me.discordThomas.JarvisBot.utils.CustomPermission;
 import me.discordThomas.JarvisBot.utils.DataFields;
-import me.discordThomas.JarvisBot.utils.mysql.MySQLManager;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
@@ -30,7 +29,7 @@ public class DadJokeCommand extends Command {
 
 	@Override
 	public void run(Member m, List<String> args, MessageReceivedEvent event) {
-		if(DataFields.dadJokesList.size() > 0) {
+		if (DataFields.dadJokesList.size() > 0) {
 			int jokeIndex = new Random().nextInt(DataFields.dadJokesList.size());
 			String jokeText = DataFields.dadJokesList.get(jokeIndex);
 			event.getChannel().sendMessage(jokeEmbed(event.getGuild(), jokeText)).queue();

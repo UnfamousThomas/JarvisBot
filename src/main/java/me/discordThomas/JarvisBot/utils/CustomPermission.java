@@ -9,11 +9,15 @@ public enum CustomPermission {
 	MEMBER("MESSAGE_READ"),
 	BOTHELPER("BOTHELPER"),
 	DEV("DEV");
+
 	CustomPermission(String perm) {
 		this.perm = perm;
 	}
+
 	public String perm;
-	public String[] returnDev() { return JarvisBot.devids;
+
+	public String[] returnDev() {
+		return JarvisBot.devids;
 	}
 
 }

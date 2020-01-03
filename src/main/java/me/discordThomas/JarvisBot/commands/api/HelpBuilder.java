@@ -16,14 +16,15 @@ public class HelpBuilder {
 	public void addCommand(Command command) {
 		switch (command.category) {
 			case DEVELOPER:
-				if(!(command.permission == null)) {
+				if (!(command.permission == null)) {
 					DevCommands.append("\n").append("*").append(command.capitalizedName).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());
 				} else {
-					DevCommands.append("\n").append("*").append(command.capitalizedName).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());				}
+					DevCommands.append("\n").append("*").append(command.capitalizedName).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());
+				}
 				break;
 
 			case ADMIN:
-				if(!(command.permission == null)) {
+				if (!(command.permission == null)) {
 					AdminCommands.append("\n").append("*").append(command.capitalizedName).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());
 
 				} else {
@@ -33,7 +34,7 @@ public class HelpBuilder {
 				break;
 
 			case FUN:
-				if(!(command.permission == null)) {
+				if (!(command.permission == null)) {
 					FunCommands.append("\n").append("*").append(command.capitalizedName).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());
 
 				} else {
@@ -43,7 +44,7 @@ public class HelpBuilder {
 				break;
 
 			case USEFUL:
-				if(!(command.permission == null)) {
+				if (!(command.permission == null)) {
 					UsefulCommands.append("\n").append("*").append(command.capitalizedName).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());
 
 				} else {
@@ -53,7 +54,7 @@ public class HelpBuilder {
 				break;
 
 			case MODERATE:
-				if(!(command.permission == null)) {
+				if (!(command.permission == null)) {
 					ModCommands.append("\n").append("*").append(command.capitalizedName).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());
 
 				} else {
@@ -62,7 +63,7 @@ public class HelpBuilder {
 				}
 				break;
 			case BOTHELPER:
-				if(!(command.permission == null)) {
+				if (!(command.permission == null)) {
 					BotHelperCommands.append("\n").append("*").append(command.capitalizedName).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());
 
 				} else {

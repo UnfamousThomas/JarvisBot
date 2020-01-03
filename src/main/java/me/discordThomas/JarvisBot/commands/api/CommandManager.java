@@ -23,7 +23,7 @@ public class CommandManager extends ListenerAdapter {
 		Logger.log(Logger.Level.INFO, "Attempting to register discord command: " + command.name);
 		instance.commands.put(command.name.toLowerCase(), command);
 
-		for(String alias : command.aliases)
+		for (String alias : command.aliases)
 			instance.commands.put(alias.toLowerCase(), command);
 
 		helpBuilder.addCommand(command);
@@ -31,11 +31,11 @@ public class CommandManager extends ListenerAdapter {
 	}
 
 	public static void registerCommands(Command... commands) {
-		for(Command command: commands)
+		for (Command command : commands)
 			registerCommand(command);
 	}
 
-	public static void init(JDABuilder builder)  {
+	public static void init(JDABuilder builder) {
 		CommandManager manager = new CommandManager();
 		instance = manager;
 		builder.addEventListeners(manager);
@@ -48,11 +48,11 @@ public class CommandManager extends ListenerAdapter {
 	}
 
 	public void onMessageReceived(MessageReceivedEvent event) {
-		if(DataFields.blacklistedPeopleList.contains(event.getAuthor().getIdLong())) return;
-		if(prefix == null) prefix = ".";
+		if (DataFields.blacklistedPeopleList.contains(event.getAuthor().getIdLong())) return;
+		if (prefix == null) prefix = ".";
 
 		String[] argArray = event.getMessage().getContentRaw().split(" ");
-		if(!event.getAuthor().isBot()) {
+		if (!event.getAuthor().isBot()) {
 			if (argArray[0].startsWith(prefix)) {
 				String commandStr = argArray[0].substring(1);
 
@@ -64,6 +64,7 @@ public class CommandManager extends ListenerAdapter {
 				}
 
 			}
-		}}
+		}
+	}
 
 }

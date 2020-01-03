@@ -17,6 +17,7 @@ public class LeaveCommand extends Command {
 		category = Categories.ADMIN;
 		permission = CustomPermission.ADMIN;
 	}
+
 	@Override
 	public void run(Member m, List<String> args, MessageReceivedEvent event) {
 		event.getGuild().leave().queue();

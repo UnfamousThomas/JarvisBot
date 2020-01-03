@@ -26,7 +26,7 @@ public class ClearCommand extends Command {
 		switch (args.size()) {
 			case 0:
 				event.getTextChannel().getHistory().retrievePast(11).queue(messages -> messages.forEach(message -> {
-					if(message != null) {
+					if (message != null) {
 						message.delete().queue();
 					}
 				}));
@@ -38,9 +38,9 @@ public class ClearCommand extends Command {
 				try {
 					int amountInt = Integer.parseInt(amount);
 					event.getTextChannel().getHistory().retrievePast(amountInt + 1).queue(messages -> messages.forEach(message -> {
-								if(message != null) {
-									message.delete().queue();
-								}
+						if (message != null) {
+							message.delete().queue();
+						}
 					}));
 					event.getChannel().sendMessage(amount + " messages have been deleted from " + event.getTextChannel().getAsMention()).queue(message -> message.delete().queueAfter(1, TimeUnit.MINUTES));
 
@@ -53,20 +53,20 @@ public class ClearCommand extends Command {
 				String amountString = args.get(0);
 				String channel = args.get(1);
 				TextChannel textChannel = null;
-				if(event.getMessage().getMentionedChannels().size() != 0) {
+				if (event.getMessage().getMentionedChannels().size() != 0) {
 					textChannel = event.getMessage().getMentionedChannels().get(0);
-				} else if(event.getMessage().getMentionedChannels().size() >= 1){
+				} else if (event.getMessage().getMentionedChannels().size() >= 1) {
 					textChannel = event.getGuild().getTextChannelsByName(channel, true).get(0);
 				}
 
-				if(textChannel == null) {
+				if (textChannel == null) {
 					event.getChannel().sendMessage("Error finding channel. Try again: `.clear (amount) (channel)`").queue();
 					return;
 				}
 				try {
 					int amountInt = Integer.parseInt(amountString);
 					textChannel.getHistory().retrievePast(amountInt).queue(messages -> messages.forEach(message -> {
-						if(message != null) {
+						if (message != null) {
 							message.delete().queue();
 						}
 					}));
