@@ -1,5 +1,8 @@
 package me.discordThomas.JarvisBot.settings;
 
+import me.discordThomas.JarvisBot.utils.mysql.MySQLManager;
+import net.dv8tion.jda.api.JDABuilder;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -11,5 +14,7 @@ public class SettingManager {
 		return SettingsMap.get(id);
 	}
 
+	public void loadSettings(JDABuilder builder) {
+	}
 
 }

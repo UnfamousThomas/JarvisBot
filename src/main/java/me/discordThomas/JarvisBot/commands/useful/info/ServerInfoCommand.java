@@ -35,9 +35,9 @@ public class ServerInfoCommand extends Command {
 		builder.setTitle("Server Info");
 		builder.addField("Owner", g.getOwner().getEffectiveName(), true);
 		builder.addField("Boosts", String.valueOf(g.getBoostCount()), true);
-		builder.addField("Boost Level", String.valueOf(g.getBoostTier().getKey()), true);
-		builder.addField("Created At", g.getTimeCreated().format(DateTimeFormatter.RFC_1123_DATE_TIME), true);
-		builder.addField("Verification Level", convertVerificationLevel(g.getVerificationLevel()), true);
+		builder.addField("Boost level", String.valueOf(g.getBoostTier().getKey()), true);
+		builder.addField("Created at", g.getTimeCreated().format(DateTimeFormatter.RFC_1123_DATE_TIME), true);
+		builder.addField("Verification level", convertVerificationLevel(g.getVerificationLevel()), true);
 		builder.addField("Region", g.getRegion().getName(), true);
 		builder.addBlankField(false);
 		builder.addField("Using Shard", String.valueOf(shard), true);

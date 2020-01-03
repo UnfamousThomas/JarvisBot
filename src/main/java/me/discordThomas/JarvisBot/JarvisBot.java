@@ -15,6 +15,7 @@ import me.discordThomas.JarvisBot.commands.moderation.ClearCommand;
 import me.discordThomas.JarvisBot.commands.useful.InviteCommand;
 import me.discordThomas.JarvisBot.commands.useful.PingCommand;
 import me.discordThomas.JarvisBot.commands.useful.info.BotInfoCommand;
+import me.discordThomas.JarvisBot.commands.useful.info.BotVersionCommand;
 import me.discordThomas.JarvisBot.commands.useful.info.ServerInfoCommand;
 import me.discordThomas.JarvisBot.commands.useful.info.UserInfoCommand;
 import me.discordThomas.JarvisBot.listeners.onGuildMessageReactionAdd;
@@ -61,7 +62,8 @@ public class JarvisBot {
 				new LeaveCommand(),
 				new UserInfoCommand(),
 				new BotInfoCommand(),
-				new BlacklistCommand()
+				new BlacklistCommand(),
+				new BotVersionCommand()
 
 		);
 

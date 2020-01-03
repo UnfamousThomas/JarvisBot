@@ -1,7 +1,8 @@
 package me.discordThomas.JarvisBot.settings;
 
 public enum SettingType {
-	MODERATION_CHANNEL;
+	MODERATION_CHANNEL,
+	WELCOME_MESSAGE;
 
 	SettingType() {
 

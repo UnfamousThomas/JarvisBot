@@ -23,6 +23,7 @@ public class UserInfoCommand extends Command {
 		category = Categories.USEFUL;
 		permission = CustomPermission.MEMBER;
 		usage = "`" + DataFields.prefix + "userinfo (username / id)`";
+		aliases = alias("whoami");
 	}
 
 	@Override

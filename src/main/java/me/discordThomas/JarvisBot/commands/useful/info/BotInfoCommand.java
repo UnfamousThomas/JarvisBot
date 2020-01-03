@@ -33,12 +33,12 @@ public class BotInfoCommand extends Command {
 	private MessageEmbed BotInfo(JDA jda) {
 		EmbedBuilder builder = new EmbedBuilder();
 		builder.setTitle("Bot Info");
-		builder.addField("Developers", "**WhatIsASheep & UnfamousThomas**", true);
-		builder.addField("Ping", String.valueOf(jda.getGatewayPing()), true);
-		builder.addField("Guild Amount", String.valueOf(jda.getGuilds().size()), true);
-		builder.addField("Created At", jda.getSelfUser().getTimeCreated().format(DateTimeFormatter.RFC_1123_DATE_TIME), true);
+		builder.addField("Developers", "**Sheep & UnfamousThomas**", true);
+		builder.addField("Bots ping", String.valueOf(jda.getGatewayPing()), true);
+		builder.addField("Shards guild amount", String.valueOf(jda.getGuilds().size()), true);
+		builder.addField("Bots account created at", jda.getSelfUser().getTimeCreated().format(DateTimeFormatter.RFC_1123_DATE_TIME), true);
 		builder.addBlankField(false);
-		builder.addField("Build Version", DataFields.version, false);
+		builder.addField("Build version", DataFields.version, false);
 		builder.setThumbnail(jda.getSelfUser().getEffectiveAvatarUrl());
 		builder.setColor(Color.decode("#3498db"));
 		builder.setFooter(jda.getSelfUser().getName(), jda.getSelfUser().getEffectiveAvatarUrl());
