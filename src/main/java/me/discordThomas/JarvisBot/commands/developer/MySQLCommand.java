@@ -16,7 +16,7 @@ public class MySQLCommand extends Command {
 		super("sql");
 		aliases = alias("mysql", "db");
 		description = "Used to interact with sql";
-		usage = DataFields.prefix + "sql" + "[type] [query]";
+		usage = "`" + DataFields.prefix + "sql" + "[type] [query]" + "`";
 		minArgs = 2;
 		permission = CustomPermission.DEV;
 		category = Categories.DEVELOPER;

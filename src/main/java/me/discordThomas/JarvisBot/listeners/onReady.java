@@ -9,10 +9,8 @@ public class onReady extends ListenerAdapter {
 
 	@Override
 	public void onReady(ReadyEvent event) {
-		event.getJDA().getPresence().setActivity(Activity.of(Activity.ActivityType.DEFAULT, ".help | Using " + event.getJDA().getShardInfo().getShardTotal() + " shards."));
+		//event.getJDA().getPresence().setActivity(Activity.of(Activity.ActivityType.DEFAULT, ".help | Using " + event.getJDA().getShardInfo().getShardTotal() + " shards."));
 
-		event.getJDA().getGuilds().forEach(guild -> {
-			DataFields.guildsList.add(guild);
-		});
+		DataFields.guildsList.addAll(event.getJDA().getGuilds());
 	}
 }

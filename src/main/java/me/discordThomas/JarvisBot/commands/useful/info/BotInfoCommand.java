@@ -33,7 +33,7 @@ public class BotInfoCommand extends Command {
 	private MessageEmbed BotInfo(JDA jda) {
 		EmbedBuilder builder = new EmbedBuilder();
 		builder.setTitle("Bot Info");
-		builder.addField("Developers", "**Sheep & UnfamousThomas**", true);
+		builder.addField("Developers", "**Sheep, UnfamousThomas & OhhhZenix**", true);
 		builder.addField("Bot Gateway ping", String.valueOf(jda.getGatewayPing()), true);
 		builder.addField("Guild amount", String.valueOf(DataFields.guildsList.size()), true);
 		builder.addField("Bots account created at", jda.getSelfUser().getTimeCreated().format(DateTimeFormatter.RFC_1123_DATE_TIME), true);
