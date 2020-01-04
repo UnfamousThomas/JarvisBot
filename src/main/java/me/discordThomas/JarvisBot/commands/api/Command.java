@@ -15,17 +15,13 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class Command {
 	final String name;
+	private final Map<String, Command> subcommands = Maps.newHashMap();
 	public String capitalizedName;
-
 	public CustomPermission permission;
 	public String usage;
 	public int minArgs = 0;
 	public int maxArgs = Integer.MAX_VALUE;
-
 	public Categories category;
-
-	private final Map<String, Command> subcommands = Maps.newHashMap();
-
 	protected String[] aliases = {};
 	protected String description = "No description set. Sorry!";
 

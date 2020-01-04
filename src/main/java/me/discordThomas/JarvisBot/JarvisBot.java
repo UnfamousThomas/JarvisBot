@@ -15,6 +15,7 @@ import me.discordThomas.JarvisBot.commands.useful.info.BotInfoCommand;
 import me.discordThomas.JarvisBot.commands.useful.info.BotVersionCommand;
 import me.discordThomas.JarvisBot.commands.useful.info.ServerInfoCommand;
 import me.discordThomas.JarvisBot.commands.useful.info.UserInfoCommand;
+import me.discordThomas.JarvisBot.listeners.GuildEventsListener;
 import me.discordThomas.JarvisBot.listeners.onGuildMessageReactionAdd;
 import me.discordThomas.JarvisBot.listeners.onReady;
 import me.discordThomas.JarvisBot.utils.DataFields;
@@ -50,6 +51,7 @@ public class JarvisBot {
 			shardBuilder.setStatus(OnlineStatus.ONLINE);
 			shardBuilder.addEventListeners(new onReady());
 			shardBuilder.addEventListeners(new onGuildMessageReactionAdd());
+			shardBuilder.addEventListeners(new GuildEventsListener());
 			CommandManager.registerCommands(
 					new ShardsCommand(),
 					new HelpCommand(),
@@ -108,7 +110,7 @@ public class JarvisBot {
 		} catch (Exception e) {
 			Logger.log(Logger.Level.ERROR, "An error occured starting up.", e);
 		} finally {
-			instanceList.forEach(jda -> jda.getPresence().setActivity(Activity.of(Activity.ActivityType.LISTENING, ".help | Using " + jda.getShardInfo().getShardTotal() + " shards on " + DataFields.guildsList.size() + " guilds.")));
+			instanceList.forEach(jda -> jda.getPresence().setActivity(Activity.of(Activity.ActivityType.LISTENING, ".help | Using " + jda.getShardInfo().getShardTotal() + " shards.")));
 		}
 	}
 

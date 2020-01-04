@@ -14,5 +14,5 @@ public class onReady extends ListenerAdapter {
 		event.getJDA().getGuilds().forEach(guild -> {
 			DataFields.guildsList.add(guild);
 		});
-		}
+	}
 }

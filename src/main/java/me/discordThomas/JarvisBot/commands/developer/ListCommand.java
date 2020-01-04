@@ -47,7 +47,8 @@ public class ListCommand extends Command {
 	}
 
 	private String listGuilds() {
-		StringBuilder stringBuilder = new StringBuilder().append("```").append("Guilds:\n");;
+		StringBuilder stringBuilder = new StringBuilder().append("```").append("Guilds:\n");
+		;
 
 		DataFields.guildsList.forEach(guild -> {
 			stringBuilder.append(guild.getName()).append(" - ").append(guild.getId()).append("\n");
@@ -65,7 +66,7 @@ public class ListCommand extends Command {
 			String reason = entry.getValue();
 			stringBuilder.append(userID).append(" - ").append(reason).append("\n");
 		}
-		if(DataFields.blacklistedPeopleList.isEmpty()) {
+		if (DataFields.blacklistedPeopleList.isEmpty()) {
 			stringBuilder.append("No blacklisted people, YAY!");
 		}
 		stringBuilder.append("```");
@@ -74,7 +75,8 @@ public class ListCommand extends Command {
 	}
 
 	private String helperListed() {
-		StringBuilder stringBuilder = new StringBuilder().append("```").append("Bothelpers:\n");;
+		StringBuilder stringBuilder = new StringBuilder().append("```").append("Bothelpers:\n");
+		;
 		for (Map.Entry<Long, String> entry : DataFields.botHelperList.entrySet()) {
 			Long userID = entry.getKey();
 			String name = entry.getValue();

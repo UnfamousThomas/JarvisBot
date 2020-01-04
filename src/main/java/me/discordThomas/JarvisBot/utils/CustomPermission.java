@@ -10,11 +10,11 @@ public enum CustomPermission {
 	BOTHELPER("BOTHELPER"),
 	DEV("DEV");
 
+	public String perm;
+
 	CustomPermission(String perm) {
 		this.perm = perm;
 	}
-
-	public String perm;
 
 	public String[] returnDev() {
 		return JarvisBot.devids;

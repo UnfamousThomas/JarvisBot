@@ -14,10 +14,10 @@ import java.util.Map;
 
 public class CommandManager extends ListenerAdapter {
 
-	public Map<String, Command> commands = Maps.newHashMap();
 	public static CommandManager instance;
-	private static String prefix;
 	public static HelpBuilder helpBuilder;
+	private static String prefix;
+	public Map<String, Command> commands = Maps.newHashMap();
 
 	public static void registerCommand(Command command) {
 		Logger.log(Logger.Level.INFO, "Attempting to register discord command: " + command.name);
