@@ -9,6 +9,7 @@ import me.discordThomas.JarvisBot.commands.fun.DadJokeCommand;
 import me.discordThomas.JarvisBot.commands.fun.JokeCommand;
 import me.discordThomas.JarvisBot.commands.fun.dailyfact.DailyFactsCommand;
 import me.discordThomas.JarvisBot.commands.moderation.ClearCommand;
+import me.discordThomas.JarvisBot.commands.music.PlayCommand;
 import me.discordThomas.JarvisBot.commands.useful.InviteCommand;
 import me.discordThomas.JarvisBot.commands.useful.PingCommand;
 import me.discordThomas.JarvisBot.commands.useful.info.BotInfoCommand;
@@ -70,7 +71,9 @@ public class JarvisBot {
 					new BotInfoCommand(),
 					new BlacklistCommand(),
 					new BotVersionCommand(),
-					new ListCommand()
+					new ListCommand(),
+					new MySQLCommand(),
+					new PlayCommand()
 
 			);
 			for (int i = 0; i < shards; i++) {

@@ -7,8 +7,9 @@ import me.discordThomas.JarvisBot.utils.Logger;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Properties;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @SuppressWarnings("Duplicates")
 public class MySQLManager {
@@ -17,6 +18,8 @@ public class MySQLManager {
 
 	public static void init(String ip, String db, String user, String password) {
 		HikariConfig hikariConfig = new HikariConfig();
+		Properties sqlProps = new Properties();
+		sqlProps.setProperty("useAffectedRows", "true");
 		hikariConfig.setJdbcUrl("jdbc:mysql://" + ip + ":3306/" + db);
 		hikariConfig.setUsername(user);
 		hikariConfig.setPassword(password);
@@ -26,6 +29,7 @@ public class MySQLManager {
 		hikariConfig.setMinimumIdle(5);
 		hikariConfig.setMaximumPoolSize(10);
 		hikariConfig.setLeakDetectionThreshold(2000);
+		hikariConfig.setDataSourceProperties(sqlProps);
 
 		try {
 			dataSource = new HikariDataSource(hikariConfig);
@@ -52,20 +56,22 @@ public class MySQLManager {
 		}).start();
 	}
 
-	public static ResultSet execute(String query, Object... values) {
+	public static int execute(String query, Object... values) {
+		AtomicInteger count = new AtomicInteger();
 		new Thread(() -> {
 			try (Connection resource = getConnection(); PreparedStatement statement = resource.prepareStatement(query)) {
 				for (int i = 0; i < values.length; i++) {
 					statement.setObject((i + 1), values[i]);
 				}
-				statement.execute();
+				statement.executeUpdate();
+				count.set(statement.getUpdateCount());
 			} catch (SQLException exception) {
 				Logger.log(Logger.Level.ERROR, "An error occurred while executing an update on the database.");
 				Logger.log(Logger.Level.ERROR, "MySQL#execute : " + query, exception);
-
+				count.set(0);
 			}
 		}).start();
-		return null;
+		return count.get();
 	}
 
 	public static void select(String query, SelectCall callback, Object... values) {

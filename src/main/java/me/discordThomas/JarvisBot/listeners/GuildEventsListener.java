@@ -30,14 +30,14 @@ public class GuildEventsListener extends ListenerAdapter {
 		EmbedBuilder builder = new EmbedBuilder();
 		builder.setTitle("Hello!");
 		builder.addField("Thank you for adding me to your discord!", "I am a utility bot that focuses on jokes, daily facts & more!", true);
-			builder.addField("Guilds", "I am currently in " + DataFields.guildsList.size() + " guilds.", true);
+		builder.addField("Guilds", "I am currently in " + DataFields.guildsList.size() + " guilds.", true);
 		builder.addBlankField(false);
 		builder.addField("Public Discord", "[LINK](https://discord.gg/7nCEAvA)", false);
 		builder.addField("Bot Invite:", "[LINK](https://discordapp.com/api/oauth2/authorize?client_id=658780975496691716&permissions=8&scope=bot)", true);
 		builder.addBlankField(false);
-		builder.addField("Bot Build version", DataFields.version, false);
+		builder.addField("Bot current version", DataFields.version, false);
 		builder.setThumbnail(jda.getSelfUser().getEffectiveAvatarUrl());
-		builder.setColor(Color.decode("#3498db"));
+		builder.setColor(Color.decode("#99FF33"));
 		builder.setFooter(jda.getSelfUser().getName(), jda.getSelfUser().getEffectiveAvatarUrl());
 		return builder.build();
 	}

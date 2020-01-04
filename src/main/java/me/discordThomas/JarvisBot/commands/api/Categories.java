@@ -6,7 +6,8 @@ public enum Categories {
 	MODERATE,
 	DEVELOPER,
 	BOTHELPER,
-	USEFUL;
+	USEFUL,
+	MUSIC;
 
 	Categories() {
 	}
