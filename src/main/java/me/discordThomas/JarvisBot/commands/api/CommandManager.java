@@ -51,7 +51,7 @@ public class CommandManager extends ListenerAdapter {
 		if (DataFields.blacklistedPeopleList.get(event.getAuthor().getIdLong()) != null) return;
 		if (prefix == null) prefix = ".";
 
-		String[] argArray = event.getMessage().getContentRaw().split(" ");
+		String[] argArray = event.getMessage().getContentRaw().split("\\s");
 		if (!event.getAuthor().isBot()) {
 			if (argArray[0].startsWith(prefix)) {
 				String commandStr = argArray[0].substring(1);
