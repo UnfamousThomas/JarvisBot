@@ -16,6 +16,7 @@ public class LeaveCommand extends Command {
 		description = "Leaves the discord. | Usage: `" + DataFields.prefix + "leave`";
 		category = Categories.ADMIN;
 		permission = CustomPermission.ADMIN;
+		usage = "`" + DataFields.prefix + " leave`";
 	}
 
 	@Override

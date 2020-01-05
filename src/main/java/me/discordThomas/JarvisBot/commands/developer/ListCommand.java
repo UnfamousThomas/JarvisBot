@@ -29,17 +29,16 @@ public class ListCommand extends Command {
 		switch (type) {
 
 			case "guild":
-
 			case "guilds":
 				event.getChannel().sendMessage(listGuilds()).queue();
 				break;
 
 			case "blacklisted":
-
 			case "blacklist":
 				event.getChannel().sendMessage(blackListed()).queue();
 				break;
 
+			case "bothelper":
 			case "helpers":
 				event.getChannel().sendMessage(helperListed()).queue();
 				break;

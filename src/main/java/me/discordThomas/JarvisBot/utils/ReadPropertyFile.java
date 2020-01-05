@@ -31,12 +31,14 @@ public class ReadPropertyFile {
 			String prefix = prop.getProperty("discord.prefix");
 			String devs = prop.getProperty("discord.devs");
 			String pass = prop.getProperty("mysql.pass");
+			String ytkey = prop.getProperty("youtube-api-key");
 
 			result.put("key", key);
 			result.put("shards", shards);
 			result.put("prefix", prefix);
 			result.put("devs", devs);
 			result.put("mysqlpass", pass);
+			result.put("youtubekey", ytkey);
 			prop.load(inputStream);
 
 		} catch (Exception e) {

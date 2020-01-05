@@ -9,7 +9,7 @@ import me.discordThomas.JarvisBot.commands.fun.DadJokeCommand;
 import me.discordThomas.JarvisBot.commands.fun.JokeCommand;
 import me.discordThomas.JarvisBot.commands.fun.dailyfact.DailyFactsCommand;
 import me.discordThomas.JarvisBot.commands.moderation.ClearCommand;
-import me.discordThomas.JarvisBot.commands.music.PlayCommand;
+import me.discordThomas.JarvisBot.commands.music.*;
 import me.discordThomas.JarvisBot.commands.useful.InviteCommand;
 import me.discordThomas.JarvisBot.commands.useful.PingCommand;
 import me.discordThomas.JarvisBot.commands.useful.info.BotInfoCommand;
@@ -35,6 +35,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class JarvisBot {
+
 	public static String[] devids = null;
 
 	public static void main(String[] args) throws Exception {
@@ -47,6 +48,7 @@ public class JarvisBot {
 			int shards = Integer.parseInt(results.get("shards"));
 			devids = results.get("devs").split(",");
 			DataFields.setPrefix(results.get("prefix"));
+			DataFields.youtubeAPIKey = results.get("youtubekey");
 			JDABuilder shardBuilder = new JDABuilder(key);
 			CommandManager.init(shardBuilder);
 			shardBuilder.setStatus(OnlineStatus.ONLINE);
@@ -73,13 +75,17 @@ public class JarvisBot {
 					new BotVersionCommand(),
 					new ListCommand(),
 					new MySQLCommand(),
-					new PlayCommand()
-
+					new PlayCommand(),
+					new JoinCommand(),
+					new DisconnectCommand(),
+					new StopCommand(),
+					new SkipCommand(),
+					new NowPlayingCommand(),
+					new PauseCommand()
 			);
 			for (int i = 0; i < shards; i++) {
 				shardBuilder.useSharding(i, shards);
 				instanceList.add(shardBuilder.build());
-				//TODO: IMPLEMENT MUSIC (LAVAPLAYER)
 				//TODO: ONCE WE HAVE OVER 1k GUILDS - Implement usage of Lavalink to use multiple nodes for music
 			}
 

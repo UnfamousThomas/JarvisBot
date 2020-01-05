@@ -29,6 +29,8 @@ public class DataFields {
 
 	public static String version = "#1";
 
+	public static String youtubeAPIKey;
+
 	public static void setPrefix(String newPrefix) {
 		if (newPrefix != null) {
 			prefix = newPrefix;
