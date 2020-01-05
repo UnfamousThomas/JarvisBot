@@ -38,7 +38,14 @@ public class QueueCommand extends Command {
 			});
 			channel.sendMessage(stringBuilder.toString()).queue();
 		} else {
-			channel.sendMessage("No songs in queue!").queue();
+			if(musicManager.player.getPlayingTrack() != null) {
+					StringBuilder stringBuilder = new StringBuilder().append("Current songs:").append("\n");
+					AudioTrackInfo nowInfo = musicManager.player.getPlayingTrack().getInfo();
+					stringBuilder.append("Playing now: ").append(nowInfo.title).append(" - ").append(nowInfo.author).append("\n");
+					channel.sendMessage(stringBuilder.toString()).queue();
+			} else {
+				channel.sendMessage("No songs found!").queue();
+			}
 		}
 
 	}
