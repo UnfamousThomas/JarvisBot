@@ -31,6 +31,8 @@ public class DataFields {
 
 	public static String youtubeAPIKey;
 
+	public static String lyricsAPIKey;
+
 	public static void setPrefix(String newPrefix) {
 		if (newPrefix != null) {
 			prefix = newPrefix;

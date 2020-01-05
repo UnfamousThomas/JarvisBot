@@ -32,6 +32,7 @@ public class ReadPropertyFile {
 			String devs = prop.getProperty("discord.devs");
 			String pass = prop.getProperty("mysql.pass");
 			String ytkey = prop.getProperty("youtube-api-key");
+			String lyricskey = prop.getProperty("lyrics-api-key");
 
 			result.put("key", key);
 			result.put("shards", shards);
@@ -39,6 +40,7 @@ public class ReadPropertyFile {
 			result.put("devs", devs);
 			result.put("mysqlpass", pass);
 			result.put("youtubekey", ytkey);
+			result.put("lyricskey", lyricskey);
 			prop.load(inputStream);
 
 		} catch (Exception e) {
