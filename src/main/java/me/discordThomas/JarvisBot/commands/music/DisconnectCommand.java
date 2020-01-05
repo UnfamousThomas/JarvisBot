@@ -40,6 +40,6 @@ public class DisconnectCommand extends Command {
 		}
 
 		audioManager.closeAudioConnection();
-		channel.sendMessage("Disconnected from your channel.").queue();
+		channel.sendMessage("Disconnected from your channel. Queue will remain in memory until restart.").queue();
 	}
 }

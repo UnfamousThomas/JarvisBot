@@ -12,6 +12,7 @@ public class HelpBuilder {
 	private StringBuilder UsefulCommands = new StringBuilder();
 	private StringBuilder ModCommands = new StringBuilder();
 	private StringBuilder BotHelperCommands = new StringBuilder();
+	private StringBuilder MusicCommands = new StringBuilder();
 
 	public void addCommand(Command command) {
 		switch (command.category) {
@@ -71,6 +72,14 @@ public class HelpBuilder {
 
 				}
 				break;
+			case MUSIC:
+				if (!(command.permission == null)) {
+					MusicCommands.append("\n").append("*").append(command.capitalizedName).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());
+
+				} else {
+					MusicCommands.append("\n").append("*").append(command.capitalizedName).append("*").append(" - ").append(command.description).append(" - ").append(command.permission.name());
+				}
+				break;
 		}
 	}
 
@@ -82,6 +91,7 @@ public class HelpBuilder {
 		builder.addField("Bot Helper Commands", BotHelperCommands.toString(), false);
 		builder.addField("Admin Commands", AdminCommands.toString(), false);
 		builder.addField("Moderation Commands", ModCommands.toString(), false);
+		builder.addField("Music Commands", MusicCommands.toString(), false);
 		builder.addField("Fun Commands", FunCommands.toString(), false);
 		builder.addField("Useful Commands", UsefulCommands.toString(), false);
 		builder.setFooter(m.getEffectiveName(), m.getUser().getEffectiveAvatarUrl());
@@ -95,6 +105,7 @@ public class HelpBuilder {
 		builder.addField("Bot Helper Commands", BotHelperCommands.toString(), false);
 		builder.addField("Admin Commands", AdminCommands.toString(), false);
 		builder.addField("Moderation Commands", ModCommands.toString(), false);
+		builder.addField("Music Commands", MusicCommands.toString(), false);
 		builder.addField("Fun Commands", FunCommands.toString(), false);
 		builder.addField("Useful Commands", UsefulCommands.toString(), false);
 		builder.setFooter(m.getEffectiveName(), m.getUser().getEffectiveAvatarUrl());
@@ -107,6 +118,7 @@ public class HelpBuilder {
 		builder.setColor(Color.decode("#3498db"));
 		builder.addField("Admin Commands", AdminCommands.toString(), false);
 		builder.addField("Moderation Commands", ModCommands.toString(), false);
+		builder.addField("Music Commands", MusicCommands.toString(), false);
 		builder.addField("Fun Commands", FunCommands.toString(), false);
 		builder.addField("Useful Commands", UsefulCommands.toString(), false);
 		builder.setFooter(m.getEffectiveName(), m.getUser().getEffectiveAvatarUrl());
@@ -118,6 +130,7 @@ public class HelpBuilder {
 		builder.setTitle("Command Help");
 		builder.setColor(Color.decode("#3498db"));
 		builder.addField("Moderation Commands", ModCommands.toString(), false);
+		builder.addField("Music Commands", MusicCommands.toString(), false);
 		builder.addField("Fun Commands", FunCommands.toString(), false);
 		builder.addField("Useful Commands", UsefulCommands.toString(), false);
 		builder.setFooter(m.getEffectiveName(), m.getUser().getEffectiveAvatarUrl());
@@ -129,6 +142,7 @@ public class HelpBuilder {
 		builder.setTitle("Command Help");
 		builder.setColor(Color.decode("#3498db"));
 		builder.addField("Fun Commands", FunCommands.toString(), false);
+		builder.addField("Music Commands", MusicCommands.toString(), false);
 		builder.addField("Useful Commands", UsefulCommands.toString(), false);
 		builder.setFooter(m.getEffectiveName(), m.getUser().getEffectiveAvatarUrl());
 		return builder;

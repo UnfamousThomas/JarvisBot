@@ -81,7 +81,8 @@ public class JarvisBot {
 					new StopCommand(),
 					new SkipCommand(),
 					new NowPlayingCommand(),
-					new PauseCommand()
+					new PauseCommand(),
+					new QueueCommand()
 			);
 			for (int i = 0; i < shards; i++) {
 				shardBuilder.useSharding(i, shards);

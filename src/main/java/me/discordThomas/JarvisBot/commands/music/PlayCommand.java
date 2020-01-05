@@ -9,9 +9,13 @@ import me.discordThomas.JarvisBot.commands.api.Command;
 import me.discordThomas.JarvisBot.music.PlayerManager;
 import me.discordThomas.JarvisBot.utils.CustomPermission;
 import me.discordThomas.JarvisBot.utils.DataFields;
+import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.entities.GuildVoiceState;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.entities.VoiceChannel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.managers.AudioManager;
 
 import javax.annotation.Nullable;
 import java.net.MalformedURLException;
@@ -25,9 +29,9 @@ public class PlayCommand extends Command {
 		super("play");
 		this.category = Categories.MUSIC;
 		description = "Play music! Boom bom!";
-		usage = DataFields.prefix + "play [song name]";
+		usage = DataFields.prefix + "play [song name/yt link]";
 		permission = CustomPermission.DEV;
-		description = "hey!";
+		description = "Queue songs for the bot to play.";
 		minArgs = 1;
 
 		YouTube temp = null;
@@ -51,7 +55,26 @@ public class PlayCommand extends Command {
 	@Override
 	public void run(Member m, List<String> args, MessageReceivedEvent event) {
 		TextChannel channel = event.getTextChannel();
+		AudioManager audioManager = event.getGuild().getAudioManager();
 
+		if(!(audioManager.isConnected())) {
+			GuildVoiceState memberVoiceState = event.getMember().getVoiceState();
+
+			if(memberVoiceState != null && !memberVoiceState.inVoiceChannel()) {
+				channel.sendMessage("Please join a voice channel first.").queue();
+				return;
+			}
+			VoiceChannel voiceChannel = memberVoiceState.getChannel();
+			Member selfMember = event.getGuild().getSelfMember();
+
+			if(!selfMember.hasPermission(voiceChannel, Permission.VOICE_CONNECT)) {
+				channel.sendMessageFormat("I am missing permisison to join %s", voiceChannel).queue();
+				return;
+			}
+
+			audioManager.openAudioConnection(voiceChannel);
+			channel.sendMessage("Joining your voice channel.").queue();
+		}
 		if (args.isEmpty()) {
 			channel.sendMessage("Please provide some arguments").queue();
 
