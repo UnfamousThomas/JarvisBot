@@ -36,8 +36,8 @@ public class SkipCommand extends Command {
 			return;
 		}
 
-		scheduler.nextTrack();
+		channel.sendMessage("Skipping current song: " + player.getPlayingTrack().getInfo().title).queue();
 
-		channel.sendMessage("Skipping current track.").queue();
+		scheduler.nextTrack();
 	}
 }
