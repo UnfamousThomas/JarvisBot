@@ -10,6 +10,7 @@ import java.util.Random;
 
 public class GuildMemberLeave extends ListenerAdapter {
 
+    // Still need more messages
     private final String[] leave_messages = {
             "{member} left. The party is over.",
     };

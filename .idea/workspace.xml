@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b77d5a8-68f0-440d-a4f7-d36852fefd60" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/JarvisBot.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/listeners/GuildMemberJoin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/listeners/GuildMemberLeave.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/JarvisBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/JarvisBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/api/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/api/CommandManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/listeners/GuildMemberLeave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/listeners/GuildMemberLeave.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,22 +184,22 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1578255271290">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1578255524404">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578255271290" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1578255271290">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578255524403" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1578255524403">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578255271290" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1578255271290">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578255524403" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1578255524403">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578255271290" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1578255271290">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578255524403" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1578255524403">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578255271290" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578255524403" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1578253430272">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
