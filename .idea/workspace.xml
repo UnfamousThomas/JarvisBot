@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b77d5a8-68f0-440d-a4f7-d36852fefd60" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/commands/music/LyricsCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/utils/LyricsManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/utils/DataFields.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/utils/DataFields.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/utils/ReadPropertyFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/discordThomas/JarvisBot/utils/ReadPropertyFile.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
