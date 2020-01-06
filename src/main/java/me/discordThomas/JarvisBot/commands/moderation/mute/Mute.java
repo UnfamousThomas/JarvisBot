@@ -1,8 +1,8 @@
 package me.discordThomas.JarvisBot.commands.moderation.mute;
 
-import me.discordThomas.JarvisBot.utils.DataFields;
 import me.discordThomas.JarvisBot.utils.Time;
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 
 import java.awt.*;
@@ -13,28 +13,14 @@ public class Mute {
     private Member staff;
     private long lastTime;
     private long muteTime;
+    private Guild server;
 
-    public Mute(String reason, Member staff, long lastTime, long muteTime) {
+    public Mute(String reason, Member staff, long lastTime, long muteTime, Guild server) {
         setReason(reason);
         setStaff(staff);
         setLastTime(lastTime);
         setMuteTime(muteTime);
-    }
-
-    public static boolean isMuted(Member member) {
-        return DataFields.muteList.containsKey(member);
-    }
-
-    public static void mute(Member member, Mute mute) {
-        if (!isMuted(member)) {
-            DataFields.muteList.put(member, mute);
-        }
-    }
-
-    public static void unmute(Member member) {
-        if (isMuted(member)) {
-            DataFields.muteList.remove(member);
-        }
+        setServer(server);
     }
 
     public String getReason() {
@@ -69,13 +55,36 @@ public class Mute {
         this.muteTime = muteTime;
     }
 
-    public EmbedBuilder mutedMessage(){
+    public Guild getServer() {
+        return server;
+    }
+
+    public void setServer(Guild server) {
+        this.server = server;
+    }
+
+    public EmbedBuilder mutedMessage() {
         EmbedBuilder embedBuilder = new EmbedBuilder();
+        String staffAsMention = getStaff() != null ? getStaff().getAsMention() : "Jarvis";
         embedBuilder.setColor(Color.RED);
-        embedBuilder.addField("Reason", reason, false);
-        embedBuilder.addField("Staff", staff.getAsMention(), false);
-        long muteTimeLeft = ((lastTime) + muteTime) - (System.currentTimeMillis());
-        embedBuilder.addField("Remaining Time", Time.format(muteTimeLeft), false);
+        embedBuilder.setTitle("Muted");
+        embedBuilder.addField("Server", getServer().getName(), false);
+        embedBuilder.addField("Reason", getReason(), false);
+        embedBuilder.addField("Staff", staffAsMention, false);
+        long remainingTime = (getLastTime() + getMuteTime()) - (System.currentTimeMillis());
+        embedBuilder.addField("Remaining Time", Time.format(remainingTime), false);
+        return embedBuilder;
+    }
+
+    public EmbedBuilder unmutedMessage() {
+        EmbedBuilder embedBuilder = new EmbedBuilder();
+        String staffAsMention = getStaff() != null ? getStaff().getAsMention() : "Jarvis";
+        embedBuilder.setColor(Color.RED);
+        embedBuilder.setTitle("Unmuted");
+        embedBuilder.addField("Server", getServer().getName(), false);
+        embedBuilder.addField("Staff", staffAsMention, false);
+        long remainingTime = (getLastTime() + getMuteTime()) - (System.currentTimeMillis());
+        embedBuilder.addField("Remaining Time", Time.format(remainingTime), false);
         return embedBuilder;
     }
 }

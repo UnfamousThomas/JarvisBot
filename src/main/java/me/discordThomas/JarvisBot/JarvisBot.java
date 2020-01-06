@@ -123,7 +123,7 @@ public class JarvisBot {
                 }
             });
         } catch (Exception e) {
-            Logger.log(Logger.Level.ERROR, "An error occured starting up.", e);
+            Logger.log(Logger.Level.ERROR, "An error occurred starting up.", e);
         } finally {
             instanceList.forEach(jda -> jda.getPresence().setActivity(Activity.of(Activity.ActivityType.LISTENING, ".help | Using " + jda.getShardInfo().getShardTotal() + " shards.")));
         }

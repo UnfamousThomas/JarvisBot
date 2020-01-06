@@ -1,29 +1,27 @@
 package me.discordThomas.JarvisBot.commands.moderation.mute;
 
-import me.discordThomas.JarvisBot.utils.DataFields;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-
-import java.util.Objects;
 
 public class MuteListener extends ListenerAdapter {
 
     public void onMessageReceived(MessageReceivedEvent event) {
         Member member = event.getMember();
-        if (!Mute.isMuted(member))
+        MuteManager muteManager = new MuteManager(member);
+        if (!event.isFromGuild())
             return;
-        Mute mute = DataFields.muteList.get(member);
-        long muteTimeLeft = ((mute.getLastTime()) + mute.getMuteTime()) - (System.currentTimeMillis());
-        if (muteTimeLeft < 0) {
-            Mute.unmute(member);
-            event.getChannel().sendMessage("You can't send message you are muted").queue();
-        } else {
+        if (!muteManager.isMuted())
+            return;
+        long remainingTime = (muteManager.getMute().getLastTime() + muteManager.getMute().getMuteTime()) - (System.currentTimeMillis());
+        if (remainingTime > 0) {
             event.getMessage().delete().queue();
-            Objects.requireNonNull(event.getMember()).getUser().openPrivateChannel().queue(privateChannel -> {
-                privateChannel.sendMessage(mute.mutedMessage().build()).queue();
-              //  mute.mutedMessage().clear();
-            });
+            assert member != null;
+            member.getUser().openPrivateChannel().queue(channel -> channel.sendMessage(muteManager.getMute().mutedMessage().build()).queue());
+        } else {
+            assert member != null;
+            member.getUser().openPrivateChannel().queue(channel -> channel.sendMessage(muteManager.getMute().unmutedMessage().build()).queue());
+            muteManager.unmuteMember();
         }
     }
 }

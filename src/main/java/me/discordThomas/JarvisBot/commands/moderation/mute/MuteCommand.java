@@ -4,7 +4,6 @@ import me.discordThomas.JarvisBot.commands.api.Categories;
 import me.discordThomas.JarvisBot.commands.api.Command;
 import me.discordThomas.JarvisBot.utils.CustomPermission;
 import me.discordThomas.JarvisBot.utils.DataFields;
-import me.discordThomas.JarvisBot.utils.Time;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.MessageChannel;
@@ -22,35 +21,54 @@ public class MuteCommand extends Command {
         usage = "`" + DataFields.prefix + "mute (person) (time)`";
         category = Categories.MODERATE;
         permission = CustomPermission.MODERATOR;
+        minArgs  = 1;
     }
 
     @Override
     public void run(Member m, List<String> args, MessageReceivedEvent event) {
         Guild guild = event.getGuild();
         MessageChannel channel = event.getChannel();
-        String staff = event.getMember() != null ? event.getMember().getAsMention() : "Jarvis";
+<<<<<<< HEAD
+        Member staff = event.getMember();
         if (args.size() < 1) {
             channel.sendMessage("You don't have enough args!").queue(message -> message.delete().queueAfter(1, TimeUnit.MINUTES));
         } else {
+=======
+        String staff = event.getMember() != null ? event.getMember().getAsMention() : "Jarvis";
+>>>>>>> 48974606923deb2798e10099c9f93626853c6e0d
             Member member = guild.getMemberById(Long.parseLong(args.get(0).replace("<@!", "").replace(">", "")));
+            long time = args.size() == 2 ? stringToTime(args.get(1)) : 10 * 60 * 1000;
             if (member == null) {
                 channel.sendMessage("Member is not founded!").complete();
                 return;
             }
-            try {
-                int seconds = 60;
-                long minutes = (args.size() == 2 ? Long.parseLong(args.get(1)) : 10);
-                long muteTime = minutes * seconds;
-                if (!Mute.isMuted(member)) {
-                    Mute.mute(member, new Mute("da", event.getMember(), System.currentTimeMillis(), muteTime));
-                    channel.sendMessage(member.getAsMention() + " was muted by " + staff + " for " + minutes + " minutes!").complete();
-                } else {
-                    Mute.unmute(member);
-                    channel.sendMessage(member.getAsMention() + " has been unmuted by " + staff + "!").complete();
-                }
-            } catch (NumberFormatException e) {
-                channel.sendMessage("You need a number that are in minutes for your second arg!").complete();
+            MuteManager muteManager = new MuteManager(member);
+            if (muteManager.isMuted()) {
+                muteManager.unmuteMember();
+            } else {
+                muteManager.muteMember(new Mute("You're breaking the server rules.", staff, System.currentTimeMillis(), time, event.getGuild()));
             }
         }
     }
+<<<<<<< HEAD
+
+    private long stringToTime(String string) {
+        String[] split;
+        if (string.endsWith("d")) {
+            split = string.split("d");
+            return Long.parseLong(split[0]) * 86400000;
+        } else if (string.endsWith("h")) {
+            split = string.split("h");
+            return Long.parseLong(split[0]) * 3600000;
+        } else if (string.endsWith("m")) {
+            split = string.split("m");
+            return Long.parseLong(split[0]) * 60000;
+        } else if (string.endsWith("s")) {
+            split = string.split("s");
+            return Long.parseLong(split[0]) * 1000;
+        }
+        return 10 * 60 * 1000;
+    }
 }
+=======
+>>>>>>> 48974606923deb2798e10099c9f93626853c6e0d
