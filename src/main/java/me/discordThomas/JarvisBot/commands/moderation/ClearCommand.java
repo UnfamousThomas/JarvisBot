@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class ClearCommand extends Command {
+
 	public ClearCommand() {
 		super("clear");
 		maxArgs = 2;
@@ -32,7 +33,6 @@ public class ClearCommand extends Command {
 				}));
 				event.getChannel().sendMessage("11 messages have been deleted from this channel.").queue(message -> message.delete().queueAfter(1, TimeUnit.MINUTES));
 				break;
-
 			case 1:
 				String amount = args.get(0);
 				try {
@@ -48,7 +48,6 @@ public class ClearCommand extends Command {
 					event.getChannel().sendMessage("Something went wrong. Try again!").queue();
 				}
 				break;
-
 			case 2:
 				String amountString = args.get(0);
 				String channel = args.get(1);

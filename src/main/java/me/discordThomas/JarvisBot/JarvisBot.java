@@ -9,6 +9,8 @@ import me.discordThomas.JarvisBot.commands.fun.DadJokeCommand;
 import me.discordThomas.JarvisBot.commands.fun.JokeCommand;
 import me.discordThomas.JarvisBot.commands.fun.dailyfact.DailyFactsCommand;
 import me.discordThomas.JarvisBot.commands.moderation.ClearCommand;
+import me.discordThomas.JarvisBot.commands.moderation.mute.MuteCommand;
+import me.discordThomas.JarvisBot.commands.moderation.mute.MuteListener;
 import me.discordThomas.JarvisBot.commands.music.*;
 import me.discordThomas.JarvisBot.commands.useful.InviteCommand;
 import me.discordThomas.JarvisBot.commands.useful.PingCommand;
@@ -55,6 +57,7 @@ public class JarvisBot {
             shardBuilder.addEventListeners(new GuildEventsListener());
             shardBuilder.addEventListeners(new GuildMemberJoin());
             shardBuilder.addEventListeners(new GuildMemberLeave());
+            shardBuilder.addEventListeners(new MuteListener());
             CommandManager.registerCommands(
                     new ShardsCommand(),
                     new HelpCommand(),
@@ -83,7 +86,8 @@ public class JarvisBot {
                     new NowPlayingCommand(),
                     new PauseCommand(),
                     new QueueCommand(),
-                    new VolumeCommand()
+                    new VolumeCommand(),
+                    new MuteCommand()
             );
             for (int i = 0; i < shards; i++) {
                 shardBuilder.useSharding(i, shards);
