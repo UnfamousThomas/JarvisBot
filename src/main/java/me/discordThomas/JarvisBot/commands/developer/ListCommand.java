@@ -1,20 +1,26 @@
 package me.discordThomas.JarvisBot.commands.developer;
 
+import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
+import com.jagrosh.jdautilities.menu.ButtonMenu;
+import com.jagrosh.jdautilities.menu.Menu;
+import com.jagrosh.jdautilities.menu.Paginator;
 import me.discordThomas.JarvisBot.commands.api.Categories;
 import me.discordThomas.JarvisBot.commands.api.Command;
-import me.discordThomas.JarvisBot.menus.PunishMenu;
 import me.discordThomas.JarvisBot.utils.CustomPermission;
 import me.discordThomas.JarvisBot.utils.DataFields;
 import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.MessageReaction;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.exceptions.PermissionException;
 
+import java.awt.*;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 public class ListCommand extends Command {
-
-	public ListCommand() {
+	private final EventWaiter waiter;
+	public ListCommand(EventWaiter waiter) {
 		super("list");
 		minArgs = 1;
 		maxArgs = 1;
@@ -22,12 +28,30 @@ public class ListCommand extends Command {
 		usage = "`" + DataFields.prefix + "list [type]`";
 		category = Categories.DEVELOPER;
 		permission = CustomPermission.DEV;
+
+		this.waiter = waiter;
 	}
 
 	@Override
 	public void run(Member m, List<String> args, MessageReceivedEvent event) {
-		String type = args.get(0);
+		final ButtonMenu buttonMenu = new ButtonMenu.Builder()
+				.addChoice("U+10110")
+				.addChoice("")
+				.addChoice("\uD83E\uDD22")
+				.addChoice("\uD83D\uDE21")
+				.setText("Test")
+				.setEventWaiter(waiter)
+				.setAction(reactionEmote -> {
+					if(reactionEmote.getAsCodepoints().equals("U+31U+fe0fU+20e3")) {
+						event.getChannel().sendMessage("ONE").queue();
+					} else if (reactionEmote.getAsCodepoints().equals("U+32U+fe0fU+20e3")) {
+						event.getChannel().sendMessage("TWO").queue();
+					}
+				})
+				.build();
 
+
+		String type = args.get(0);
 		switch (type) {
 
 			case "guild":
@@ -45,8 +69,8 @@ public class ListCommand extends Command {
 				event.getChannel().sendMessage(helperListed()).queue();
 				break;
 			case "test":
+				buttonMenu.display(event.getTextChannel());
 				break;
-				//new PunishMenu(Objects.requireNonNull(event.getMember()).getUser(), event.getMember().getRoles(), "hi lol").display(event.getMessage());
 			default:
 				event.getChannel().sendMessage("Invalid list type.").queue();
 		}

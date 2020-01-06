@@ -1,10 +1,14 @@
 package me.discordThomas.JarvisBot.listeners;
 
+import com.vdurmont.emoji.EmojiParser;
 import me.discordThomas.JarvisBot.commands.fun.dailyfact.Animal;
 import me.discordThomas.JarvisBot.utils.DataFields;
 import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.MessageReaction;
 import net.dv8tion.jda.api.events.message.guild.react.GuildMessageReactionAddEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+
+import java.util.Arrays;
 
 public class onGuildMessageReactionAdd extends ListenerAdapter {
 
@@ -15,6 +19,8 @@ public class onGuildMessageReactionAdd extends ListenerAdapter {
 
 		if (DataFields.unicodeMap.get(event.getUserIdLong()) != null && DataFields.unicodeMap.get(event.getUserIdLong()) == event.getMessageIdLong()) {
 			event.getChannel().sendMessage(event.getReactionEmote().getAsCodepoints()).queue();
+			//System.out.println(EmojiParser.parseFromUnicode(event.getReactionEmote().getEmoji(), ));
+			event.getChannel().sendMessage("```" + EmojiParser.parseToUnicode(event.getReactionEmote().getEmoji()).replaceAll("u", " u ") + "```").queue();
 			return;
 		}
 
@@ -54,4 +60,5 @@ public class onGuildMessageReactionAdd extends ListenerAdapter {
 			});
 		}
 	}
+
 }

@@ -1,5 +1,6 @@
 package me.discordThomas.JarvisBot;
 
+import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
 import me.discordThomas.JarvisBot.commands.admin.LeaveCommand;
 import me.discordThomas.JarvisBot.commands.api.CommandManager;
 import me.discordThomas.JarvisBot.commands.api.HelpCommand;
@@ -37,8 +38,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class JarvisBot {
 
     public static String[] devids = null;
-
     public static void main(String[] args) throws Exception {
+        EventWaiter waiter;
         List<JDA> instanceList = new ArrayList<>();
         try {
             ReadPropertyFile readPropertyFile = new ReadPropertyFile();
@@ -58,6 +59,8 @@ public class JarvisBot {
             shardBuilder.addEventListeners(new GuildMemberJoin());
             shardBuilder.addEventListeners(new GuildMemberLeave());
             shardBuilder.addEventListeners(new MuteListener());
+            waiter = new EventWaiter();
+            shardBuilder.addEventListeners(waiter);
             CommandManager.registerCommands(
                     new ShardsCommand(),
                     new HelpCommand(),
@@ -76,7 +79,7 @@ public class JarvisBot {
                     new BotInfoCommand(),
                     new BlacklistCommand(),
                     new BotVersionCommand(),
-                    new ListCommand(),
+                    new ListCommand(waiter),
                     new MySQLCommand(),
                     new PlayCommand(),
                     new JoinCommand(),

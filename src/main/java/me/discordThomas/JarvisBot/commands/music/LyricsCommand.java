@@ -50,6 +50,6 @@ public class LyricsCommand extends Command {
 
 		String lyrics = lyricsManager.getLyrics(title, author);
 
-		channel.sendMessage("```" + lyrics + "```").queue();
+		channel.sendMessage("```" + lyrics + "``` ").queue();
 	}
 }
