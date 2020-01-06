@@ -22,6 +22,7 @@ public class MuteCommand extends Command {
         usage = "`" + DataFields.prefix + "mute (person) (time)`";
         category = Categories.MODERATE;
         permission = CustomPermission.MODERATOR;
+        minArgs  = 1;
     }
 
     @Override
@@ -29,9 +30,6 @@ public class MuteCommand extends Command {
         Guild guild = event.getGuild();
         MessageChannel channel = event.getChannel();
         String staff = event.getMember() != null ? event.getMember().getAsMention() : "Jarvis";
-        if (args.size() < 1) {
-            channel.sendMessage("You don't have enough args!").queue(message -> message.delete().queueAfter(1, TimeUnit.MINUTES));
-        } else {
             Member member = guild.getMemberById(Long.parseLong(args.get(0).replace("<@!", "").replace(">", "")));
             if (member == null) {
                 channel.sendMessage("Member is not founded!").complete();
@@ -53,4 +51,3 @@ public class MuteCommand extends Command {
             }
         }
     }
-}

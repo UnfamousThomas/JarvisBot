@@ -2,6 +2,7 @@ package me.discordThomas.JarvisBot.commands.developer;
 
 import me.discordThomas.JarvisBot.commands.api.Categories;
 import me.discordThomas.JarvisBot.commands.api.Command;
+import me.discordThomas.JarvisBot.menus.PunishMenu;
 import me.discordThomas.JarvisBot.utils.CustomPermission;
 import me.discordThomas.JarvisBot.utils.DataFields;
 import net.dv8tion.jda.api.entities.Member;
@@ -9,6 +10,7 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class ListCommand extends Command {
 
@@ -42,6 +44,9 @@ public class ListCommand extends Command {
 			case "helpers":
 				event.getChannel().sendMessage(helperListed()).queue();
 				break;
+			case "test":
+				break;
+				//new PunishMenu(Objects.requireNonNull(event.getMember()).getUser(), event.getMember().getRoles(), "hi lol").display(event.getMessage());
 			default:
 				event.getChannel().sendMessage("Invalid list type.").queue();
 		}
