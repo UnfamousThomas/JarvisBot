@@ -21,21 +21,16 @@ public class MuteCommand extends Command {
         usage = "`" + DataFields.prefix + "mute (person) (time)`";
         category = Categories.MODERATE;
         permission = CustomPermission.MODERATOR;
-        minArgs  = 1;
     }
 
     @Override
     public void run(Member m, List<String> args, MessageReceivedEvent event) {
         Guild guild = event.getGuild();
         MessageChannel channel = event.getChannel();
-<<<<<<< HEAD
         Member staff = event.getMember();
         if (args.size() < 1) {
             channel.sendMessage("You don't have enough args!").queue(message -> message.delete().queueAfter(1, TimeUnit.MINUTES));
         } else {
-=======
-        String staff = event.getMember() != null ? event.getMember().getAsMention() : "Jarvis";
->>>>>>> 48974606923deb2798e10099c9f93626853c6e0d
             Member member = guild.getMemberById(Long.parseLong(args.get(0).replace("<@!", "").replace(">", "")));
             long time = args.size() == 2 ? stringToTime(args.get(1)) : 10 * 60 * 1000;
             if (member == null) {
@@ -50,7 +45,6 @@ public class MuteCommand extends Command {
             }
         }
     }
-<<<<<<< HEAD
 
     private long stringToTime(String string) {
         String[] split;
@@ -70,5 +64,3 @@ public class MuteCommand extends Command {
         return 10 * 60 * 1000;
     }
 }
-=======
->>>>>>> 48974606923deb2798e10099c9f93626853c6e0d
