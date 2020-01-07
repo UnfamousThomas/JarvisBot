@@ -37,13 +37,14 @@ public class ListCommand extends Command {
 	public void run(Member m, List<String> args, MessageReceivedEvent event) {
 		final ButtonMenu buttonMenu = new ButtonMenu.Builder()
 				.addChoice(EmojiParser.parseToUnicode(":one:"))
-				.setText("Test")
+				.addChoice(EmojiParser.parseToUnicode(":two:"))
+				.setText("Choose your champion!")
 				.setEventWaiter(waiter)
 				.setAction(reactionEmote -> {
 					if(reactionEmote.getEmoji().equals(EmojiParser.parseToUnicode(":one:"))) {
-						event.getChannel().sendMessage("ONE").queue();
-					} else if (reactionEmote.getAsCodepoints().equals("U+32U+fe0fU+20e3")) {
-						event.getChannel().sendMessage("TWO").queue();
+						event.getChannel().sendMessage("You chose one dude!").queue();
+					} else if (reactionEmote.getEmoji().equals(EmojiParser.parseToUnicode(":two:"))) {
+						event.getChannel().sendMessage("You chose two dude!").queue();
 					}
 				})
 				.build();
@@ -76,7 +77,6 @@ public class ListCommand extends Command {
 
 	private String listGuilds() {
 		StringBuilder stringBuilder = new StringBuilder().append("```").append("Guilds:\n");
-		;
 
 		DataFields.guildsList.forEach(guild -> {
 			stringBuilder.append(guild.getName()).append(" - ").append(guild.getId()).append("\n");
