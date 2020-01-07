@@ -4,6 +4,7 @@ import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
 import com.jagrosh.jdautilities.menu.ButtonMenu;
 import com.jagrosh.jdautilities.menu.Menu;
 import com.jagrosh.jdautilities.menu.Paginator;
+import com.vdurmont.emoji.EmojiParser;
 import me.discordThomas.JarvisBot.commands.api.Categories;
 import me.discordThomas.JarvisBot.commands.api.Command;
 import me.discordThomas.JarvisBot.utils.CustomPermission;
@@ -35,14 +36,11 @@ public class ListCommand extends Command {
 	@Override
 	public void run(Member m, List<String> args, MessageReceivedEvent event) {
 		final ButtonMenu buttonMenu = new ButtonMenu.Builder()
-				.addChoice("U+10110")
-				.addChoice("")
-				.addChoice("\uD83E\uDD22")
-				.addChoice("\uD83D\uDE21")
+				.addChoice(EmojiParser.parseToUnicode(":one:"))
 				.setText("Test")
 				.setEventWaiter(waiter)
 				.setAction(reactionEmote -> {
-					if(reactionEmote.getAsCodepoints().equals("U+31U+fe0fU+20e3")) {
+					if(reactionEmote.getEmoji().equals(EmojiParser.parseToUnicode(":one:"))) {
 						event.getChannel().sendMessage("ONE").queue();
 					} else if (reactionEmote.getAsCodepoints().equals("U+32U+fe0fU+20e3")) {
 						event.getChannel().sendMessage("TWO").queue();

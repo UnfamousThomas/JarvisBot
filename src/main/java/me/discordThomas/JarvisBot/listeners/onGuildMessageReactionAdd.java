@@ -1,6 +1,5 @@
 package me.discordThomas.JarvisBot.listeners;
 
-import com.vdurmont.emoji.EmojiParser;
 import me.discordThomas.JarvisBot.commands.fun.dailyfact.Animal;
 import me.discordThomas.JarvisBot.utils.DataFields;
 import net.dv8tion.jda.api.entities.Member;
@@ -20,7 +19,6 @@ public class onGuildMessageReactionAdd extends ListenerAdapter {
 		if (DataFields.unicodeMap.get(event.getUserIdLong()) != null && DataFields.unicodeMap.get(event.getUserIdLong()) == event.getMessageIdLong()) {
 			event.getChannel().sendMessage(event.getReactionEmote().getAsCodepoints()).queue();
 			//System.out.println(EmojiParser.parseFromUnicode(event.getReactionEmote().getEmoji(), ));
-			event.getChannel().sendMessage("```" + EmojiParser.parseToUnicode(event.getReactionEmote().getEmoji()).replaceAll("u", " u ") + "```").queue();
 			return;
 		}
 
