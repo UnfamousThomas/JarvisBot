@@ -19,7 +19,7 @@ public class PunishManager {
                 List<PunishmentObject> objects;
                 long staffid = resultSet.getLong("staffid");
                 long userid = resultSet.getLong("userid");
-                if(tempUserPunishments.get(userid) == null) {
+                if(tempUserPunishments.containsKey(userid)) {
                     objects = tempUserPunishments.get(userid);
                 } else {
                     objects = new ArrayList<>();
@@ -46,6 +46,8 @@ public class PunishManager {
                 objects.add(object);
                 tempUserPunishments.put(userid, objects);
             }
+
+            userPunishments = tempUserPunishments;
         }, guild.getIdLong());
     }
 

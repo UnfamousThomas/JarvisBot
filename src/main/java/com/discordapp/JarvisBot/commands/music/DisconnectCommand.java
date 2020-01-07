@@ -40,6 +40,7 @@ public class DisconnectCommand extends Command {
 		}
 
 		audioManager.closeAudioConnection();
+		DataFields.botJoinChannel.remove(event.getGuild().getIdLong());
 		channel.sendMessage("Disconnected from your channel. Queue will remain in memory until restart.").queue();
 	}
 }

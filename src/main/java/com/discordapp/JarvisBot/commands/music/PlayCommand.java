@@ -74,6 +74,7 @@ public class PlayCommand extends Command {
 
 			audioManager.openAudioConnection(voiceChannel);
 			channel.sendMessage("Joining your voice channel.").queue();
+			DataFields.botJoinChannel.put(event.getGuild().getIdLong(), event.getTextChannel());
 		}
 		if (args.isEmpty()) {
 			channel.sendMessage("Please provide some arguments").queue();

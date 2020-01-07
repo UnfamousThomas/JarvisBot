@@ -6,6 +6,7 @@ import com.vdurmont.emoji.EmojiParser;
 import com.discordapp.JarvisBot.commands.moderation.mute.Mute;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.TextChannel;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,6 +31,8 @@ public class DataFields {
     public static HashMap<Long, String> blacklistedPeopleList = new HashMap<>();
 
     public static HashMap<Long, PunishManager> managerHashMap = new HashMap<>();
+
+    public static HashMap<Long, TextChannel> botJoinChannel = new HashMap<>();
     public static List<Guild> guildsList = new ArrayList<>();
 
     public static String prefix = ".";

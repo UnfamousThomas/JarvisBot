@@ -60,6 +60,7 @@ public class JarvisBot {
             shardBuilder.addEventListeners(new GuildMemberLeave());
             shardBuilder.addEventListeners(new MuteListener());
             shardBuilder.addEventListeners(new MessageEvent());
+            shardBuilder.addEventListeners(new VoiceChannelLeaveListener());
             waiter = new EventWaiter();
             shardBuilder.addEventListeners(waiter);
             CommandManager.registerCommands(
@@ -91,7 +92,8 @@ public class JarvisBot {
                     new PauseCommand(),
                     new QueueCommand(),
                     new VolumeCommand(),
-                    new MuteCommand()
+                    new MuteCommand(),
+                    new LyricsCommand()
             );
 
             MySQLManager.init("164.132.207.169", "JarvisDC", "Jarvis", pass);
