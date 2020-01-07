@@ -45,10 +45,7 @@ public class ListCommand extends Command {
 			case "helpers":
 				event.getChannel().sendMessage(helperListed()).queue();
 				break;
-			case "test":
-				final InitialPunishMenu punishMenu = new InitialPunishMenu(event.getMember(), event.getTextChannel(), event.getAuthor(), waiter);
-				punishMenu.getMenu().display(event.getTextChannel());
-				break;
+
 			default:
 				event.getChannel().sendMessage("Invalid list type.").queue();
 		}
