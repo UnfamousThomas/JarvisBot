@@ -1,5 +1,6 @@
 package me.discordThomas.JarvisBot.utils;
 
+import com.vdurmont.emoji.EmojiParser;
 import me.discordThomas.JarvisBot.commands.fun.dailyfact.Animal;
 import me.discordThomas.JarvisBot.commands.moderation.mute.Mute;
 import net.dv8tion.jda.api.entities.Guild;
@@ -36,6 +37,11 @@ public class DataFields {
     public static String youtubeAPIKey;
 
     public static String lyricsAPIKey;
+
+    public static final String oneUnicode = EmojiParser.parseToUnicode(":one:");
+    public static final String twoUnicode = EmojiParser.parseToUnicode(":two:");
+    public static final String threeUnicode = EmojiParser.parseToUnicode(":three:");
+    public static final String fourUnicode = EmojiParser.parseToUnicode(":four:");
 
     public static void setPrefix(String newPrefix) {
         if (newPrefix != null) {

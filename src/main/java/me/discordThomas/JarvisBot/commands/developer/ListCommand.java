@@ -7,6 +7,7 @@ import com.jagrosh.jdautilities.menu.Paginator;
 import com.vdurmont.emoji.EmojiParser;
 import me.discordThomas.JarvisBot.commands.api.Categories;
 import me.discordThomas.JarvisBot.commands.api.Command;
+import me.discordThomas.JarvisBot.menu.punish.InitialPunishMenu;
 import me.discordThomas.JarvisBot.utils.CustomPermission;
 import me.discordThomas.JarvisBot.utils.DataFields;
 import net.dv8tion.jda.api.entities.Member;
@@ -35,21 +36,6 @@ public class ListCommand extends Command {
 
 	@Override
 	public void run(Member m, List<String> args, MessageReceivedEvent event) {
-		final ButtonMenu buttonMenu = new ButtonMenu.Builder()
-				.addChoice(EmojiParser.parseToUnicode(":one:"))
-				.addChoice(EmojiParser.parseToUnicode(":two:"))
-				.setText("Choose your champion!")
-				.setEventWaiter(waiter)
-				.setAction(reactionEmote -> {
-					if(reactionEmote.getEmoji().equals(EmojiParser.parseToUnicode(":one:"))) {
-						event.getChannel().sendMessage("You chose one dude!").queue();
-					} else if (reactionEmote.getEmoji().equals(EmojiParser.parseToUnicode(":two:"))) {
-						event.getChannel().sendMessage("You chose two dude!").queue();
-					}
-				})
-				.build();
-
-
 		String type = args.get(0);
 		switch (type) {
 
@@ -68,7 +54,8 @@ public class ListCommand extends Command {
 				event.getChannel().sendMessage(helperListed()).queue();
 				break;
 			case "test":
-				buttonMenu.display(event.getTextChannel());
+				final InitialPunishMenu punishMenu = new InitialPunishMenu(event.getMember(), event.getTextChannel(), event.getAuthor(), waiter);
+				punishMenu.getMenu().display(event.getTextChannel());
 				break;
 			default:
 				event.getChannel().sendMessage("Invalid list type.").queue();
