@@ -12,6 +12,7 @@ public class PunishmentObject {
 	 private String evidence;
 	 public TextChannel punishChannel;
 	 public Long received;
+	 public Long endtime;
 	 public boolean active;
 	 int type;
 
@@ -26,6 +27,7 @@ public class PunishmentObject {
 	 	this.received = received;
 	 	this.evidence = evidence;
 	 	this.type = type;
+	 	this.endtime = received + duration;
 	 }
 
 	 public void setEvidence(String evidence) {
@@ -42,6 +44,25 @@ public class PunishmentObject {
 
 	public void setReceived(Long received) {
 		this.received = received;
+	}
+
+	public Degree getDegree() {
+		return degree;
+	}
+
+	public String getReason() {
+		return reason;
+	}
+
+	public String getType() {
+		if(this.type == 0) return "warn";
+		if(this.type == 1) return "mute";
+		if(this.type == 2) return "ban";
+		else return null;
+	}
+
+	public Long getEndtime() {
+	 	return endtime;
 	}
 
 	public void activate() {

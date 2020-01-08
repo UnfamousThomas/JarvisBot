@@ -26,7 +26,7 @@ public class PunishCommand extends Command {
 		maxArgs = 1;
 		this.waiter = waiter;
 	}
-
+	//TODO: MAKE IT WORK GOODER
 	@Override
 	public void run(Member m, List<String> args, MessageReceivedEvent event) {
 		Member member;

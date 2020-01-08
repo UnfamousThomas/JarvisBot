@@ -28,7 +28,7 @@ public class MessageEvent extends ListenerAdapter {
 			InitialPunishMenu punishMenu = punishManager.staffReason.get(id);
 			//Calculate duration
 			if(e.getTextChannel() != punishMenu.channel) return;
-			PunishmentObject object = new PunishmentObject(punishMenu.degree, punishMenu.target.getIdLong(), punishMenu.m.getIdLong(), reason, 1L, punishMenu.channel, null, true, null, 0);
+			PunishmentObject object = new PunishmentObject(punishMenu.degree, punishMenu.target.getIdLong(), punishMenu.m.getIdLong(), reason, 1L, punishMenu.channel, System.currentTimeMillis(), true, null, 0);
 
 			punishManager.staffReason.remove(id);
 

@@ -26,7 +26,7 @@ public class PreviousPunishments extends Command {
         PunishManager manager = DataFields.managerHashMap.get(event.getGuild().getIdLong());
 
         manager.userPunishments.get(m.getIdLong()).forEach(punishmentObject -> {
-            event.getChannel().sendMessage(punishmentObject.user + " - " + punishmentObject.active).queue();
+            event.getChannel().sendMessage(punishmentObject.getType() + " - " + punishmentObject.getReason()).queue();
         });
     }
 }
