@@ -28,7 +28,6 @@ public class MySQLCommand extends Command {
 			case "select":
 				String good = getWithoutType(args);
 				try {
-					System.out.println(good);
 					MySQLManager.select(good, resultSet -> {
 						StringBuilder builder = new StringBuilder().append("```");
 						if(resultSet != null) {

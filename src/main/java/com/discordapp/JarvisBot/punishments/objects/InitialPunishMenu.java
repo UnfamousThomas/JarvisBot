@@ -36,7 +36,6 @@ public class InitialPunishMenu {
         this.previousPunishments = new ArrayList<>();
         this.waiter = waiter;
 
-        System.out.println(this.waiter);
         builder = new ButtonMenu.Builder()
                 .addChoice(EmojiParser.parseToUnicode(":one:"))
                 .addChoice(EmojiParser.parseToUnicode(":two:"))
@@ -53,31 +52,25 @@ public class InitialPunishMenu {
            String reaction = reactionEmote.getEmoji();
 
            if(reaction.equals(newspaperUnicode)) {
-               Logger.log(Logger.Level.INFO, "Warning!");
                this.degree = Degree.WARNING;
            }
            if(reaction.equals(oneUnicode)) {
-               Logger.log(Logger.Level.INFO, "1");
                this.degree = Degree.DEGREE1;
            }
 
            if(reaction.equals(twoUnicode)) {
-               Logger.log(Logger.Level.INFO, "2");
                this.degree = Degree.DEGREE2;
            }
 
            if(reaction.equals(threeUnicode)) {
-               Logger.log(Logger.Level.INFO, "3");
                this.degree = Degree.DEGREE3;
            }
 
            if(reaction.equals(fourUnicode)) {
-               Logger.log(Logger.Level.INFO, "4");
                this.degree = Degree.DEGREE4;
            }
 
            if(reaction.equals(fiveUnicode)) {
-               Logger.log(Logger.Level.INFO, "5");
                this.degree = Degree.DEGREE5;
            }
         });

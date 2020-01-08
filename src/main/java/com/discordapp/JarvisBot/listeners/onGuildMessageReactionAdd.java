@@ -15,7 +15,6 @@ public class onGuildMessageReactionAdd extends ListenerAdapter {
 
 		if (DataFields.unicodeMap.get(event.getUserIdLong()) != null && DataFields.unicodeMap.get(event.getUserIdLong()) == event.getMessageIdLong()) {
 			event.getChannel().sendMessage(event.getReactionEmote().getAsCodepoints()).queue();
-			//System.out.println(EmojiParser.parseFromUnicode(event.getReactionEmote().getEmoji(), ));
 			return;
 		}
 

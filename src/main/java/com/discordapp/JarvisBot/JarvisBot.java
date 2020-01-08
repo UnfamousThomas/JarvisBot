@@ -9,6 +9,7 @@ import com.discordapp.JarvisBot.commands.fun.DadJokeCommand;
 import com.discordapp.JarvisBot.commands.fun.JokeCommand;
 import com.discordapp.JarvisBot.commands.fun.dailyfact.DailyFactsCommand;
 import com.discordapp.JarvisBot.commands.moderation.ClearCommand;
+import com.discordapp.JarvisBot.commands.moderation.PreviousPunishments;
 import com.discordapp.JarvisBot.commands.moderation.PunishCommand;
 import com.discordapp.JarvisBot.commands.moderation.mute.MuteCommand;
 import com.discordapp.JarvisBot.commands.moderation.mute.MuteListener;
@@ -95,7 +96,8 @@ public class JarvisBot {
                     new VolumeCommand(),
                     new MuteCommand(),
                     new LyricsCommand(),
-                    new PunishCommand(waiter)
+                    new PunishCommand(waiter),
+                    new PreviousPunishments()
             );
 
             MySQLManager.init("164.132.207.169", "JarvisDC", "Jarvis", pass);
