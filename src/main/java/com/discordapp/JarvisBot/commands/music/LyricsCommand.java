@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class LyricsCommand extends Command {
-	LyricsClient client = new LyricsClient();
+	private LyricsClient client = new LyricsClient();
 	public LyricsCommand() {
 		super("lyrics");
 		description = "Shows songs lyrics";
@@ -44,19 +44,20 @@ public class LyricsCommand extends Command {
 			return;
 		}
 
-		if (player.getPlayingTrack() == null) {
-			channel.sendMessage("Have to have a song playing to display its lyrics!").queue();
-			return;
-		}
 		AudioTrackInfo info = player.getPlayingTrack().getInfo();
 		if(args.size() >= 1) {
 			title = String.join(" ", args);
 		} else {
+			if (!audioManager.isConnected()) {
+				channel.sendMessage("Have to be connected to display lyrics!").queue();
+				return;
+			}
 			title = info.title;
 		}
 		CompletableFuture<Lyrics> lyric = client.getLyrics(title);
 
 		if (lyric == null) {
+
 			channel.sendMessage("Could not find lyrics for: " + title).queue();
 		} else {
 

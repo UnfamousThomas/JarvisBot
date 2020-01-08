@@ -14,8 +14,8 @@ import com.discordapp.JarvisBot.commands.moderation.mute.MuteCommand;
 import com.discordapp.JarvisBot.commands.moderation.mute.MuteListener;
 import com.discordapp.JarvisBot.commands.music.*;
 import com.discordapp.JarvisBot.commands.useful.InviteCommand;
-import com.discordapp.JarvisBot.commands.useful.MyPunishmentsCommand;
 import com.discordapp.JarvisBot.commands.useful.PingCommand;
+import com.discordapp.JarvisBot.commands.useful.PunishmentsCommand;
 import com.discordapp.JarvisBot.commands.useful.info.BotInfoCommand;
 import com.discordapp.JarvisBot.commands.useful.info.BotVersionCommand;
 import com.discordapp.JarvisBot.commands.useful.info.ServerInfoCommand;
@@ -97,7 +97,7 @@ public class JarvisBot {
                     new MuteCommand(),
                     new LyricsCommand(),
                     new PunishCommand(waiter),
-                    new MyPunishmentsCommand()
+                    new PunishmentsCommand()
             );
 
             MySQLManager.init("164.132.207.169", "JarvisDC", "Jarvis", pass);

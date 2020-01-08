@@ -15,14 +15,14 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyPunishmentsCommand extends Command {
-    public MyPunishmentsCommand() {
-        super("mypunishments");
+public class PunishmentsCommand extends Command {
+    public PunishmentsCommand() {
+        super("punishments");
         minArgs = 0;
         maxArgs = 0;
         usage ="todo";
         description = "todo";
-        aliases = alias("mypun");
+        aliases = alias("mypun", "punishmen", "mypuni");
         permission = CustomPermission.MEMBER;
         category = Categories.USEFUL;
     }
