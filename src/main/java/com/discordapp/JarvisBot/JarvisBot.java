@@ -9,12 +9,12 @@ import com.discordapp.JarvisBot.commands.fun.DadJokeCommand;
 import com.discordapp.JarvisBot.commands.fun.JokeCommand;
 import com.discordapp.JarvisBot.commands.fun.dailyfact.DailyFactsCommand;
 import com.discordapp.JarvisBot.commands.moderation.ClearCommand;
-import com.discordapp.JarvisBot.commands.useful.PreviousPunishments;
 import com.discordapp.JarvisBot.commands.moderation.PunishCommand;
 import com.discordapp.JarvisBot.commands.moderation.mute.MuteCommand;
 import com.discordapp.JarvisBot.commands.moderation.mute.MuteListener;
 import com.discordapp.JarvisBot.commands.music.*;
 import com.discordapp.JarvisBot.commands.useful.InviteCommand;
+import com.discordapp.JarvisBot.commands.useful.MyPunishmentsCommand;
 import com.discordapp.JarvisBot.commands.useful.PingCommand;
 import com.discordapp.JarvisBot.commands.useful.info.BotInfoCommand;
 import com.discordapp.JarvisBot.commands.useful.info.BotVersionCommand;
@@ -97,7 +97,7 @@ public class JarvisBot {
                     new MuteCommand(),
                     new LyricsCommand(),
                     new PunishCommand(waiter),
-                    new PreviousPunishments()
+                    new MyPunishmentsCommand()
             );
 
             MySQLManager.init("164.132.207.169", "JarvisDC", "Jarvis", pass);

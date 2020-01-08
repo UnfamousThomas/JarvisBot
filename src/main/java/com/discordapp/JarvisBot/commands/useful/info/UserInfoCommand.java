@@ -2,6 +2,7 @@ package com.discordapp.JarvisBot.commands.useful.info;
 
 import com.discordapp.JarvisBot.commands.api.Categories;
 import com.discordapp.JarvisBot.commands.api.Command;
+import com.discordapp.JarvisBot.utils.Common;
 import com.discordapp.JarvisBot.utils.CustomPermission;
 import com.discordapp.JarvisBot.utils.DataFields;
 import net.dv8tion.jda.api.EmbedBuilder;
@@ -30,38 +31,12 @@ public class UserInfoCommand extends Command {
 	public void run(Member m, List<String> args, MessageReceivedEvent event) {
 		switch (args.size()) {
 			case 0:
-				event.getChannel().sendMessage(Userinfo(event.getMember(), event.getGuild())).queue();
+				event.getChannel().sendMessage(Userinfo(m, event.getGuild())).queue();
 				break;
 			case 1:
-				if (event.getMessage().getMentionedMembers().size() > 0) {
-					Member mentioned = event.getMessage().getMentionedMembers().get(0);
-					event.getChannel().sendMessage(Userinfo(mentioned, event.getGuild())).queue();
-				} else {
-					try {
-						long userID = Long.parseLong(args.get(0));
-						Member target = event.getGuild().getMemberById(userID);
-						if (target == null) {
-							event.getChannel().sendMessage("User not found. Try again.").queue();
-							return;
-						}
-						event.getChannel().sendMessage(Userinfo(target, event.getGuild())).queue();
-					} catch (Exception ex) {
-						String username = args.get(0);
-						if (!(event.getGuild().getMembersByName(username, true).size() > 0)) {
-							event.getChannel().sendMessage("User not found. Try again.").queue();
-							return;
-						}
-						Member target = event.getGuild().getMembersByName(username, true).get(0);
-						if (target != null) {
-							try {
-								event.getChannel().sendMessage(Userinfo(target, event.getGuild())).queue();
-							} catch (Exception e) {
-								event.getChannel().sendMessage("Something went wrong! Try again.").queue();
-							}
-						} else {
-							event.getChannel().sendMessage("Could not find user. Try again!").queue();
-						}
-					}
+				Member targetMember = Common.getInstance().getUser(event.getMessage(), event.getTextChannel(), args.get(0));
+				if(targetMember != null) {
+					event.getChannel().sendMessage(Userinfo(targetMember, event.getGuild())).queue();
 				}
 		}
 	}

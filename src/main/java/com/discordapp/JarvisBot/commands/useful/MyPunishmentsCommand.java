@@ -33,10 +33,10 @@ public class MyPunishmentsCommand extends Command {
 
         if(!manager.userPunishments.get(m.getIdLong()).isEmpty()) {
             List<PunishmentObject> objects = new ArrayList<>(manager.userPunishments.get(m.getIdLong()));
-
-            event.getChannel().sendMessage(makeEmbed(objects, event.getGuild(), false).build()).queue();
+            
+            m.getUser().openPrivateChannel().queue(channel -> channel.sendMessage(makeEmbed(objects, event.getGuild(), false).build()).queue());
         } else {
-            event.getChannel().sendMessage(makeEmbed(null, event.getGuild(), true).build()).queue();
+            m.getUser().openPrivateChannel().queue(channel -> channel.sendMessage(makeEmbed(null, event.getGuild(), true).build()).queue());
 
         }
 
