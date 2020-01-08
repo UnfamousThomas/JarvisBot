@@ -4,42 +4,38 @@ import com.discordapp.JarvisBot.utils.mysql.MySQLManager;
 import net.dv8tion.jda.api.entities.TextChannel;
 
 public class PunishmentObject {
-	 private Degree degree;
-	 public Long user;
-	 private Long staff;
-	 private String reason;
-	 private Long duration;
-	 private String evidence;
-	 public TextChannel punishChannel;
-	 public Long received;
-	 public Long endtime;
-	 public boolean active;
-	 int type;
+	public Long user;
+	public TextChannel punishChannel;
+	private boolean appealed;
+	private String appealer;
+	private Long appealedtime;
+	private String appealedReason;
+	private int type;
+	private Degree degree;
+	private Long staff;
+	private String reason;
+	private Long duration;
+	private String evidence;
+	private Long received;
+	private Long endtime;
+	private boolean active;
 
-	 public PunishmentObject(Degree degree, Long user, Long staff, String reason, Long duration, TextChannel channel, Long received, boolean active, String evidence, int type) {
-	 	this.degree = degree;
-	 	this.user = user;
-	 	this.staff = staff;
-	 	this.reason = reason;
-	 	this.duration = duration;
-	 	this.punishChannel = channel;
-	 	this.active = active;
-	 	this.received = received;
-	 	this.evidence = evidence;
-	 	this.type = type;
-	 	this.endtime = received + duration;
-	 }
-
-	 public void setEvidence(String evidence) {
-	 	this.evidence = evidence;
-	 }
+	public PunishmentObject(Degree degree, Long user, Long staff, String reason, Long duration, TextChannel channel, Long received, boolean active, String evidence, int type) {
+		this.degree = degree;
+		this.user = user;
+		this.staff = staff;
+		this.reason = reason;
+		this.duration = duration;
+		this.punishChannel = channel;
+		this.active = active;
+		this.received = received;
+		this.evidence = evidence;
+		this.type = type;
+		this.endtime = received + duration;
+	}
 
 	public void setActive(boolean active) {
 		this.active = active;
-	}
-
-	public void setReason(String reason) {
-		this.reason = reason;
 	}
 
 	public void setReceived(Long received) {
@@ -54,19 +50,56 @@ public class PunishmentObject {
 		return reason;
 	}
 
-	public String getType() {
-		if(this.type == 0) return "warn";
-		if(this.type == 1) return "mute";
-		if(this.type == 2) return "ban";
-		else return null;
+	public void setReason(String reason) {
+		this.reason = reason;
 	}
 
 	public Long getEndtime() {
-	 	return endtime;
+		return endtime;
+	}
+
+	public String getEvidence() {
+		return evidence;
+	}
+
+	public void setEvidence(String evidence) {
+		this.evidence = evidence;
+	}
+
+	public Long getAppealedtime() {
+		return appealedtime;
+	}
+
+	public void setAppealedtime(Long appealedtime) {
+		this.appealedtime = appealedtime;
+	}
+
+	public String getAppealer() {
+		return appealer;
+	}
+
+	public void setAppealer(String appealer) {
+		this.appealer = appealer;
+	}
+
+	public boolean isAppealed() {
+		return appealed;
+	}
+
+	public void setAppealed(boolean appealed) {
+		this.appealed = appealed;
+	}
+
+	public String getAppealedReason() {
+		return appealedReason;
+	}
+
+	public void setAppealedReason(String appealedReason) {
+		this.appealedReason = appealedReason;
 	}
 
 	public void activate() {
-	 	this.active = true;
+		this.active = true;
 
 		MySQLManager.execute("INSERT INTO punishments (guildid, userid, staffid, degree, reason, evidence, type, duration, received, active) VALUES (?,?,?,?,?,?,?,?,?,?)",
 				this.punishChannel.getGuild().getIdLong(),

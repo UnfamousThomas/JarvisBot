@@ -1,12 +1,12 @@
 package com.discordapp.JarvisBot.punishments.objects;
 
 public enum Degree {
-	DEGREE1("Degree I"),
-	DEGREE2("Degree II"),
-	DEGREE3("Degree III"),
-	DEGREE4 ("Degree IV"),
-	DEGREE5("Degree V"),
-	WARNING("Warning");
+	DEGREE1("Degree I Punishment"),
+	DEGREE2("Degree II Punishment"),
+	DEGREE3("Degree III Punishment"),
+	DEGREE4 ("Degree IV Punishment"),
+	DEGREE5("Degree V Punishment"),
+	WARNING("Warning Punishment");
 
 	String name;
 

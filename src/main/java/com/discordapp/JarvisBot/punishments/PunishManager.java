@@ -43,6 +43,18 @@ public class PunishManager {
                 } else {
                     object = new PunishmentObject(degree, userid, staffid, reason, duration, null, received, active, evidence, intType);
                 }
+                boolean isAppealed = resultSet.getBoolean("appealed");
+                String appealedBy = resultSet.getString("apealedby");
+                String appeal_reason = resultSet.getString("appeal_reason");
+                Long appealed_at = resultSet.getLong("appealed_at");
+
+                object.setAppealed(isAppealed);
+
+                if(isAppealed) {
+                    object.setAppealedReason(appeal_reason);
+                    object.setAppealedtime(appealed_at);
+                    object.setAppealer(appealedBy);
+                }
                 objects.add(object);
                 tempUserPunishments.put(userid, objects);
             }

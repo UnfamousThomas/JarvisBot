@@ -9,7 +9,7 @@ import com.discordapp.JarvisBot.commands.fun.DadJokeCommand;
 import com.discordapp.JarvisBot.commands.fun.JokeCommand;
 import com.discordapp.JarvisBot.commands.fun.dailyfact.DailyFactsCommand;
 import com.discordapp.JarvisBot.commands.moderation.ClearCommand;
-import com.discordapp.JarvisBot.commands.moderation.PreviousPunishments;
+import com.discordapp.JarvisBot.commands.useful.PreviousPunishments;
 import com.discordapp.JarvisBot.commands.moderation.PunishCommand;
 import com.discordapp.JarvisBot.commands.moderation.mute.MuteCommand;
 import com.discordapp.JarvisBot.commands.moderation.mute.MuteListener;
@@ -107,7 +107,7 @@ public class JarvisBot {
             MySQLManager.createTable("bothelpers", " `id` INT NOT NULL AUTO_INCREMENT , `userid` BIGINT NOT NULL , `username` TEXT NOT NULL , PRIMARY KEY (`id`)");
             MySQLManager.createTable("guildbot_settings", " `id` INT NOT NULL AUTO_INCREMENT , `guild` BIGINT NOT NULL , `settings` TEXT NOT NULL , `value` TEXT NOT NULL , PRIMARY KEY (`id`)");
             MySQLManager.createTable("blacklisted_users", "`id` INT NOT NULL AUTO_INCREMENT , `userid` BIGINT NOT NULL , `reason` TEXT NOT NULL , PRIMARY KEY (`id`)");
-            MySQLManager.createTable("punishments", "`id` INT NOT NULL AUTO_INCREMENT , `guildid` BIGINT NOT NULL , `userid` BIGINT NOT NULL , `staffid` BIGINT NOT NULL , `degree` TEXT NOT NULL , `reason` TEXT NOT NULL , `evidence` TEXT NOT NULL , `type` INT NOT NULL , `duration` BIGINT NOT NULL, `received` BIGINT NOT NULL, `active` BOOLEAN NOT NULL, PRIMARY KEY (`id`)");
+            MySQLManager.createTable("punishments", "`id` INT NOT NULL AUTO_INCREMENT , `guildid` BIGINT NOT NULL , `userid` BIGINT NOT NULL , `staffid` BIGINT NOT NULL , `degree` TEXT NOT NULL , `reason` TEXT NOT NULL , `evidence` TEXT NOT NULL , `type` INT NOT NULL , `duration` BIGINT NOT NULL, `received` BIGINT NOT NULL, `active` BOOLEAN NOT NULL, `appealed` BOOLEAN NOT NULL DEFAULT FALSE, `appealedby` TEXT NULL, `appeal_reason` TEXT NULL, `appealed_at` BIGINT NULL, PRIMARY KEY (`id`)");
             MySQLManager.createTable("bot_version", " `version` INT NOT NULL");
             new LoadingMethods().loadDadJokes();
             new LoadingMethods().loadNormalJokes();

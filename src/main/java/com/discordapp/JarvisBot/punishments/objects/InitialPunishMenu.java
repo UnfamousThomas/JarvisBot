@@ -15,12 +15,11 @@ import java.util.List;
 
 public class InitialPunishMenu {
     public Member m;
-    private List<String> previousPunishments;
     public TextChannel channel;
     public User target;
     private ButtonMenu.Builder builder;
-    private EventWaiter waiter;
     public Degree degree;
+    private boolean cancelled;
 
     private String oneUnicode = EmojiParser.parseToUnicode(":one:");
     private String twoUnicode = EmojiParser.parseToUnicode(":two:");
@@ -28,13 +27,13 @@ public class InitialPunishMenu {
     private String fourUnicode = EmojiParser.parseToUnicode(":four:");
     private String fiveUnicode = EmojiParser.parseToUnicode(":five:");
     private String newspaperUnicode = EmojiParser.parseToUnicode(":newspaper:");
+    private String cancelUnicode = EmojiParser.parseToUnicode(":x:");
 
     public InitialPunishMenu(Member m, TextChannel channel, User target, EventWaiter waiter) {
         this.target = target;
         this.channel = channel;
         this.m = m;
-        this.previousPunishments = new ArrayList<>();
-        this.waiter = waiter;
+        this.cancelled = false;
 
         builder = new ButtonMenu.Builder()
                 .addChoice(EmojiParser.parseToUnicode(":one:"))
@@ -43,8 +42,9 @@ public class InitialPunishMenu {
                 .addChoice(EmojiParser.parseToUnicode(":four:"))
                 .addChoice(EmojiParser.parseToUnicode(":five:"))
                 .addChoice(EmojiParser.parseToUnicode(":newspaper:"))
-                .setText("Choose user: " + target.getName() + " punishment!")
-                .setEventWaiter(this.waiter);
+                .addChoice(cancelUnicode)
+                .setText("Choose users " + target.getName() + " punishment! Click " + cancelUnicode + "to cancel.")
+                .setEventWaiter(waiter);
     }
 
     public ButtonMenu getMenu() {
@@ -73,14 +73,22 @@ public class InitialPunishMenu {
            if(reaction.equals(fiveUnicode)) {
                this.degree = Degree.DEGREE5;
            }
+
+           if(reaction.equals(cancelUnicode)) {
+               this.cancelled = true;
+           }
         });
 
         builder.setFinalAction(message -> {
-            PunishManager manager = DataFields.managerHashMap.get(channel.getGuild().getIdLong());
+            if (!cancelled) {
+                PunishManager manager = DataFields.managerHashMap.get(channel.getGuild().getIdLong());
 
             manager.staffReason.put(m.getIdLong(), this);
 
             channel.sendMessage("Please enter a reason.").queue();
+        } else {
+                channel.sendMessage("Punishment has been cancelled ):").queue();
+            }
         });
 
         return builder.build();
