@@ -13,14 +13,15 @@ public class GuildMemberJoin extends ListenerAdapter {
 
     private final String[] join_messages = {
             "{member} joined. You must construct additional pylons.",
-            "Never gonna give {member} up. Never let {member} down!",
+            "Never gonna let {member} down, never gonna let {member} down. Never gonna hurt {member}",
             "Hey! Listen! {member} has joined!",
             "Ha! {member} has joined! You activated my trap card!",
             "We've been expecting you, {member}.",
             "It's dangerous to go alone, take {member}!",
             "Swoooosh. {member} just landed.",
             "Brace yourselves. {member} just joined the server.",
-            "A wild {member} appeared."
+            "A wild {member} appeared.",
+            "I'm blue da ba dee da ba daa, {member} joined."
     };
 
     public void onGuildMemberJoin(GuildMemberJoinEvent event) {

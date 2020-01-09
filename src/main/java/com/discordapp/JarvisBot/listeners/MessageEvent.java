@@ -9,10 +9,7 @@ import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class MessageEvent extends ListenerAdapter {
 
@@ -22,7 +19,7 @@ public class MessageEvent extends ListenerAdapter {
 		if(e.getAuthor().isFake()) return;
 		Long id = Objects.requireNonNull(e.getMember()).getIdLong();
 		Guild guild = e.getGuild();
-		HashMap hashMap = DataFields.managerHashMap;
+		Map<Long, PunishManager> hashMap = DataFields.managerHashMap;
 		PunishManager punishManager = (PunishManager) hashMap.get(guild.getIdLong());
 
 		if(punishManager.staffReason.get(id) != null) {

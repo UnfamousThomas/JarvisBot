@@ -2,6 +2,7 @@ package com.discordapp.JarvisBot.commands.admin;
 
 import com.discordapp.JarvisBot.commands.api.Categories;
 import com.discordapp.JarvisBot.commands.api.Command;
+import com.discordapp.JarvisBot.utils.Common;
 import com.discordapp.JarvisBot.utils.CustomPermission;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
@@ -19,6 +20,10 @@ public class AppealCommand extends Command {
 
     @Override
     public void run(Member m, List<String> args, MessageReceivedEvent event) {
+        Member targetMember = Common.getInstance().getUser(event.getMessage(), event.getTextChannel(), args.get(0));
 
+        if(targetMember == null) {
+            return;
+        }
     }
 }
