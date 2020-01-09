@@ -39,17 +39,17 @@ public class LyricsCommand extends Command {
 		AudioPlayer player = musicManager.player;
 		AudioManager audioManager = event.getGuild().getAudioManager();
 
-		if (!audioManager.isConnected()) {
-			channel.sendMessage("Have to be connected to display lyrics!").queue();
-			return;
-		}
 
-		AudioTrackInfo info = player.getPlayingTrack().getInfo();
 		if(args.size() >= 1) {
 			title = String.join(" ", args);
 		} else {
 			if (!audioManager.isConnected()) {
 				channel.sendMessage("Have to be connected to display lyrics!").queue();
+				return;
+			}
+			AudioTrackInfo info = player.getPlayingTrack().getInfo();
+			if(info == null) {
+				event.getChannel().sendMessage("No songs playing.").queue();
 				return;
 			}
 			title = info.title;
