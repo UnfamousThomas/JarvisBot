@@ -18,6 +18,8 @@ public class MessageEvent extends ListenerAdapter {
 
 	public void onMessageReceived(MessageReceivedEvent e) {
 		if(e.getChannel().getType() != ChannelType.TEXT) return;
+		if(e.getAuthor().isBot()) return;
+		if(e.getAuthor().isFake()) return;
 		Long id = Objects.requireNonNull(e.getMember()).getIdLong();
 		Guild guild = e.getGuild();
 		HashMap hashMap = DataFields.managerHashMap;
