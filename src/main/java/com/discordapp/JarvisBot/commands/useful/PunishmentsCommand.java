@@ -50,11 +50,10 @@ public class PunishmentsCommand extends Command {
 
         if(!empty) {
             StringBuilder stringBuilder = new StringBuilder();
-            for(int i = 0; i < list.size(); i++) {
-                PunishmentObject punishmentObject = list.get(i);
-                stringBuilder.append("\n").append("ID:").append(i).append(" - ").append(punishmentObject.getDegree().getName()).append(": ").append(punishmentObject.getReason()).append(" - Appealed: ").append(punishmentObject.isAppealed());
-                if(punishmentObject.isAppealed()) {
-                    stringBuilder.append(", reason:").append(punishmentObject.getAppealedReason()).append( " by: ").append(punishmentObject.getAppealer());
+            for (PunishmentObject punishmentObject : list) {
+                stringBuilder.append("\n").append("ID:").append(punishmentObject.getId()).append(" - ").append(punishmentObject.getDegree().getName()).append(": ").append(punishmentObject.getReason()).append(" - Appealed: ").append(punishmentObject.isAppealed());
+                if (punishmentObject.isAppealed()) {
+                    stringBuilder.append(", reason:").append(punishmentObject.getAppealedReason()).append(" by: ").append(punishmentObject.getAppealer());
                 }
             }
             embedBuilder.addField("Punishments", stringBuilder.toString(), false);

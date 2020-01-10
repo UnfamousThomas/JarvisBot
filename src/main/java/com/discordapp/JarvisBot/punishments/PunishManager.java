@@ -50,6 +50,7 @@ public class PunishManager {
 
                 object.setAppealed(isAppealed);
 
+                object.setId(id);
                 if(isAppealed) {
                     object.setAppealedReason(appeal_reason);
                     object.setAppealedtime(appealed_at);

@@ -45,7 +45,7 @@ public class Common {
 		}
 	}
 
-	private boolean parseLong(String arg) {
+	public boolean parseLong(String arg) {
 		try {
 			Long.parseLong(arg);
 			return true;
